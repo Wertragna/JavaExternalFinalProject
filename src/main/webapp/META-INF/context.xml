@@ -1,0 +1,14 @@
+<Context antiJARLocking="true">
+    <Resource
+            ame="jdbc/enrollment_db"
+            author="Container"
+            type="javax.sql.DataSource"
+            maxActive="32"
+            maxIdle="8"
+            maxWait="10000"
+            username="root"
+            password="root"
+            url="jdbc:mysql://localhost:3306/enrollment_db"
+            driverClassName="com.mysql.jdbc.Driver"
+    />
+</Context>
