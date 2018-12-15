@@ -3,8 +3,8 @@ package com.javacourse.subject;
 import java.util.Objects;
 
 public class Subject {
-    int id;
-    String name;
+    private int id;
+    private String name;
 
     public Subject(int id, String name) {
         this.id = id;

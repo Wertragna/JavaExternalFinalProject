@@ -1,21 +1,26 @@
 package com.javacourse.shared;
 
+import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.utils.DataBaseConnectionPool;
+
 import java.util.List;
 
 /**
  *
  * @param <K> key of the database table
- * @param <V> entity of model
+ * @param <E> entity of model
  */
-public abstract class AbstractDAO<K, V> {
+public abstract class AbstractDAO<K, E> {
 
-    abstract List<V> getAll();
+    public abstract List<E> getAll()throws UnsuccessfulDAOException;
 
-    abstract boolean update(V v);
+    public abstract boolean update(E v)throws UnsuccessfulDAOException;
 
-    abstract boolean delete(K k);
+    public abstract boolean delete(K k)throws UnsuccessfulDAOException;
 
-    abstract boolean create(V v);
+    public abstract boolean create(E v) throws UnsuccessfulDAOException;
 
-    abstract V getById(K k);
+    public abstract E getById(K k)throws UnsuccessfulDAOException;
+
+
 }

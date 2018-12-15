@@ -3,8 +3,8 @@ package com.javacourse.speciality;
 import java.util.Objects;
 
 public class Speciality {
-    int id;
-    String name;
+    private int id;
+    private String name;
 
     public Speciality(int id, String name) {
         this.id = id;

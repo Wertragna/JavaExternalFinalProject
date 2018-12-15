@@ -1,11 +1,14 @@
-package com.javacourse.user.role;
-//todo write javadoc
-public enum Role {
-    ADMIN("admin"),
-    USER("user");
+package com.javacourse.applicant.period.state;
+
+public enum  State {
+    CHOICE_SUBJECT("user"),
+    CHECK_TEST(""),
+    CHOICE_SPECIALITY(""),
+    ENDED("");
+
     private int id;
     private String name;
-    private Role(String name){
+    private State(String name){
 
     }
 
@@ -19,7 +22,7 @@ public enum Role {
 
     @Override
     public String toString() {
-        return "Role{" +
+        return "State{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

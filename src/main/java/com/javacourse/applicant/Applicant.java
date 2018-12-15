@@ -1,18 +1,18 @@
-package com.javacourse.aplicant;
+package com.javacourse.applicant;
 
-import com.javacourse.aplicant.period.Period;
-import com.javacourse.aplicant.status.Status;
+import com.javacourse.applicant.period.Period;
+import com.javacourse.applicant.status.Status;
 import com.javacourse.speciality.Speciality;
 import com.javacourse.user.User;
 
 import java.util.Objects;
 
 public class Applicant {
-    int id;
-    User user;
-    Period period;
-    Speciality speciality;
-    Status status;
+    private int id;
+    private User user;
+    private Period period;
+    private Speciality speciality;
+    private Status status;
     int rating;
 
     public Applicant(int id, User user, Period period, Speciality speciality, Status status, int rating) {

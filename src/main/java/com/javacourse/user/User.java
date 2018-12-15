@@ -5,12 +5,12 @@ import com.javacourse.user.role.Role;
 import java.util.Objects;
 
 public class User {
-    int id;
-    String firstname;
-    String surname;
-    String password;
-    String email;
-    Role role;
+    private int id;
+    private String firstname;
+    private String surname;
+    private String password;
+    private String email;
+    private Role role;
 
     public User(int id, String firstname, String surname, String password, String email, Role role) {
         this.id = id;
