@@ -1,4 +1,4 @@
-package com.javacourse.rbac.command;
+package com.javacourse.shared;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

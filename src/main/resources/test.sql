@@ -1,0 +1,1 @@
+select period.id, period.name, state.name from period inner join state on period.state = state.id ;

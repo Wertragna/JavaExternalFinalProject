@@ -1,24 +1,23 @@
-package com.javacourse.rbac;
-
-
-
-import com.javacourse.rbac.command.ActionCommand;
-import com.javacourse.rbac.command.CommandFactory;
+package com.javacourse.shared;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "login", urlPatterns = "/login/*")
-public class AuthorizationServlet extends HttpServlet {
-
-
+@WebServlet(name = "admin", urlPatterns = "/")
+public class FrontServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // String page = new CreateNewPeriod(new DoNothing(null)).getPage();
+        //
         processRequest(request, response);
+
     }
+
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, java.io.IOException {
@@ -33,17 +32,18 @@ public class AuthorizationServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String resultPage = null;
-        try {
-            CommandFactory commandFactory = new CommandFactory(request);
-            ActionCommand command = commandFactory.getCommand();
-            resultPage = command.execute(request, response);
-        } catch (Exception e) {
-            //todo loging
-        }
-        if(resultPage==null){
-            resultPage = "/login.jsp";
-        }
-        dispatch(request, response, resultPage);
+        CommandFactory commandFactory = new CommandFactory(request);
+        ActionCommand command = commandFactory.getCommand();
+
+        resultPage = command.execute(request, response);
+        if (resultPage == null) {
+            //todo add error page
+            resultPage = "/index.jsp";
+            dispatch(request, response, resultPage);
+        } else if (command.getClass().isAnnotationPresent(Redirect.class))
+            response.sendRedirect(resultPage);
+        else
+            dispatch(request, response, resultPage);
     }
 
     protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page)
@@ -51,5 +51,4 @@ public class AuthorizationServlet extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request, response);
     }
-
 }

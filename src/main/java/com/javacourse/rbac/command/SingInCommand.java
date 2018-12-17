@@ -2,6 +2,7 @@ package com.javacourse.rbac.command;
 
 
 import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.shared.ActionCommand;
 import com.javacourse.user.User;
 import com.javacourse.user.UserDAO;
 
@@ -22,7 +23,7 @@ public class SingInCommand implements ActionCommand {
             //todo loging
         }
         if (user!=null) {
-            request.getSession().setAttribute("user", login);
+            request.getSession().setAttribute("user", user);
             //todo change page
             page = "/index.jsp";
         } else {

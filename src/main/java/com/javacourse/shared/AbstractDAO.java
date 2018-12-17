@@ -23,4 +23,5 @@ public abstract class AbstractDAO<K, E> {
     public abstract E getById(K k)throws UnsuccessfulDAOException;
 
 
+
 }

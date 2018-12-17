@@ -11,7 +11,7 @@ public class CommandFactory {
         this.request = request;
     }
 
-    public ActionCommand getCommand() {
+  /*  public ActionCommand getCommand() {
         ActionCommand current = null;
         String action = request.getParameter("command");
         if (action == null || action.isEmpty()) { // если команда не задана в текущем запросе
@@ -26,5 +26,5 @@ public class CommandFactory {
         }
         return current;
 
-    }
+    }*/
 }

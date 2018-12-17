@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static java.util.Objects.nonNull;
 
-@WebFilter(urlPatterns = {"/admin/*", "/application/*", "/"})
+@WebFilter(urlPatterns = {"/admin/*", "/application/*"})
 public class AuthFilter implements Filter {
 
     @Override
@@ -27,9 +27,9 @@ public class AuthFilter implements Filter {
         User user = (User) session.getAttribute("user");
         if (nonNull(session) && nonNull(user)) {
             filterChain.doFilter(request, response);
+
         } else {
-            RequestDispatcher dispatcher = ((HttpServletRequest) request).getSession().getServletContext().getRequestDispatcher("/login.jsp"); // вызов страницы ответа на запрос
-            dispatcher.forward(request, response);
+            ((HttpServletResponse)response).sendRedirect( ((HttpServletRequest) request).getContextPath()+"/login");
         }
     }
 

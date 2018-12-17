@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="enrollment_db@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.11">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.14">
     <root id="1">
       <ServerVersion>8.0.13</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1121,324 +1121,359 @@
     <table id="283" parent="4" name="period"/>
     <table id="284" parent="4" name="role"/>
     <table id="285" parent="4" name="speciality"/>
-    <table id="286" parent="4" name="status"/>
-    <table id="287" parent="4" name="subject"/>
-    <table id="288" parent="4" name="subject_speciality"/>
-    <table id="289" parent="4" name="user"/>
-    <column id="290" parent="281" name="id">
+    <table id="286" parent="4" name="state"/>
+    <table id="287" parent="4" name="status"/>
+    <table id="288" parent="4" name="subject"/>
+    <table id="289" parent="4" name="subject_speciality"/>
+    <table id="290" parent="4" name="user"/>
+    <column id="291" parent="281" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="281" name="user">
+    <column id="292" parent="281" name="user">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="281" name="period">
+    <column id="293" parent="281" name="period">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="281" name="speciality">
+    <column id="294" parent="281" name="speciality">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="281" name="status">
+    <column id="295" parent="281" name="status">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="281" name="rating">
+    <column id="296" parent="281" name="rating">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="296" parent="281" name="index_user_period">
+    <index id="297" parent="281" name="index_user_period">
       <ColNames>user
 period</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="297" parent="281" name="fk_aplicant_period1">
+    <index id="298" parent="281" name="fk_aplicant_period1">
       <ColNames>period</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="298" parent="281" name="fk_aplicant_speciality1_idx">
+    <index id="299" parent="281" name="fk_aplicant_speciality1_idx">
       <ColNames>speciality</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="299" parent="281" name="fk_aplicant_status1_idx">
+    <index id="300" parent="281" name="fk_aplicant_status1_idx">
       <ColNames>status</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="300" parent="281" name="PRIMARY">
+    <key id="301" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="301" parent="281" name="index_user_period">
+    <key id="302" parent="281" name="index_user_period">
       <ColNames>user
 period</ColNames>
       <UnderlyingIndexName>index_user_period</UnderlyingIndexName>
     </key>
-    <foreign-key id="302" parent="281" name="fk_aplicant_user1">
+    <foreign-key id="303" parent="281" name="fk_aplicant_user1">
       <ColNames>user</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="303" parent="281" name="fk_aplicant_period1">
+    <foreign-key id="304" parent="281" name="fk_aplicant_period1">
       <ColNames>period</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>period</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="304" parent="281" name="fk_aplicant_speciality1">
+    <foreign-key id="305" parent="281" name="fk_aplicant_speciality1">
       <ColNames>speciality</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>speciality</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="305" parent="281" name="fk_aplicant_status1">
+    <foreign-key id="306" parent="281" name="fk_aplicant_status1">
       <ColNames>status</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>status</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="306" parent="282" name="aplicant">
+    <column id="307" parent="282" name="aplicant">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="282" name="subject">
+    <column id="308" parent="282" name="subject">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="282" name="grade">
+    <column id="309" parent="282" name="grade">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="309" parent="282" name="fk_aplicant_subject_subject1_idx">
+    <index id="310" parent="282" name="fk_aplicant_subject_subject1_idx">
       <ColNames>subject</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="310" parent="282" name="PRIMARY">
+    <key id="311" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>aplicant
 subject</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="311" parent="282" name="fk_aplicant_subject_aplicant1">
+    <foreign-key id="312" parent="282" name="fk_aplicant_subject_aplicant1">
       <ColNames>aplicant</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>applicant</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="312" parent="282" name="fk_aplicant_subject_subject1">
+    <foreign-key id="313" parent="282" name="fk_aplicant_subject_subject1">
       <ColNames>subject</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>subject</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="313" parent="283" name="id">
+    <column id="314" parent="283" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="283" name="name">
+    <column id="315" parent="283" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="315" parent="283" name="PRIMARY">
+    <column id="316" parent="283" name="state">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="317" parent="283" name="fk_period_state1_idx">
+      <ColNames>state</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="318" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="316" parent="284" name="id">
+    <foreign-key id="319" parent="283" name="fk_period_state1">
+      <ColNames>state</ColNames>
+      <RefSchemaName>enrollment_db</RefSchemaName>
+      <RefTableName>state</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="320" parent="284" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="284" name="name">
+    <column id="321" parent="284" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="318" parent="284" name="PRIMARY">
+    <key id="322" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="319" parent="285" name="id">
+    <column id="323" parent="285" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="285" name="name">
+    <column id="324" parent="285" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="285" name="is_available">
+    <column id="325" parent="285" name="is_available">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="322" parent="285" name="PRIMARY">
+    <key id="326" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="323" parent="286" name="id">
+    <column id="327" parent="286" name="id">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(1)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="286" name="name">
+    <column id="328" parent="286" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="325" parent="286" name="PRIMARY">
+    <key id="329" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="326" parent="287" name="id">
+    <column id="330" parent="287" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="331" parent="287" name="name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="332" parent="287" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="333" parent="288" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="287" name="name">
+    <column id="334" parent="288" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="287" name="is_available">
+    <column id="335" parent="288" name="is_available">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="329" parent="287" name="PRIMARY">
+    <key id="336" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="330" parent="288" name="subject">
+    <column id="337" parent="289" name="subject">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="288" name="speciality">
+    <column id="338" parent="289" name="speciality">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="332" parent="288" name="fk_subject_speciality_speciality1_idx">
+    <index id="339" parent="289" name="fk_subject_speciality_speciality1_idx">
       <ColNames>speciality</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="333" parent="288" name="PRIMARY">
+    <key id="340" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>subject
 speciality</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="334" parent="288" name="fk_subject_speciality_subject1">
+    <foreign-key id="341" parent="289" name="fk_subject_speciality_subject1">
       <ColNames>subject</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>subject</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="335" parent="288" name="fk_subject_speciality_speciality1">
+    <foreign-key id="342" parent="289" name="fk_subject_speciality_speciality1">
       <ColNames>speciality</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>speciality</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="336" parent="289" name="id">
+    <column id="343" parent="290" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="289" name="firstname">
+    <column id="344" parent="290" name="firstname">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="289" name="surname">
+    <column id="345" parent="290" name="surname">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="289" name="password">
+    <column id="346" parent="290" name="password">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="289" name="role">
+    <column id="347" parent="290" name="role">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="289" name="email">
+    <column id="348" parent="290" name="email">
       <Position>6</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="342" parent="289" name="email_UNIQUE">
+    <index id="349" parent="290" name="email_UNIQUE">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="343" parent="289" name="fk_user_role_idx">
+    <index id="350" parent="290" name="fk_user_role_idx">
       <ColNames>role</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="344" parent="289" name="PRIMARY">
+    <key id="351" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="345" parent="289" name="email_UNIQUE">
+    <key id="352" parent="290" name="email_UNIQUE">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="346" parent="289" name="fk_user_role">
+    <foreign-key id="353" parent="290" name="fk_user_role">
       <ColNames>role</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>role</RefTableName>

@@ -17,7 +17,7 @@ public class DataBaseConnectionPool {
             ds = (DataSource) envCtx.lookup("jdbc/enrollment_db");
 
         } catch (NamingException e) {
-            e.printStackTrace();
+           //todo added logging
         }
 
     }
