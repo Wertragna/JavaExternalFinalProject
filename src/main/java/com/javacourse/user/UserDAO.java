@@ -37,7 +37,7 @@ public class UserDAO extends AbstractDAO<Integer, User> {
 
         int changeNumber = 0;
         try (Connection con = DataBaseConnectionPool.getConnection();
-             PreparedStatement statement = con.prepareStatement("INSERT INTO user(firstname, surname, email, password,role,) VALUE (?,?,?,?,?)")) {
+             PreparedStatement statement = con.prepareStatement("INSERT INTO user(firstname, surname, email, password,role) VALUE (?,?,?,?,?)")) {
             statement.setString(1, user.getFirstname());
             statement.setString(2, user.getSurname());
             statement.setString(3, user.getEmail());

@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-@WebServlet(name = "admin", urlPatterns = "/")
+@WebServlet(name = "admin", urlPatterns = {"/login/*","/admin/*","/applicant/*"} )
 public class FrontServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,19 +30,19 @@ public class FrontServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String resultPage = null;
+        Page resultPage = null;
         CommandFactory commandFactory = new CommandFactory(request);
         ActionCommand command = commandFactory.getCommand();
 
         resultPage = command.execute(request, response);
         if (resultPage == null) {
             //todo add error page
-            resultPage = "/index.jsp";
-            dispatch(request, response, resultPage);
-        } else if (command.getClass().isAnnotationPresent(Redirect.class))
-            response.sendRedirect(resultPage);
+            resultPage = new Page( "/index.jsp", false);
+            dispatch(request, response, resultPage.getName());
+        } else if (resultPage.isRedirect())
+            response.sendRedirect(resultPage.getName());
         else
-            dispatch(request, response, resultPage);
+            dispatch(request, response, resultPage.getName());
     }
 
     protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page)

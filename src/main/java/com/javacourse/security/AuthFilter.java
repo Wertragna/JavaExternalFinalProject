@@ -1,4 +1,4 @@
-package com.javacourse.rbac;
+package com.javacourse.security;
 
 import com.javacourse.user.User;
 
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static java.util.Objects.nonNull;
 
-@WebFilter(urlPatterns = {"/admin/*", "/application/*"})
+@WebFilter(urlPatterns = {"/admin/*", "/applicant/*"})
 public class AuthFilter implements Filter {
 
     @Override
@@ -26,6 +26,7 @@ public class AuthFilter implements Filter {
         HttpSession session = ((HttpServletRequest) request).getSession();
         User user = (User) session.getAttribute("user");
         if (nonNull(session) && nonNull(user)) {
+
             filterChain.doFilter(request, response);
 
         } else {

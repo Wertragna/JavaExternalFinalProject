@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="header_admin.jsp"/>
 <div class="container">
     <h3 class="h3">Create new Period!</h3>
     <form method="POST" action="create-new-period">

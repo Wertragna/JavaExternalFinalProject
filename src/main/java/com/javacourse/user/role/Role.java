@@ -1,12 +1,13 @@
 package com.javacourse.user.role;
 //todo write javadoc
 public enum Role {
-    ADMIN("admin"),
-    USER("user");
+    ADMIN("admin",1),
+    USER("user",2);
     private int id;
     private String name;
-    private Role(String name){
-
+    private Role(String name, int id){
+        this.name = name;
+        this.id = id;
     }
 
     public int getId() {

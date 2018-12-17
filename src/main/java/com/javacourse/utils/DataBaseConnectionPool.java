@@ -23,6 +23,15 @@ public class DataBaseConnectionPool {
     }
 
     public static Connection getConnection() throws SQLException {
-        return ds.getConnection();
+        Connection connection = null;
+        Context envCtx = null;
+        try {
+            envCtx = (Context) (new InitialContext().lookup("java:comp/env"));
+            DataSource ds = (DataSource) envCtx.lookup("jdbc/enrollment_db");
+            connection = ds.getConnection();
+        } catch (NamingException | SQLException e) {
+            e.printStackTrace();
+        }
+        return connection;
     }
 }

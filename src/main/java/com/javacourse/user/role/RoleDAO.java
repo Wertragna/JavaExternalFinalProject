@@ -49,8 +49,11 @@ public class RoleDAO extends AbstractDAO<Integer,Role> {
         return role;
     }
     private Role createRole(ResultSet rs) throws SQLException {
-        if(rs.getString("name").toUpperCase().equals(Role.ADMIN.name()))
+        //System.out.println(rs.getString("name").toUpperCase()+" "+Role.ADMIN.name());
+        if(rs.getString("name").toUpperCase().equals(Role.ADMIN.name())){
+            System.out.println(Role.ADMIN);
             return Role.ADMIN;
+        }
         else
             return Role.USER;
 

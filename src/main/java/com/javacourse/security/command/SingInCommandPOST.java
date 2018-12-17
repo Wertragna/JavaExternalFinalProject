@@ -1,18 +1,20 @@
-package com.javacourse.rbac.command;
+package com.javacourse.security.command;
 
 
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.ActionCommand;
+import com.javacourse.shared.Page;
 import com.javacourse.user.User;
 import com.javacourse.user.UserDAO;
+import com.javacourse.user.role.Role;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SingInCommand implements ActionCommand {
+public class SingInCommandPOST implements ActionCommand {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
-        String page = null;
+    public Page execute(HttpServletRequest request, HttpServletResponse response) {
+        Page page = null;
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         UserDAO userDAO = new UserDAO();
@@ -25,10 +27,13 @@ public class SingInCommand implements ActionCommand {
         if (user!=null) {
             request.getSession().setAttribute("user", user);
             //todo change page
-            page = "/index.jsp";
+            if(user.getRole().equals(Role.ADMIN))
+                page=  new Page( request.getContextPath()+"/admin", true);
+            else
+                page= new Page(request.getContextPath()+"/applicant",true);
         } else {
           //todo show message (incorrect password or login)
-            page = "/login.jsp";
+            page =new Page( "/login.jsp",false);
         }
         return page;
     }
