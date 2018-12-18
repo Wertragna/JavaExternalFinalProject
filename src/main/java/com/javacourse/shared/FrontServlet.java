@@ -33,7 +33,6 @@ public class FrontServlet extends HttpServlet {
         Page resultPage = null;
         CommandFactory commandFactory = new CommandFactory(request);
         ActionCommand command = commandFactory.getCommand();
-
         resultPage = command.execute(request, response);
         if (resultPage == null) {
             //todo add error page

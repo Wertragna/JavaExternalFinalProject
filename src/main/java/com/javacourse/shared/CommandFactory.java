@@ -1,5 +1,7 @@
 package com.javacourse.shared;
 
+import com.javacourse.exception.NotFoundCommandException;
+
 import javax.servlet.http.HttpServletRequest;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -16,7 +18,7 @@ public class CommandFactory {
         return ActionCommandEnum.valueOf(getCommandName(ActionCommandEnum.class)).getCurrentCommand();
     }
 
-    public String getCommandName(Class enumCommand) {
+     String getCommandName(Class enumCommand) {
         String url = request.getRequestURI().replaceFirst(request.getContextPath(), "");
         for (Field field : enumCommand.getDeclaredFields()) {
             for (Annotation annotation : field.getAnnotations()) {
@@ -29,6 +31,6 @@ public class CommandFactory {
                 }
             }
         }
-        return null;
+        throw new NotFoundCommandException();
     }
 }
