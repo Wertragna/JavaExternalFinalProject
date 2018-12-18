@@ -29,8 +29,9 @@ public class SingInCommandPOST implements ActionCommand {
             //todo change page
             if(user.getRole().equals(Role.ADMIN))
                 page=  new Page( request.getContextPath()+"/admin", true);
-            else
-                page= new Page(request.getContextPath()+"/applicant",true);
+            else{
+
+                page= new Page(request.getContextPath()+"/applicant",true);}
         } else {
           //todo show message (incorrect password or login)
             page =new Page( "/login.jsp",false);

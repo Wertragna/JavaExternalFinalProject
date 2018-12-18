@@ -89,4 +89,11 @@ public class PeriodDAO extends AbstractDAO<Integer, Period> {
         }
         return true;
     }
+
+    public List<Period> selectPeriodsChoiceSubject() throws UnsuccessfulDAOException {
+        List<Period> periods = getAll();
+        periods.removeIf(period -> !period.getState().equals(State.CHOICE_SUBJECTS));
+        return periods;
+    }
+
 }

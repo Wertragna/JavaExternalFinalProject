@@ -4,7 +4,7 @@ package com.javacourse.shared;
 import com.javacourse.admindashboard.command.AdminHomeCommand;
 import com.javacourse.admindashboard.command.CreateNewPeriodCommand;
 import com.javacourse.admindashboard.command.CreateNewPeriodCommandGet;
-import com.javacourse.applicant.command.ApplicantHomeCommand;
+import com.javacourse.applicant.command.*;
 import com.javacourse.security.command.LogOutCommand;
 import com.javacourse.security.command.SignUpCommand;
 import com.javacourse.security.command.SingInCommandPOST;
@@ -64,10 +64,26 @@ public enum ActionCommandEnum {
             this.command = new ApplicantHomeCommand();
         }
     },
+
+
+
     @Action(url = "/admin", method = "GET")
     ADMIN_HOME{
         {
             this.command = new AdminHomeCommand();
+        }
+    },
+
+    @Action(url = "/period", method = "GET")
+    PERIOD{
+        {
+            this.command = new PeriodCommand();
+        }
+    },
+    @Action(url = "/period", method = "POST")
+    PERIOD_POST{
+        {
+            this.command = new PeriodCommandPOST();
         }
     };
 

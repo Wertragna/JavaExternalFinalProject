@@ -17,13 +17,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant">home</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/admin">home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href = "${pageContext.request.contextPath}/period">period</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href = "${pageContext.request.contextPath}/applicant/choose-subjects">subject</a>
+                <a class="nav-link" href = "${pageContext.request.contextPath}/admin/create-new-period">create new period</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href = "${pageContext.request.contextPath}/login/logout">logout</a>
