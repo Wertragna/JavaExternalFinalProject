@@ -9,6 +9,8 @@ import com.javacourse.security.command.LogOutCommand;
 import com.javacourse.security.command.SignUpCommand;
 import com.javacourse.security.command.SingInCommandPOST;
 import com.javacourse.security.command.SingUpCommandPOST;
+import com.javacourse.subject.command.ChoiceSubjectCommand;
+import com.javacourse.subject.command.ChoiceSubjectCommandPOST;
 
 public enum ActionCommandEnum {
     @Action(url = "/admin/create-new-period", method = "POST")
@@ -51,7 +53,6 @@ public enum ActionCommandEnum {
             this.command = new SingUpCommandPOST();
         }
     },
-
     @Action(url = "/login/logout", method = "GET")
     LOG_OUT{
         {
@@ -84,6 +85,18 @@ public enum ActionCommandEnum {
     PERIOD_POST{
         {
             this.command = new PeriodCommandPOST();
+        }
+    },
+    @Action(url = "/applicant/choose-subjects", method = "GET")
+    CHOICE{
+        {
+            this.command = new ChoiceSubjectCommand();
+        }
+    },
+    @Action(url = "/applicant/choose-subjects", method = "POST")
+    CHOICE_POST{
+        {
+            this.command = new ChoiceSubjectCommandPOST();
         }
     };
 
