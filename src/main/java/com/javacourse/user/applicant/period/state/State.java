@@ -1,4 +1,4 @@
-package com.javacourse.applicant.period.state;
+package com.javacourse.user.applicant.period.state;
 
 public enum  State {
     CHOICE_SUBJECTS("choice_subject",1),

@@ -1,4 +1,4 @@
-package com.javacourse.shared;
+package com.javacourse.shared.dao;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.utils.DataBaseConnectionPool;

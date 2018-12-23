@@ -1,8 +1,8 @@
-package com.javacourse.admindashboard.command;
+package com.javacourse.user.command;
 
-import com.javacourse.applicant.period.Period;
-import com.javacourse.applicant.period.PeriodDAO;
-import com.javacourse.applicant.period.state.State;
+import com.javacourse.user.applicant.period.Period;
+import com.javacourse.user.applicant.period.PeriodDAO;
+import com.javacourse.user.applicant.period.state.State;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.ActionCommand;
 import com.javacourse.shared.Page;

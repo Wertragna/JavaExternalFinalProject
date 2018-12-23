@@ -31,6 +31,6 @@ public class CommandFactory {
                 }
             }
         }
-        throw new NotFoundCommandException();
+         throw new NotFoundCommandException();
     }
 }

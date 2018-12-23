@@ -1,7 +1,7 @@
 package com.javacourse.user;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
-import com.javacourse.shared.AbstractDAO;
+import com.javacourse.shared.dao.AbstractDAO;
 import com.javacourse.user.role.RoleDAO;
 import com.javacourse.utils.DataBaseConnectionPool;
 

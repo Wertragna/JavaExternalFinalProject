@@ -1,10 +1,10 @@
 package com.javacourse.shared;
 
 
-import com.javacourse.admindashboard.command.AdminHomeCommand;
-import com.javacourse.admindashboard.command.CreateNewPeriodCommand;
-import com.javacourse.admindashboard.command.CreateNewPeriodCommandGet;
-import com.javacourse.applicant.command.*;
+import com.javacourse.user.command.AdminHomeCommand;
+import com.javacourse.user.command.CreateNewPeriodCommand;
+import com.javacourse.user.command.CreateNewPeriodCommandGet;
+import com.javacourse.user.applicant.command.*;
 import com.javacourse.security.command.LogOutCommand;
 import com.javacourse.security.command.SignUpCommand;
 import com.javacourse.security.command.SingInCommandPOST;

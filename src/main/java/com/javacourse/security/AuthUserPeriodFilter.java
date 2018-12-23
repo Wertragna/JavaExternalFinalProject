@@ -36,6 +36,8 @@ public class AuthUserPeriodFilter extends HttpFilter {
             RequestDispatcher dispatcher = ((HttpServletRequest) request).getSession().getServletContext().getRequestDispatcher("/error404.jsp"); // вызов страницы ответа на запрос
             dispatcher.forward(request, response);
         }
+
+
     }
 
     @Override

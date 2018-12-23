@@ -1,8 +1,7 @@
-package com.javacourse.applicant;
+package com.javacourse.user.applicant;
 
-import com.javacourse.applicant.period.Period;
 import com.javacourse.exception.UnsuccessfulDAOException;
-import com.javacourse.shared.AbstractDAO;
+import com.javacourse.shared.dao.AbstractDAO;
 import com.javacourse.user.User;
 import com.javacourse.utils.DataBaseConnectionPool;
 

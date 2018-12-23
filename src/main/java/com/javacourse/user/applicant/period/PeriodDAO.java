@@ -1,10 +1,8 @@
-package com.javacourse.applicant.period;
+package com.javacourse.user.applicant.period;
 
-import com.javacourse.applicant.period.state.State;
+import com.javacourse.user.applicant.period.state.State;
 import com.javacourse.exception.UnsuccessfulDAOException;
-import com.javacourse.shared.AbstractDAO;
-import com.javacourse.user.User;
-import com.javacourse.user.role.RoleDAO;
+import com.javacourse.shared.dao.AbstractDAO;
 import com.javacourse.utils.DataBaseConnectionPool;
 
 import java.sql.Connection;

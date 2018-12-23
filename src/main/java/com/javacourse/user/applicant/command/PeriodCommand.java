@@ -1,7 +1,7 @@
-package com.javacourse.applicant.command;
+package com.javacourse.user.applicant.command;
 
-import com.javacourse.applicant.period.Period;
-import com.javacourse.applicant.period.PeriodDAO;
+import com.javacourse.user.applicant.period.Period;
+import com.javacourse.user.applicant.period.PeriodDAO;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.ActionCommand;
 import com.javacourse.shared.Page;

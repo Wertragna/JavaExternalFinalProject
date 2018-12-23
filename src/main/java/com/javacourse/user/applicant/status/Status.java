@@ -1,4 +1,4 @@
-package com.javacourse.applicant.status;
+package com.javacourse.user.applicant.status;
 
 import java.util.Objects;
 

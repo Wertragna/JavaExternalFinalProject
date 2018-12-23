@@ -1,10 +1,10 @@
-package com.javacourse.applicant.command;
+package com.javacourse.user.applicant.command;
 
-import com.javacourse.applicant.Applicant;
-import com.javacourse.applicant.ApplicantDAO;
-import com.javacourse.applicant.period.Period;
-import com.javacourse.applicant.period.state.State;
-import com.javacourse.applicant.status.Status;
+import com.javacourse.user.applicant.Applicant;
+import com.javacourse.user.applicant.ApplicantDAO;
+import com.javacourse.user.applicant.period.Period;
+import com.javacourse.user.applicant.period.state.State;
+import com.javacourse.user.applicant.status.Status;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.ActionCommand;
 import com.javacourse.shared.Page;

@@ -6,33 +6,44 @@
   Time: 23:39
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 </head>
 <body>
+<jsp:include page="header_user.jsp"/>
 <div class="container">
-    <form>
+    <h3>Subjects</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">name</th>
+        </tr>
+        <tbody>
+        <c:forEach items="${selectedSubjects}" var="selectedSubject">
+            <tr>
+                <td>${selectedSubject.name}</td>
+            </tr>
+        </c:forEach>
+
+        </tbody>
+        </thead>
+    </table>
+    <form action="choose-subjects" method="post">
         <div class="form-row align-items-center">
             <div class="col-auto my-1">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>Choose...</option>
-                    <c:forEach items="${subject}" var="subject">
-                        <option value="${subject.id}">${subject.name}</option>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name ="idSubject">
+
+                    <c:forEach items="${subjects}" var="subject">
+                        <option name="idSubject" value="${subject.id}">${subject.name}</option>
                     </c:forEach>
+
                 </select>
             </div>
             <div class="col-auto my-1">
-                <div class="custom-control custom-checkbox mr-sm-2">
-                    <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                    <label class="custom-control-label" for="customControlAutosizing">Remember my preference</label>
-                </div>
-            </div>
-            <div class="col-auto my-1">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Add</button>
             </div>
         </div>
     </form>

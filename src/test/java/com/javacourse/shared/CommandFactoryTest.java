@@ -1,16 +1,13 @@
 package com.javacourse.shared;
 
-import com.javacourse.admindashboard.command.AdminHomeCommand;
+import com.javacourse.user.command.AdminHomeCommand;
 import com.javacourse.exception.NotFoundCommandException;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Mock;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -36,9 +33,10 @@ public class CommandFactoryTest {
         when(request.getRequestURI()).thenReturn("example.com/admin");
         when(request.getContextPath()).thenReturn("example.com");
         when(request.getMethod()).thenReturn("GET");
-        actual = commandFactory.getCommandName(ActionCommandEnum.class);
+        actual = commandFactory.getCommandName(ActionCommandEnum.class).trim();
         ActionCommand actionCommand = commandFactory.getCommand();
         Assert.assertTrue(actionCommand instanceof AdminHomeCommand);
+
 
     }
 

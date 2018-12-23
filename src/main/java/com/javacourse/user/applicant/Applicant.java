@@ -1,7 +1,7 @@
-package com.javacourse.applicant;
+package com.javacourse.user.applicant;
 
-import com.javacourse.applicant.period.Period;
-import com.javacourse.applicant.status.Status;
+import com.javacourse.user.applicant.period.Period;
+import com.javacourse.user.applicant.status.Status;
 import com.javacourse.speciality.Speciality;
 import com.javacourse.user.User;
 

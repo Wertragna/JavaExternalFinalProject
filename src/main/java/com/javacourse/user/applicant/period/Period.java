@@ -1,6 +1,6 @@
-package com.javacourse.applicant.period;
+package com.javacourse.user.applicant.period;
 
-import com.javacourse.applicant.period.state.State;
+import com.javacourse.user.applicant.period.state.State;
 
 import java.util.Objects;
 
