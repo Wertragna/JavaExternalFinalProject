@@ -3,6 +3,7 @@ package com.javacourse.security.command;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.User;
+import com.javacourse.user.UserService;
 import com.javacourse.user.UserServiceSql;
 import com.javacourse.user.role.Role;
 
@@ -24,8 +25,9 @@ public class SingUpCommandPOST implements ActionCommand {
         user.setEmail(login);
         user.setSurname(surname);
 //todo add validate input data
-     //   try {
-           if( new UserServiceSql().create(user)){
+
+        UserService<Integer> userService =new UserServiceSql();//   try {
+           if( userService.create(user)){
                page = new Page(request.getContextPath()+"/applicant",true);
            }
         /*} catch (UnsuccessfulDAOException e) {

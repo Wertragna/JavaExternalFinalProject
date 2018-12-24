@@ -1,5 +1,8 @@
 package com.javacourse.user.role;
 
-public class RoleService {
+
+import com.javacourse.shared.service.Service;
+
+public interface RoleService <K> extends Service<K, Role> {
     //todo add method
 }
