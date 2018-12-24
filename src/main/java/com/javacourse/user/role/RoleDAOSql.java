@@ -3,6 +3,7 @@ package com.javacourse.user.role;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.dao.AbstractDAO;
 import com.javacourse.utils.DataBaseConnectionPool;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,15 +11,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+
 //todo write javadoc
-public class RoleDAOSql implements AbstractDAO<Integer,Role> {
+public class RoleDAOSql implements RoleDAO<Integer> {
+    private static final Logger logger = Logger.getLogger(RoleDAOSql.class);
+
     @Override
     public List<Role> getAll() throws UnsuccessfulDAOException {
         throw new UnsuccessfulDAOException();
     }
 
     @Override
-    public boolean update(Role v) throws UnsuccessfulDAOException {
+    public boolean update(Role entity) throws UnsuccessfulDAOException {
         throw new UnsuccessfulDAOException();
     }
 
@@ -28,33 +32,32 @@ public class RoleDAOSql implements AbstractDAO<Integer,Role> {
     }
 
     @Override
-    public boolean create(Role v) throws UnsuccessfulDAOException {
+    public boolean create(Role entity) throws UnsuccessfulDAOException {
         throw new UnsuccessfulDAOException();
     }
 
     @Override
     public Role getById(Integer integer) throws UnsuccessfulDAOException {
         Role role = null;
-        try(Connection con= DataBaseConnectionPool.getConnection();
-            PreparedStatement statement = con.prepareStatement("select * from role where id=?")) {
+        try (Connection con = DataBaseConnectionPool.getConnection();
+             PreparedStatement statement = con.prepareStatement("select * from role where id=?")) {
             statement.setInt(1, integer);
             ResultSet rs = statement.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 role = createRole(rs);
             }
         } catch (SQLException e) {
-            // todo logging
+            logger.error(e.getMessage());
             throw new UnsuccessfulDAOException();
         }
         return role;
     }
+
     private Role createRole(ResultSet rs) throws SQLException {
-        //System.out.println(rs.getString("name").toUpperCase()+" "+Role.ADMIN.name());
-        if(rs.getString("name").toUpperCase().equals(Role.ADMIN.name())){
+        if (rs.getString("name").toUpperCase().equals(Role.ADMIN.name())) {
             System.out.println(Role.ADMIN);
             return Role.ADMIN;
-        }
-        else
+        } else
             return Role.USER;
 
     }
