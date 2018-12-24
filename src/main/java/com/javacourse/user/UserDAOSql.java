@@ -2,6 +2,7 @@ package com.javacourse.user;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.user.role.RoleDAOSql;
+import com.javacourse.utils.DataBaseConnectionPool;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -102,7 +103,7 @@ public class UserDAOSql implements UserDAO <Integer> {
         user.setFirstname(rs.getString("firstname"));
         user.setId(rs.getInt("id"));
         user.setPassword(rs.getString("password"));
-        user.setRole(new RoleDAOSql().getById(rs.getInt("role")));
+        user.setRole(new RoleDAOSql(DataBaseConnectionPool.getConnection()).getById(rs.getInt("role")));
         return user;
     }
 }

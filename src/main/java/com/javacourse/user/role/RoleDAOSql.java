@@ -1,8 +1,6 @@
 package com.javacourse.user.role;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
-import com.javacourse.shared.dao.AbstractDAO;
-import com.javacourse.utils.DataBaseConnectionPool;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -15,6 +13,11 @@ import java.util.List;
 //todo write javadoc
 public class RoleDAOSql implements RoleDAO<Integer> {
     private static final Logger logger = Logger.getLogger(RoleDAOSql.class);
+    Connection connection;
+
+    public RoleDAOSql(Connection connection) {
+        this.connection = connection;
+    }
 
     @Override
     public List<Role> getAll() throws UnsuccessfulDAOException {
@@ -39,8 +42,7 @@ public class RoleDAOSql implements RoleDAO<Integer> {
     @Override
     public Role getById(Integer integer) throws UnsuccessfulDAOException {
         Role role = null;
-        try (Connection con = DataBaseConnectionPool.getConnection();
-             PreparedStatement statement = con.prepareStatement("select * from role where id=?")) {
+        try (PreparedStatement statement = connection.prepareStatement("select * from role where id=?")) {
             statement.setInt(1, integer);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
