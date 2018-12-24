@@ -3,7 +3,7 @@ package com.javacourse.subject.command;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
-import com.javacourse.subject.SubjectDAO;
+import com.javacourse.subject.SubjectDAOSql;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +19,7 @@ public class ChoiceSubjectCommandPOST implements ActionCommand {
         Integer applicantId = (Integer) session.getAttribute("applicantId");
 
         try {
-            new SubjectDAO().addSubjectApplicant(id, applicantId);
+            new SubjectDAOSql().addSubjectApplicant(id, applicantId);
         } catch (UnsuccessfulDAOException e) {
             //todo
         }

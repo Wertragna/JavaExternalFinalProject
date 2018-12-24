@@ -4,7 +4,7 @@ import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.subject.Subject;
-import com.javacourse.subject.SubjectDAO;
+import com.javacourse.subject.SubjectDAOSql;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ public class ChoiceSubjectCommand implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
        int id = (Integer) request.getSession().getAttribute("applicantId");
-       SubjectDAO subjectDAO = new SubjectDAO();
+       SubjectDAOSql subjectDAO = new SubjectDAOSql();
         try {
             List<Subject> subjects = subjectDAO.getAll();
 
