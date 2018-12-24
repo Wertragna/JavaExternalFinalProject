@@ -11,17 +11,26 @@ public class User {
     private String password;
     private String email;
     private Role role;
+    private int roleId;
 
-    public User(int id, String firstname, String surname, String password, String email, Role role) {
+    public User(int id, String firstName, String surname, String password, String email, int roleId) {
         this.id = id;
         this.firstname = firstname;
         this.surname = surname;
         this.password = password;
         this.email = email;
-        this.role = role;
+        this.roleId = roleId;
     }
 
     public User() {
+    }
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 
     public int getId() {

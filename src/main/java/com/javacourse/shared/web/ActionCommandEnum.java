@@ -1,6 +1,8 @@
-package com.javacourse.shared;
+package com.javacourse.shared.web;
 
 
+import com.javacourse.shared.annotations.Action;
+import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.user.command.AdminHomeCommand;
 import com.javacourse.user.command.CreateNewPeriodCommand;
 import com.javacourse.user.command.CreateNewPeriodCommandGet;

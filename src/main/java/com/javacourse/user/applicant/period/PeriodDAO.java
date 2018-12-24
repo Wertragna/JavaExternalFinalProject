@@ -12,9 +12,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PeriodDAO extends AbstractDAO<Integer, Period> {
+public class PeriodDAO //extends AbstractDAO<Integer, Period>
+{
 
-    @Override
     public List<Period> getAll() throws UnsuccessfulDAOException {
         List<Period> periods = new ArrayList<>();
         try (Connection con = DataBaseConnectionPool.getConnection();
@@ -38,17 +38,15 @@ public class PeriodDAO extends AbstractDAO<Integer, Period> {
         return period;
     }
 
-    @Override
     public boolean update(Period v) throws UnsuccessfulDAOException {
         return false;
     }
 
-    @Override
+
     public boolean delete(Integer integer) throws UnsuccessfulDAOException {
         return false;
     }
 
-    @Override
     public boolean create(Period period) throws UnsuccessfulDAOException {
         int changeNumber = 0;
         try (Connection con = DataBaseConnectionPool.getConnection();
@@ -65,7 +63,6 @@ public class PeriodDAO extends AbstractDAO<Integer, Period> {
         return changeNumber > 0;
     }
 
-    @Override
     public Period getById(Integer integer) throws UnsuccessfulDAOException {
         return null;
     }

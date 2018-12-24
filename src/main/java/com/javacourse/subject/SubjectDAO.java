@@ -11,11 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectDAO extends AbstractDAO<Integer, Subject> {
+public class SubjectDAO //extends AbstractDAO<Integer, Subject>
+{
     public SubjectDAO() {
     }
 
-    @Override
     public List<Subject> getAll() throws UnsuccessfulDAOException {
         List<Subject> subjects = new ArrayList<>();
         try (Connection con = DataBaseConnectionPool.getConnection();
@@ -54,22 +54,18 @@ public class SubjectDAO extends AbstractDAO<Integer, Subject> {
         return subject;
     }
 
-    @Override
     public boolean update(Subject v) throws UnsuccessfulDAOException {
         return false;
     }
 
-    @Override
     public boolean delete(Integer integer) throws UnsuccessfulDAOException {
         return false;
     }
 
-    @Override
     public boolean create(Subject v) throws UnsuccessfulDAOException {
         return false;
     }
 
-    @Override
     public Subject getById(Integer integer) throws UnsuccessfulDAOException {
         return null;
     }

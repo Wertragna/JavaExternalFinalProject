@@ -1,4 +1,6 @@
-package com.javacourse.shared;
+package com.javacourse.shared.command;
+
+import com.javacourse.shared.web.Page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

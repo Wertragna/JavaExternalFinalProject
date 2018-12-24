@@ -2,10 +2,11 @@ package com.javacourse.security.command;
 
 
 import com.javacourse.exception.UnsuccessfulDAOException;
-import com.javacourse.shared.ActionCommand;
-import com.javacourse.shared.Page;
+import com.javacourse.shared.command.ActionCommand;
+import com.javacourse.shared.web.Page;
 import com.javacourse.user.User;
-import com.javacourse.user.UserDAO;
+import com.javacourse.user.UserService;
+import com.javacourse.user.UserServiceSql;
 import com.javacourse.user.role.Role;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,10 +18,10 @@ public class SingInCommandPOST implements ActionCommand {
         Page page = null;
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        UserDAO userDAO = new UserDAO();
+        UserService userDAOSql = new UserServiceSql();
         User user=null;
         try {
-            user = userDAO.findByLoginAndPassword(login,password);
+            user = userDAOSql.findByLoginAndPassword(login,password);
         } catch (UnsuccessfulDAOException e) {
             //todo loging
         }

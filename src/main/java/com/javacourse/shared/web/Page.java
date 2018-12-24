@@ -1,4 +1,4 @@
-package com.javacourse.shared;
+package com.javacourse.shared.web;
 
 public class Page {
     String name;

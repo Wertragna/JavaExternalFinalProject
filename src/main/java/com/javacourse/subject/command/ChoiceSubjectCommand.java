@@ -1,8 +1,8 @@
 package com.javacourse.subject.command;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
-import com.javacourse.shared.ActionCommand;
-import com.javacourse.shared.Page;
+import com.javacourse.shared.command.ActionCommand;
+import com.javacourse.shared.web.Page;
 import com.javacourse.subject.Subject;
 import com.javacourse.subject.SubjectDAO;
 

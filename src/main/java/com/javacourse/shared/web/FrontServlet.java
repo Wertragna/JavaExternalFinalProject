@@ -1,4 +1,6 @@
-package com.javacourse.shared;
+package com.javacourse.shared.web;
+
+import com.javacourse.shared.command.ActionCommand;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +14,6 @@ public class FrontServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // String page = new CreateNewPeriod(new DoNothing(null)).getPage();
-        //
         processRequest(request, response);
 
     }
@@ -29,7 +30,7 @@ public class FrontServlet extends HttpServlet {
      **/
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+System.out.println("process request");
         Page resultPage = null;
         CommandFactory commandFactory = new CommandFactory(request);
         ActionCommand command = commandFactory.getCommand();

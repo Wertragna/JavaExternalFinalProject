@@ -3,8 +3,8 @@ package com.javacourse.user.applicant.command;
 import com.javacourse.user.applicant.period.Period;
 import com.javacourse.user.applicant.period.PeriodDAO;
 import com.javacourse.exception.UnsuccessfulDAOException;
-import com.javacourse.shared.ActionCommand;
-import com.javacourse.shared.Page;
+import com.javacourse.shared.command.ActionCommand;
+import com.javacourse.shared.web.Page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

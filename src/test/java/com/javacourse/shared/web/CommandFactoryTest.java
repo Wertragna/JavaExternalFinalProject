@@ -1,5 +1,8 @@
-package com.javacourse.shared;
+package com.javacourse.shared.web;
 
+import com.javacourse.shared.command.ActionCommand;
+import com.javacourse.shared.web.ActionCommandEnum;
+import com.javacourse.shared.web.CommandFactory;
 import com.javacourse.user.command.AdminHomeCommand;
 import com.javacourse.exception.NotFoundCommandException;
 import org.junit.Assert;

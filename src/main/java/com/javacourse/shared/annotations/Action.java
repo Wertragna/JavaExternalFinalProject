@@ -1,4 +1,4 @@
-package com.javacourse.shared;
+package com.javacourse.shared.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -1,7 +1,7 @@
 package com.javacourse.user.command;
 
-import com.javacourse.shared.ActionCommand;
-import com.javacourse.shared.Page;
+import com.javacourse.shared.command.ActionCommand;
+import com.javacourse.shared.web.Page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

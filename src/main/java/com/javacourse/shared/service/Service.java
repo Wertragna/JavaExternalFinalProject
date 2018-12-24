@@ -7,9 +7,9 @@ public interface Service<K, E> {
 
     boolean update(E entity);
 
-    boolean delete(K k);
+    boolean delete(K key);
 
     boolean create(E entity);
 
-    E getById(K k);
+    E getById(K key);
 }
