@@ -1,7 +1,9 @@
 package com.javacourse.user.applicant.command;
 
 import com.javacourse.user.applicant.Applicant;
-import com.javacourse.user.applicant.ApplicantDAO;
+import com.javacourse.user.applicant.ApplicantDAOSql;
+import com.javacourse.user.applicant.ApplicantService;
+import com.javacourse.user.applicant.ApplicantServiceSql;
 import com.javacourse.user.applicant.period.Period;
 import com.javacourse.user.applicant.period.state.State;
 import com.javacourse.user.applicant.status.Status;
@@ -21,18 +23,18 @@ public class PeriodCommandPOST implements ActionCommand {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         int periodId = Integer.parseInt(request.getParameter("id"));
-        ApplicantDAO applicantDAO = new ApplicantDAO();
+        ApplicantService applicantDAOSql = new ApplicantServiceSql();
         String namePeriod = request.getParameter("name");
         int applicantId;
         try {
-            applicantId = applicantDAO.getByUserIdAndPeriod(user, periodId);
+            applicantId = applicantDAOSql.getApplicantIdByUserIdAndPeriod(user, periodId);
             if (applicantId == -1) {//todo -1 mean dont exist
                 Applicant applicant = new Applicant();
                 applicant.setUser(user);
                 applicant.setPeriod(new Period(periodId, namePeriod, State.CHOICE_SUBJECTS));
                 applicant.setStatus(new Status(1, "under consideration"));
-                if (applicantDAO.create(applicant)) {
-                    applicantId = applicantDAO.getByUserIdAndPeriod(user, periodId);
+                if (applicantDAOSql.create(applicant)) {
+                    applicantId = applicantDAOSql.getApplicantIdByUserIdAndPeriod(user, periodId);
                     session.setAttribute("applicantId", applicantId);
                 }
             } else {

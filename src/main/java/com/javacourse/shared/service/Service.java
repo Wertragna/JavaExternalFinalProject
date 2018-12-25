@@ -13,5 +13,5 @@ public interface Service<K, E> {
 
     boolean create(E entity) throws UnsuccessfulDAOException;
 
-    E getById(K key);
+    E getById(K key) throws UnsuccessfulDAOException;
 }
