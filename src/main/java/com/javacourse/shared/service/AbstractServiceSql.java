@@ -20,14 +20,13 @@ public class AbstractServiceSql<K, E> implements Service<K, E> {
     }
 
     @Override
-    public List<E> getAll() {
+    public List<E> getAll() throws UnsuccessfulDAOException {
         List<E> entities = new ArrayList<>();
         AbstractDAO abstractDAO = null;
         try (Connection connection = DataBaseConnectionPool.getConnection()) {
             abstractDAO = abstractDaoClass.getDeclaredConstructor(Connection.class).newInstance(connection);
             entities = abstractDAO.getAll();
         } catch (InstantiationException |
-                UnsuccessfulDAOException |
                 IllegalAccessException |
                 InvocationTargetException |
                 NoSuchMethodException |

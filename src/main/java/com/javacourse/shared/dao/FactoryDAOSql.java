@@ -7,6 +7,8 @@ import com.javacourse.user.UserDAO;
 import com.javacourse.user.UserDAOSql;
 import com.javacourse.user.applicant.ApplicantDAO;
 import com.javacourse.user.applicant.ApplicantDAOSql;
+import com.javacourse.user.applicant.period.PeriodDAO;
+import com.javacourse.user.applicant.period.PeriodDAOSql;
 import com.javacourse.user.role.RoleDAO;
 import com.javacourse.user.role.RoleDAOSql;
 import com.javacourse.utils.DataBaseConnectionPool;
@@ -34,6 +36,11 @@ public class FactoryDAOSql implements FactoryDAO {
     @Override
     public ApplicantDAO createApplicantDAO(Connection connection) {
         return new ApplicantDAOSql(connection);
+    }
+
+    @Override
+    public PeriodDAO createPeriodDAO(Connection connection) {
+        return new PeriodDAOSql(connection);
     }
 
     @Override
