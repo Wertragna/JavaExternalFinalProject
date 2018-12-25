@@ -29,27 +29,27 @@ public enum ActionCommandEnum {
         }
     },
 
-    @Action(url = "/login",method = "POST")
+    @Action(url = "/login/sign-in",method = "POST")
     SIGN_IN{
         {
             this.command = new SingInCommandPOST();
         }
     },
 
-    @Action(url = "/login",method = "GET")
+    @Action(url = "/login/sing-in",method = "GET")
     SIGN_IN_GET{
         {
             this.command = new SingInCommandPOST();
         }
     },
 
-    @Action(url = "/login/register",method = "GET")
+    @Action(url = "/login/sign-up",method = "GET")
     SIGN_UP_GET{
         {
             this.command = new SignUpCommand();
         }
     },
-    @Action(url = "/login/register",method = "POST")
+    @Action(url = "/login/sign-up",method = "POST")
     SIGN_UP_POST{
         {
             this.command = new SingUpCommandPOST();

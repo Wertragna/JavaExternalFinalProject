@@ -2,7 +2,7 @@
 <t:page-template>
     <jsp:body>
         <div class="container">
-            <form method="POST" action="register" class="form-signin">
+            <form method="POST" action="sign-up" class="form-signin">
                 <h1 class="h1 m-lg-3 text-center">Welcome to enrollment system!</h1>
                 <div class="form-group">
                     <label for="InputEmail1">Email address</label>

@@ -2,7 +2,7 @@
 <t:page-template>
     <jsp:body>
         <div class="form-group container container--mini">
-            <form method="POST" action="login" class="form-signin">
+            <form method="POST" action="sign-in" class="form-signin">
                 <h1 class="h1 m-lg-5 text-center">Please sign in!</h1>
                 <input type="hidden" name="command" value="sign_in"/>
                 <label for="InputEmail1">Email address</label>

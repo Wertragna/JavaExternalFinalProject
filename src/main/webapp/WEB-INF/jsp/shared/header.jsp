@@ -40,10 +40,10 @@
             </c:when>
             <c:otherwise>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login">sign in</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login/sing-in">sign in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login/register">sign up</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-up">sign up</a>
                 </li>
             </c:otherwise>
         </c:choose></ul>

@@ -33,7 +33,8 @@ public class SingUpCommandPOST implements ActionCommand {
                page = new Page(request.getContextPath()+"/applicant",true);
            }
         } catch (UnsuccessfulDAOException e) {
-             page =  new Page(request.getContextPath()+"/login/register",true);
+             //todo add message
+             page =  new Page(request.getContextPath()+"/login/sign-up",true);
         }
 
         return page;

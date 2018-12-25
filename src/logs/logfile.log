@@ -9,3 +9,40 @@
 2018-12-25 07:49:28 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
 2018-12-25 07:49:29 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
 2018-12-25 07:49:30 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:41:04 ERROR CommandFactory:30 - 
+2018-12-25 10:41:05 ERROR CommandFactory:30 - 
+2018-12-25 10:41:06 ERROR CommandFactory:30 - 
+2018-12-25 10:41:07 ERROR CommandFactory:30 - 
+2018-12-25 10:41:08 ERROR CommandFactory:30 - 
+2018-12-25 10:41:21 ERROR CommandFactory:30 - 
+2018-12-25 10:41:48 ERROR CommandFactory:30 - 
+2018-12-25 10:41:49 ERROR CommandFactory:30 - 
+2018-12-25 10:41:51 ERROR CommandFactory:30 - 
+2018-12-25 10:41:55 ERROR CommandFactory:30 - 
+2018-12-25 10:41:58 ERROR CommandFactory:30 - 
+2018-12-25 10:41:59 ERROR CommandFactory:30 - 
+2018-12-25 10:42:00 ERROR CommandFactory:30 - 
+2018-12-25 10:42:45 ERROR CommandFactory:30 - 
+2018-12-25 10:43:01 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:43:01 ERROR CommandFactory:30 - 
+2018-12-25 10:46:19 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:46:19 ERROR CommandFactory:30 - 
+2018-12-25 10:49:17 ERROR CommandFactory:30 - 
+2018-12-25 10:49:18 ERROR CommandFactory:30 - 
+2018-12-25 10:49:22 ERROR CommandFactory:30 - 
+2018-12-25 10:49:25 ERROR CommandFactory:30 - 
+2018-12-25 10:49:26 ERROR CommandFactory:30 - 
+2018-12-25 10:49:27 ERROR CommandFactory:30 - 
+2018-12-25 10:49:29 ERROR CommandFactory:30 - 
+2018-12-25 10:49:29 ERROR CommandFactory:30 - 
+2018-12-25 10:49:34 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:35 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:36 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:37 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:38 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:38 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:39 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:40 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:40 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:41 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 10:49:42 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'

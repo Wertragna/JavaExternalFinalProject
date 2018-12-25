@@ -30,7 +30,7 @@ public class AuthFilter implements Filter {
             filterChain.doFilter(request, response);
 
         } else {
-            ((HttpServletResponse)response).sendRedirect( ((HttpServletRequest) request).getContextPath()+"/login");
+            ((HttpServletResponse)response).sendRedirect( ((HttpServletRequest) request).getContextPath()+"/login/sign-in");
         }
     }
 
