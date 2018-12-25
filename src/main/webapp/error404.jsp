@@ -1,21 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Bohdana
-  Date: 17.12.2018
-  Time: 20:09
-  To change this template use File | Settings | File Templates.
---%>
-
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-<h3>Oops! Page not found</h3>
-<h1>404</h1>
-<h2>we are sorry, but the page you requested was not found</h2>
-
-</div>
-</body>
-</html>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:page-template>
+    <jsp:body>
+        <br/>
+        <h3 class="text-center">Oops! Page not found =( </h3>
+        <br/>
+        <h1 class="text-center">404</h1>
+    </jsp:body>
+</t:page-template>

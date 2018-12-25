@@ -1,1 +1,11 @@
 2018-12-24 13:01:20 ERROR ContextListener:28 - asdflafa
+2018-12-25 07:43:11 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:43:32 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:49:14 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:49:25 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:49:26 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:49:27 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:49:27 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:49:28 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:49:29 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2018-12-25 07:49:30 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'

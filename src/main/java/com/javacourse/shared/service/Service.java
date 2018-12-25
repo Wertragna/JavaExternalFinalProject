@@ -1,5 +1,7 @@
 package com.javacourse.shared.service;
 
+import com.javacourse.exception.UnsuccessfulDAOException;
+
 import java.util.List;
 
 public interface Service<K, E> {
@@ -9,7 +11,7 @@ public interface Service<K, E> {
 
     boolean delete(K key);
 
-    boolean create(E entity);
+    boolean create(E entity) throws UnsuccessfulDAOException;
 
     E getById(K key);
 }

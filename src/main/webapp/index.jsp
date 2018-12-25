@@ -5,12 +5,11 @@
   Time: 21:57
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-hello
-</body>
-</html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<t:page-template>
+    <jsp:body>
+        hello
+    </jsp:body>
+</t:page-template>
