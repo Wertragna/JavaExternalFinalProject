@@ -12,7 +12,7 @@ public class LogOutCommand implements ActionCommand {
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
 
         request.getSession().invalidate();
-        Page page = new Page( request.getContextPath()+"/login",true);
+        Page page = new Page( request.getContextPath(),true);
         return page;
     }
 }

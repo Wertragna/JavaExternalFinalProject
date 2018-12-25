@@ -2,6 +2,7 @@ package com.javacourse.security;
 
 import com.javacourse.user.User;
 import com.javacourse.user.role.Role;
+import com.javacourse.utils.PathPageManager;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -33,7 +34,11 @@ public class AuthUserPeriodFilter extends HttpFilter {
             } else
                 filterChain.doFilter(request, response);
         else {
-            RequestDispatcher dispatcher = ((HttpServletRequest) request).getSession().getServletContext().getRequestDispatcher("/error404.jsp"); // вызов страницы ответа на запрос
+            RequestDispatcher dispatcher = ((HttpServletRequest) request).
+                    getSession().
+                    getServletContext().
+                    getRequestDispatcher(PathPageManager.
+                            getProperty("path.page.sign-in"));
             dispatcher.forward(request, response);
         }
 

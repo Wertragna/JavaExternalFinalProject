@@ -8,11 +8,9 @@
       <jsp:include page="/WEB-INF/jsp/shared/header.jsp"/>
     </jsp:attribute>
     <jsp:attribute name="footer">
-        <footer class="footer">
-            <div class="container">
-                Copyright 2018-2019, Sherstyniuk Bohdana.
-            </div>
-        </footer>
+        <div class="footer">
+            <p>Copyright 2018-2019, Sherstyniuk Bohdana.</p>
+        </div>
     </jsp:attribute>
     <jsp:body>
         <main role="main" class="container">

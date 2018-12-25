@@ -6,6 +6,7 @@ import com.javacourse.user.applicant.period.state.State;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
+import com.javacourse.utils.PathPageManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,10 +22,10 @@ public class CreateNewPeriodCommand implements ActionCommand {
         try {
             if(new PeriodDAO().create(period)){
                 //todo change page
-                page = new Page( "/index.jsp",false);
+                page = new Page( PathPageManager.getProperty("page.index"),false);
             }
             else
-                page =new Page("/WEB-INF/jsp/admin/create_period.jsp",false);
+                page =new Page(PathPageManager.getProperty("page.create-period"),false);
         } catch (UnsuccessfulDAOException e) {
             //todo logging
         }

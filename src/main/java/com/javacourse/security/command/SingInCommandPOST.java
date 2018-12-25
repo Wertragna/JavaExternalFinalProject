@@ -8,6 +8,7 @@ import com.javacourse.user.User;
 import com.javacourse.user.UserService;
 import com.javacourse.user.UserServiceSql;
 import com.javacourse.user.role.Role;
+import com.javacourse.utils.PathPageManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +36,7 @@ public class SingInCommandPOST implements ActionCommand {
                 page= new Page(request.getContextPath()+"/applicant",true);}
         } else {
           //todo show message (incorrect password or login)
-            page =new Page( "/login.jsp",false);
+            page =new Page( PathPageManager.getProperty("page.sign-in"),false);
         }
         return page;
     }

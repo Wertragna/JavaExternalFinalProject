@@ -5,6 +5,7 @@ import com.javacourse.user.applicant.period.PeriodDAO;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
+import com.javacourse.utils.PathPageManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,6 @@ public class PeriodCommand implements ActionCommand {
         } catch (UnsuccessfulDAOException e) {
             //todo logging
         }
-        return new Page("/WEB-INF/jsp/applicant/period.jsp",false);
+        return new Page(PathPageManager.getProperty("page.period"),false);
     }
 }

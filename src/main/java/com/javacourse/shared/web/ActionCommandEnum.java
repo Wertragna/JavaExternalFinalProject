@@ -36,7 +36,7 @@ public enum ActionCommandEnum {
         }
     },
 
-    @Action(url = "/login/sing-in",method = "GET")
+    @Action(url = "/login/sign-in",method = "GET")
     SIGN_IN_GET{
         {
             this.command = new SingInCommandPOST();

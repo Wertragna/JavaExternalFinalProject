@@ -7,6 +7,7 @@ import com.javacourse.subject.Subject;
 import com.javacourse.subject.SubjectDAOSql;
 import com.javacourse.subject.SubjectService;
 import com.javacourse.subject.SubjectServiceSql;
+import com.javacourse.utils.PathPageManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,6 @@ public class ChoiceSubjectCommand implements ActionCommand {
         } catch (UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
-        return new Page("/WEB-INF/jsp/applicant/choice_subject.jsp", false);
+        return new Page(PathPageManager.getProperty("page.choice-subjects"), false);
     }
 }

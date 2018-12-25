@@ -2,6 +2,7 @@ package com.javacourse.security;
 
 import com.javacourse.user.User;
 import com.javacourse.user.role.Role;
+import com.javacourse.utils.PathPageManager;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -28,7 +29,7 @@ public class AuthAdminFilter extends HttpFilter {
         if (nonNull(session) && nonNull(user)&&(user.getRole().equals(Role.ADMIN)))
                 filterChain.doFilter(request, response);
          else {
-            RequestDispatcher dispatcher = ((HttpServletRequest) request).getSession().getServletContext().getRequestDispatcher("/error404.jsp"); // вызов страницы ответа на запрос
+            RequestDispatcher dispatcher = ((HttpServletRequest) request).getSession().getServletContext().getRequestDispatcher(PathPageManager.getProperty("page.error")); // вызов страницы ответа на запрос
             dispatcher.forward(request, response);
         }
     }
