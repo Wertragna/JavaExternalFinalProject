@@ -13,7 +13,7 @@
         </div>
     </jsp:attribute>
     <jsp:body>
-        <main role="main" class="container">
+        <main roleEntity="main" class="container">
             <jsp:doBody/>
         </main>
     </jsp:body>

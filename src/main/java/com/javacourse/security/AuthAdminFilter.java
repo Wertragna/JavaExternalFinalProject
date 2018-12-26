@@ -26,10 +26,10 @@ public class AuthAdminFilter extends HttpFilter {
             throws IOException, ServletException {
         HttpSession session = ((HttpServletRequest) request).getSession();
         User user = (User) session.getAttribute("user");
-        if (nonNull(session) && nonNull(user)&&(user.getRole().equals(Role.ADMIN)))
+        if (nonNull(session) && nonNull(user)&&(user.getRoleEntity().equals(Role.ADMIN)))
                 filterChain.doFilter(request, response);
          else {
-            RequestDispatcher dispatcher = ((HttpServletRequest) request).getSession().getServletContext().getRequestDispatcher(PathPageManager.getProperty("page.error")); // вызов страницы ответа на запрос
+            RequestDispatcher dispatcher = ((HttpServletRequest) request).getSession().getServletContext().getRequestDispatcher(PathPageManager.getProperty("page.error404")); // вызов страницы ответа на запрос
             dispatcher.forward(request, response);
         }
     }

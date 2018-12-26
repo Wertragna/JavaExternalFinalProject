@@ -10,7 +10,7 @@
     <c:set var="USER" value="<%=Role.USER%>"/>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <c:if test="${sessionScope.user.role == ADMIN}">
+            <c:if test="${sessionScope.user.roleEntity == ADMIN}">
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/admin">home</a>
                 </li>
@@ -19,7 +19,7 @@
                         period</a>
                 </li>
             </c:if>
-            <c:if test="${sessionScope.user.role == USER}">
+            <c:if test="${sessionScope.user.roleEntity == USER}">
 
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/applicant">home</a>

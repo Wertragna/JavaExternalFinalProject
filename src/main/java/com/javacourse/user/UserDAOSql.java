@@ -51,7 +51,7 @@ public class UserDAOSql implements UserDAO <Integer> {
             statement.setString(2, user.getSurname());
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getPassword());
-            statement.setInt(5, user.getRole().getId());
+            statement.setInt(5, user.getRoleEntity().getId());
             changeNumber = statement.executeUpdate();
         } catch (SQLException e) {
             logger.error(e.getMessage());
@@ -103,7 +103,7 @@ public class UserDAOSql implements UserDAO <Integer> {
         user.setFirstname(rs.getString("firstname"));
         user.setId(rs.getInt("id"));
         user.setPassword(rs.getString("password"));
-        user.setRole(new RoleDAOSql(DataBaseConnectionPool.getConnection()).getById(rs.getInt("role")));
+        user.setRoleEntity(new RoleDAOSql(DataBaseConnectionPool.getConnection()).getById(rs.getInt("role")));
         return user;
     }
 }

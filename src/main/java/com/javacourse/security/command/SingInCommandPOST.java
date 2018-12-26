@@ -29,7 +29,7 @@ public class SingInCommandPOST implements ActionCommand {
         if (user!=null) {
             request.getSession().setAttribute("user", user);
             //todo change page
-            if(user.getRole().equals(Role.ADMIN))
+            if(user.getRoleEntity().equals(Role.ADMIN))
                 page=  new Page( request.getContextPath()+"/admin", true);
             else{
 

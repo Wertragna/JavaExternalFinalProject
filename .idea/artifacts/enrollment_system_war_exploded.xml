@@ -12,6 +12,13 @@
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.13" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.4" />
+          <element id="library" level="project" name="Maven: javax.el:javax.el-api:3.0.0" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.glassfish.web:javax.el:2.2.6" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator-annotation-processor:6.0.13.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.0.13.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="enrollment-system/web/Web" />

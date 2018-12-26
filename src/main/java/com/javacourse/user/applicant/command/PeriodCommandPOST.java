@@ -31,7 +31,7 @@ public class PeriodCommandPOST implements ActionCommand {
             if (applicantId == -1) {//todo -1 mean dont exist
                 Applicant applicant = new Applicant();
                 applicant.setUser(user);
-                applicant.setPeriod(new Period(periodId, namePeriod, State.CHOICE_SUBJECTS));
+                applicant.setPeriod(new Period(periodId, namePeriod, 1/*todo magic number change this*/));
                 applicant.setStatus(new Status(1, "under consideration"));
                 if (applicantDAOSql.create(applicant)) {
                     applicantId = applicantDAOSql.getApplicantIdByUserIdAndPeriod(user, periodId);

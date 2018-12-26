@@ -28,7 +28,7 @@ public class AuthUserPeriodFilter extends HttpFilter {
         HttpSession session = ((HttpServletRequest) request).getSession();
         User user = (User) session.getAttribute("user");
         Integer applicantId = (Integer) session.getAttribute("applicantId");
-        if (nonNull(session) && nonNull(user) && (user.getRole().equals(Role.USER)))
+        if (nonNull(session) && nonNull(user) && (user.getRoleEntity().equals(Role.USER)))
             if (applicantId == null) {
                 ((HttpServletResponse) response).sendRedirect(((HttpServletRequest) request).getContextPath() + "/period");
             } else

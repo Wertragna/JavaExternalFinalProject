@@ -1,36 +1,55 @@
 package com.javacourse.user;
 
 import com.javacourse.user.role.Role;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.*;
 
 import java.util.Objects;
 
 public class User {
-    private int id;
-    private String firstname;
-    private String surname;
-    private String password;
-    private String email;
-    private Role role;
-    private int roleId;
 
-    public User(int id, String firstName, String surname, String password, String email, int roleId) {
+    private int id;
+
+    @NotBlank
+    @Size(min = 2, max = 45)
+    private String firstname;
+
+    @NotBlank
+    @Size(min = 2, max = 45)
+    private String surname;
+
+    @NotBlank
+    @Size(min = 6, max = 45)
+    private String password;
+
+    @Email
+    @Size(min = 2, max = 45)
+    private String email;
+
+    @Positive
+    private int role;
+
+    private Role roleEntity;
+
+    public User(int id, String firstName, String surname, String password, String email, int role) {
         this.id = id;
-        this.firstname = firstname;
+        this.firstname = firstName;
         this.surname = surname;
         this.password = password;
         this.email = email;
-        this.roleId = roleId;
+        this.role = role;
     }
 
     public User() {
     }
 
-    public int getRoleId() {
-        return roleId;
+    public int getRole() {
+        return role;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setRole(int role) {
+        this.role = role;
     }
 
     public int getId() {
@@ -73,12 +92,12 @@ public class User {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
+    public Role getRoleEntity() {
+        return roleEntity;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleEntity(Role roleEntity) {
+        this.roleEntity = roleEntity;
     }
 
     @Override

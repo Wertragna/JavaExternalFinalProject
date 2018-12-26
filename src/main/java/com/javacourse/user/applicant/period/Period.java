@@ -7,9 +7,10 @@ import java.util.Objects;
 public class Period {
     private int id;
     private String name;
-    private State state;
+    private int state;
+    private State stateEntity;
 
-    public Period(int id, String name, State state) {
+    public Period(int id, String name, int state) {
         this.id = id;
         this.name = name;
         this.state = state;
@@ -34,11 +35,11 @@ public class Period {
         this.name = name;
     }
 
-    public State getState() {
+    public int getState() {
         return state;
     }
 
-    public void setState(State state) {
+    public void setState(int state) {
         this.state = state;
     }
 

@@ -1,14 +1,22 @@
 package com.javacourse.user.applicant.period.state;
 
-public enum  State {
-    CHOICE_SUBJECTS("choice_subject",1),
-    CHECK_TESTS("check_test",2),
-    CHOICE_SPECIALITY("choice_speciality",3),
-    ENDED("ended",3);
+public class   State {
 
     private int id;
     private String name;
-    private State(String name,int id){
+
+    public State() {
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    State(String name, int id){
         this.id = id;
         this.name = name;
     }
