@@ -18,6 +18,9 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/admin/create-new-period">create new
                         period</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/admin/periods">periods</a>
+                </li>
             </c:if>
             <c:if test="${sessionScope.user.roleEntity == USER}">
 

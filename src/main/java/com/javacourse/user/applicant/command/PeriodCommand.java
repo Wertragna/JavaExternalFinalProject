@@ -18,13 +18,11 @@ public class PeriodCommand implements ActionCommand {
     private static final Logger logger = Logger.getLogger(Logger.class);
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
-        try {
+
             ServicePeriod servicePeriod  = new ServicePeriodSql();
             List<Period> periods = servicePeriod.getAll();
             request.setAttribute("periods",periods);
-        } catch (UnsuccessfulDAOException e) {
-            logger.error(e.getMessage());
-        }
+
         return new Page(PathPageManager.getProperty("page.period"),false);
     }
 }

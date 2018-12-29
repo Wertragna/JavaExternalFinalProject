@@ -5,7 +5,7 @@ import com.javacourse.exception.UnsuccessfulDAOException;
 import java.util.List;
 
 public interface Service<K, E> {
-    List<E> getAll() throws UnsuccessfulDAOException;
+    List<E> getAll();
 
     boolean update(E entity);
 

@@ -384,3 +384,12 @@
 2018-12-25 22:17:20 DEBUG PlatformResourceBundleLocator:128 - ValidationMessages not found.
 2018-12-25 22:17:20 DEBUG PlatformResourceBundleLocator:128 - ContributorValidationMessages not found.
 2018-12-25 22:17:20 DEBUG PlatformResourceBundleLocator:125 - org.hibernate.validator.ValidationMessages found.
+2018-12-29 14:22:28 ERROR CommandFactory:27 - Not found Command for /admin/period-info
+2018-12-29 14:22:34 ERROR CommandFactory:27 - Not found Command for /admin/period-info
+2018-12-29 14:25:43 ERROR CommandFactory:27 - Not found Command for /admin/period-info
+2018-12-29 14:25:47 ERROR CommandFactory:27 - Not found Command for /admin/period-info
+2018-12-29 14:25:49 ERROR CommandFactory:27 - Not found Command for /admin/period-info
+2018-12-29 14:28:10 ERROR CommandFactory:27 - Not found Command for /admin/period-info
+2018-12-29 14:37:20 ERROR CommandFactory:27 - Not found Command for /admin/period-info
+2018-12-29 14:39:36 ERROR CommandFactory:27 - Not found Command for /admin/period-info
+2018-12-29 14:39:44 ERROR CommandFactory:27 - Not found Command for /admin/period-info

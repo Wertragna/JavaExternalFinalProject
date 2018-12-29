@@ -3,6 +3,7 @@ package com.javacourse.shared.web;
 
 import com.javacourse.shared.annotations.Action;
 import com.javacourse.shared.command.ActionCommand;
+import com.javacourse.user.applicant.period.command.ShowPeriodsCommand;
 import com.javacourse.user.command.AdminHomeCommand;
 import com.javacourse.user.command.CreateNewPeriodCommand;
 import com.javacourse.user.command.CreateNewPeriodCommandGet;
@@ -67,16 +68,12 @@ public enum ActionCommandEnum {
             this.command = new ApplicantHomeCommand();
         }
     },
-
-
-
     @Action(url = "/admin", method = "GET")
     ADMIN_HOME{
         {
             this.command = new AdminHomeCommand();
         }
     },
-
     @Action(url = "/period", method = "GET")
     PERIOD{
         {
@@ -99,6 +96,12 @@ public enum ActionCommandEnum {
     CHOICE_POST{
         {
             this.command = new ChoiceSubjectCommandPOST();
+        }
+    },
+    @Action(url = "/admin/periods", method = "GET")
+    PERIODS{
+        {
+            this.command = new ShowPeriodsCommand();
         }
     };
 
