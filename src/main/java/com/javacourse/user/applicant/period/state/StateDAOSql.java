@@ -55,6 +55,23 @@ public class StateDAOSql implements StateDAO<Integer> {
         }
         return state;
     }
+    @Override
+    public State getByName(String name) throws UnsuccessfulDAOException {
+        State state = null;
+        try (PreparedStatement statement =
+                     connection.prepareStatement(
+                             "select * from state where name=?")) {
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                state = createState(rs);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException();
+        }
+        return state;
+    }
 
     private State createState(ResultSet rs) throws SQLException {
         State state = new State();

@@ -9,12 +9,12 @@ import com.javacourse.user.applicant.ApplicantDAO;
 import com.javacourse.user.applicant.ApplicantDAOSql;
 import com.javacourse.user.applicant.period.PeriodDAO;
 import com.javacourse.user.applicant.period.PeriodDAOSql;
+import com.javacourse.user.applicant.period.state.StateDAO;
+import com.javacourse.user.applicant.period.state.StateDAOSql;
 import com.javacourse.user.role.RoleDAO;
 import com.javacourse.user.role.RoleDAOSql;
-import com.javacourse.utils.DataBaseConnectionPool;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 public class FactoryDAOSql implements FactoryDAO {
 
@@ -41,6 +41,11 @@ public class FactoryDAOSql implements FactoryDAO {
     @Override
     public PeriodDAO createPeriodDAO(Connection connection) {
         return new PeriodDAOSql(connection);
+    }
+
+    @Override
+    public StateDAO createStateDAO(Connection connection) {
+        return new StateDAOSql(connection);
     }
 
     @Override

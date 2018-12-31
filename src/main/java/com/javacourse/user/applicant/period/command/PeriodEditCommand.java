@@ -9,14 +9,15 @@ import com.javacourse.utils.PathPageManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
-public class ShowPeriodsCommand implements ActionCommand {
+public class PeriodEditCommand implements ActionCommand {
     @Override
-    public Page execute(HttpServletRequest request, HttpServletResponse response){
+    public Page execute(HttpServletRequest request, HttpServletResponse response) {
+        String idString = request.getParameter("id-period");
+        int id = Integer.parseInt(idString);
         PeriodService periodService = new PeriodServiceSql();
-        List<Period> periods = periodService.getAll();
-        request.setAttribute("periods",periods);
-        return new Page(PathPageManager.getProperty("page.periods"),false);
+        Period period = periodService.getByIdWithState(id);
+        request.setAttribute("period",period);
+        return new Page(PathPageManager.getProperty("page.period-edit"), false);
     }
 }

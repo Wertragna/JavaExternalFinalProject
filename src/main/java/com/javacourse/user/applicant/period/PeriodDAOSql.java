@@ -1,9 +1,6 @@
 package com.javacourse.user.applicant.period;
 
-import com.javacourse.user.applicant.period.state.State;
 import com.javacourse.exception.UnsuccessfulDAOException;
-import com.javacourse.shared.dao.AbstractDAO;
-import com.javacourse.utils.DataBaseConnectionPool;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -26,14 +23,14 @@ public class PeriodDAOSql implements PeriodDAO<Integer> {
         List<Period> periods = new ArrayList<>();
         try (PreparedStatement statement =
                      connection.prepareStatement(
-                             "select * from period ")){
+                             "select * from period ")) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 periods.add(createPeriod(resultSet));
             }
         } catch (SQLException e) {
             logger.error(e.getMessage());
-            throw  new UnsuccessfulDAOException();
+            throw new UnsuccessfulDAOException();
         }
         return periods;
     }
@@ -45,15 +42,28 @@ public class PeriodDAOSql implements PeriodDAO<Integer> {
         period.setState(resultSet.getInt("state"));
         return period;
     }
+
     @Override
-    public boolean update(Period v) throws UnsuccessfulDAOException {
-        return false;
+    public boolean update(Period entity) throws UnsuccessfulDAOException {
+        int changeNumber = 0;
+        try (PreparedStatement preparedStatement =
+                     connection.prepareStatement(
+                             "update period set name=?, state=? where id = ?")) {
+            preparedStatement.setString(1,entity.getName());
+            preparedStatement.setInt(2,entity.getState());
+            preparedStatement.setInt(3,entity.getId());
+            changeNumber = preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            logger.error(e.getMessage());
+        }
+        return changeNumber>0;
     }
 
     @Override
     public boolean delete(Integer integer) throws UnsuccessfulDAOException {
         return false;
     }
+
     @Override
     public boolean create(Period period) throws UnsuccessfulDAOException {
         int changeNumber = 0;
@@ -71,13 +81,26 @@ public class PeriodDAOSql implements PeriodDAO<Integer> {
     }
 
     public Period getById(Integer integer) throws UnsuccessfulDAOException {
-        return null;
+        Period period = null;
+        try (PreparedStatement statement =
+                     connection.prepareStatement(
+                             "select * from period  where id =?")) {
+            statement.setInt(1, integer);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                period = createPeriod(resultSet);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException();
+        }
+        return period;
     }
 
 
     public List<Period> selectPeriodsChoiceSubject() throws UnsuccessfulDAOException {
         List<Period> periods = getAll();
-  //      periods.removeIf(period -> !period.getState().equals(State.CHOICE_SUBJECTS));
+        //      periods.removeIf(period -> !period.getState().equals(State.CHOICE_SUBJECTS));
         return periods;
     }
 

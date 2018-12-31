@@ -13,8 +13,10 @@
         </div>
     </jsp:attribute>
     <jsp:body>
-        <main roleEntity="main" class="container">
+        <main roleEntity="main" class="container pt-3">
             <jsp:doBody/>
         </main>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-slim.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     </jsp:body>
 </t:genericpage>

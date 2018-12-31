@@ -1,6 +1,6 @@
 <%@ page import="com.javacourse.user.role.Role" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="${pageContext.request.contextPath}">Enrollment system</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,21 +35,22 @@
                 </li>
             </c:if>
         </ul>
-        <ul class="navbar-nav right"><c:choose>
-            <c:when test="${not empty sessionScope.user}">
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login/logout">logout</a>
-                </li>
-            </c:when>
-            <c:otherwise>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-in">sign in</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-up">sign up</a>
-                </li>
-            </c:otherwise>
-        </c:choose></ul>
+        <ul class="navbar-nav right">
+            <c:choose>
+                <c:when test="${not empty sessionScope.user}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login/logout">logout</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-in">sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-up">sign up</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
     </div>
-
 </nav>

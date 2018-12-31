@@ -8,6 +8,15 @@ public class Period {
     private int id;
     private String name;
     private int state;
+
+    public State getStateEntity() {
+        return stateEntity;
+    }
+
+    public void setStateEntity(State stateEntity) {
+        this.stateEntity = stateEntity;
+    }
+
     private State stateEntity;
 
     public Period(int id, String name, int state) {

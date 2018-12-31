@@ -4,6 +4,7 @@ import com.javacourse.subject.SubjectDAO;
 import com.javacourse.user.UserDAO;
 import com.javacourse.user.applicant.ApplicantDAO;
 import com.javacourse.user.applicant.period.PeriodDAO;
+import com.javacourse.user.applicant.period.state.StateDAO;
 import com.javacourse.user.role.RoleDAO;
 
 import java.sql.Connection;
@@ -15,5 +16,6 @@ public interface FactoryDAO {
     SubjectDAO createSubjectDAO(Connection connection);
     ApplicantDAO createApplicantDAO(Connection connection);
     PeriodDAO createPeriodDAO(Connection connection);
+    StateDAO createStateDAO(Connection connection);
     Connection createConnection();
 }
