@@ -76,6 +76,22 @@ public class SubjectDAOSql implements SubjectDAO<Integer> {
         return subjects;
     }
 
+    @Override
+    public boolean deleteSubjectBySubjectIdAndApplicantId(int subject, int applicant) throws UnsuccessfulDAOException {
+        int changeNumber = 0;
+        try (PreparedStatement statement =
+                     connection.prepareStatement(
+                             "delete from applicant_subject where subject=? and aplicant=?")) {
+            statement.setInt(1, subject);
+            statement.setInt(2, applicant);
+            changeNumber = statement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException();
+        }
+        return changeNumber > 0;
+    }
+
     private Subject createSubject(ResultSet resultSet) throws SQLException {
         Subject subject = new Subject();
         subject.setName(resultSet.getString("name"));

@@ -21,10 +21,19 @@ public class SubjectServiceSql extends AbstractServiceSql<Integer, Subject> impl
 
     @Override
     public boolean addSubjectApplicant(Integer subject, Integer applicant) throws UnsuccessfulDAOException {
-
         try (Connection connection = factoryDAO.createConnection()) {
-            factoryDAO.createSubjectDAO(connection).addSubjectApplicant(subject,applicant);
+           return factoryDAO.createSubjectDAO(connection).addSubjectApplicant(subject,applicant);
         } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteSubjectBySubjectIdAndApplicantId(int subject, int applicant) {
+        try (Connection connection = factoryDAO.createConnection()) {
+            return factoryDAO.createSubjectDAO(connection).deleteSubjectBySubjectIdAndApplicantId(subject,applicant);
+        } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
         return false;
