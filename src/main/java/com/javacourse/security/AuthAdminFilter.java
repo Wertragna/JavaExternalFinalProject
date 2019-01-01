@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static java.util.Objects.nonNull;
 
-@WebFilter(urlPatterns = {"/admin/*"})
+@WebFilter(filterName = "admin-security")
 public class AuthAdminFilter extends HttpFilter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

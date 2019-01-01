@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static java.util.Objects.nonNull;
 
-@WebFilter(urlPatterns = {"/admin/*", "/applicant/*", "/period"})
+@WebFilter(filterName = "auth")
 public class AuthFilter implements Filter {
 
     @Override
