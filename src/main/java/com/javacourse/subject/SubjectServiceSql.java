@@ -40,11 +40,11 @@ public class SubjectServiceSql extends AbstractServiceSql<Integer, Subject> impl
     }
 
     @Override
-    public List<Subject> getByApplicantId(Integer applicantId) throws UnsuccessfulDAOException {
+    public List<Subject> getByApplicantId(Integer applicantId)  {
         List<Subject>list=null;
         try (Connection connection = factoryDAO.createConnection()) {
              list= factoryDAO.createSubjectDAO(connection).getByApplicantId(applicantId);
-        } catch (SQLException e) {
+        } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
         return list;

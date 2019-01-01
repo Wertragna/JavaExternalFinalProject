@@ -24,7 +24,7 @@ public enum StateName{
     ENDED {
         @Override
         public StateName getNext() {
-            return StateName.ENDED;
+                return StateName.ENDED;
         }
     };
 

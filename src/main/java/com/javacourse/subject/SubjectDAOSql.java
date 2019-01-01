@@ -63,7 +63,7 @@ public class SubjectDAOSql implements SubjectDAO<Integer> {
                      connection.prepareStatement(
                              "select name, id from subject " +
                                      "join applicant_subject on subject.id = applicant_subject.subject " +
-                                     "where aplicant=?")) {
+                                     "where applicant=?")) {
             statement.setInt(1, applicantId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -81,7 +81,7 @@ public class SubjectDAOSql implements SubjectDAO<Integer> {
         int changeNumber = 0;
         try (PreparedStatement statement =
                      connection.prepareStatement(
-                             "delete from applicant_subject where subject=? and aplicant=?")) {
+                             "delete from applicant_subject where subject=? and applicant=?")) {
             statement.setInt(1, subject);
             statement.setInt(2, applicant);
             changeNumber = statement.executeUpdate();
@@ -104,7 +104,7 @@ public class SubjectDAOSql implements SubjectDAO<Integer> {
         int changeNumber = 0;
         try (PreparedStatement statement =
                      connection.prepareStatement(
-                             "INSERT INTO applicant_subject(subject, aplicant) VALUE (?,?)")) {
+                             "INSERT INTO applicant_subject(subject, applicant) VALUE (?,?)")) {
             statement.setInt(1, subject);
             statement.setInt(2, applicant);
             changeNumber = statement.executeUpdate();

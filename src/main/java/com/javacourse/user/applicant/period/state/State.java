@@ -1,6 +1,6 @@
 package com.javacourse.user.applicant.period.state;
 
-public class   State {
+public class State {
 
     private int id;
     private String name;

@@ -9,6 +9,8 @@ import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ApplicantServiceSql extends AbstractServiceSql<Integer, Applicant> implements ApplicantService<Integer> {
@@ -18,6 +20,13 @@ public class ApplicantServiceSql extends AbstractServiceSql<Integer, Applicant> 
     public ApplicantServiceSql() {
         super(ApplicantDAOSql.class);
         factoryDAO = new FactoryDAOSql();
+    }
+
+    @Override
+    public List<ApplicantSubject> getByPeriodAndSubject(int period, int subject) {
+        List<ApplicantSubject> applicantSubjects = new ArrayList<>();
+        //todo
+        return applicantSubjects;
     }
 
     @Override

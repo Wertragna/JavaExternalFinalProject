@@ -11,6 +11,7 @@ import com.javacourse.subject.command.ChoiceSubjectCommand;
 import com.javacourse.subject.command.ChoiceSubjectCommandPOST;
 import com.javacourse.subject.command.SelectSubjectMark;
 import com.javacourse.user.applicant.command.ApplicantHomeCommand;
+import com.javacourse.user.applicant.command.ApplicantInfoCommand;
 import com.javacourse.user.applicant.command.PeriodCommand;
 import com.javacourse.user.applicant.command.PeriodCommandPOST;
 import com.javacourse.user.applicant.period.command.PeriodEditCommand;
@@ -133,8 +134,13 @@ public enum ActionCommandEnum {
         {
             this.command = new PeriodEditCommandPOST();
         }
+    },
+    @Action(url = "/applicant/info", method = "GET")
+    APPLICATION_INFO {
+        {
+            this.command = new ApplicantInfoCommand();
+        }
     };
-
 
 
     ActionCommand command;

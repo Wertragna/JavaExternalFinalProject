@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@WebServlet(name = "admin", urlPatterns = {"/login/*","/admin/*","/applicant/*","/period"} )
+@WebServlet(name = "frontServlet", urlPatterns = {"/login/*","/admin/*","/applicant/*","/period"} )
 public class FrontServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

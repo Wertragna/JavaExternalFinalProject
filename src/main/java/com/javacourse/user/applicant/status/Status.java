@@ -30,6 +30,14 @@ public class Status {
         return id == status.id &&
                 Objects.equals(name, status.name);
     }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public int hashCode() {
@@ -43,4 +51,5 @@ public class Status {
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }

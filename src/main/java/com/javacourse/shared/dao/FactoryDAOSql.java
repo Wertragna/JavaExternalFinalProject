@@ -11,6 +11,8 @@ import com.javacourse.user.applicant.period.PeriodDAO;
 import com.javacourse.user.applicant.period.PeriodDAOSql;
 import com.javacourse.user.applicant.period.state.StateDAO;
 import com.javacourse.user.applicant.period.state.StateDAOSql;
+import com.javacourse.user.applicant.status.StatusDAO;
+import com.javacourse.user.applicant.status.StatusDAOSql;
 import com.javacourse.user.role.RoleDAO;
 import com.javacourse.user.role.RoleDAOSql;
 
@@ -46,6 +48,11 @@ public class FactoryDAOSql implements FactoryDAO {
     @Override
     public StateDAO createStateDAO(Connection connection) {
         return new StateDAOSql(connection);
+    }
+
+    @Override
+    public StatusDAO createStatusDAO(Connection connection) {
+        return new StatusDAOSql(connection);
     }
 
     @Override

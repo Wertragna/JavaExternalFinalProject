@@ -1,21 +1,23 @@
 package com.javacourse.user.applicant;
 
+import com.javacourse.speciality.Speciality;
 import com.javacourse.user.applicant.period.Period;
 import com.javacourse.user.applicant.status.Status;
-import com.javacourse.speciality.Speciality;
-import com.javacourse.user.User;
 
 import java.util.Objects;
 
 public class Applicant {
-    private int id;
-    private User user;
-    private Period period;
-    private Speciality speciality;
-    private Status status;
     int rating;
+    private int id;
+    private int user;
+    private int period;
+    private int speciality;
+    private int status;
+    private Status statusEntity;
+    private Period periodEntity;
+    private Speciality specialityEntity;
 
-    public Applicant(int id, User user, Period period, Speciality speciality, Status status, int rating) {
+    public Applicant(int id, int user, int period, int speciality, int status, int rating) {
         this.id = id;
         this.user = user;
         this.period = period;
@@ -27,6 +29,30 @@ public class Applicant {
     public Applicant() {
     }
 
+    public Status getStatusEntity() {
+        return statusEntity;
+    }
+
+    public void setStatusEntity(Status statusEntity) {
+        this.statusEntity = statusEntity;
+    }
+
+    public Period getPeriodEntity() {
+        return periodEntity;
+    }
+
+    public void setPeriodEntity(Period periodEntity) {
+        this.periodEntity = periodEntity;
+    }
+
+    public Speciality getSpecialityEntity() {
+        return specialityEntity;
+    }
+
+    public void setSpecialityEntity(Speciality specialityEntity) {
+        this.specialityEntity = specialityEntity;
+    }
+
     public int getId() {
         return id;
     }
@@ -35,35 +61,35 @@ public class Applicant {
         this.id = id;
     }
 
-    public User getUser() {
+    public int getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(int user) {
         this.user = user;
     }
 
-    public Period getPeriod() {
+    public int getPeriod() {
         return period;
     }
 
-    public void setPeriod(Period period) {
+    public void setPeriod(int period) {
         this.period = period;
     }
 
-    public Speciality getSpeciality() {
+    public int getSpeciality() {
         return speciality;
     }
 
-    public void setSpeciality(Speciality speciality) {
+    public void setSpeciality(int speciality) {
         this.speciality = speciality;
     }
 
-    public Status getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

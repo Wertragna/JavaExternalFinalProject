@@ -8,9 +8,9 @@
       <jsp:include page="/WEB-INF/jsp/shared/header.jsp"/>
     </jsp:attribute>
     <jsp:attribute name="footer">
-        <div class="footer">
+       <%-- <div class="footer">
             <p>Copyright 2018-2019, Sherstyniuk Bohdana.</p>
-        </div>
+        </div>--%>
     </jsp:attribute>
     <jsp:body>
         <main roleEntity="main" class="container pt-3">

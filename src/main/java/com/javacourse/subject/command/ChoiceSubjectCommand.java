@@ -1,10 +1,8 @@
 package com.javacourse.subject.command;
 
-import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.subject.Subject;
-import com.javacourse.subject.SubjectDAOSql;
 import com.javacourse.subject.SubjectService;
 import com.javacourse.subject.SubjectServiceSql;
 import com.javacourse.utils.PathPageManager;
@@ -21,15 +19,12 @@ public class ChoiceSubjectCommand implements ActionCommand {
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
         int id = (Integer) request.getSession().getAttribute("applicantId");
         SubjectService subjectService = new SubjectServiceSql();
-        try {
-            List<Subject> subjects = subjectService.getAll();
-            List<Subject> selectedSubjects = subjectService.getByApplicantId(id);
-            subjects.removeAll(selectedSubjects);
-            request.setAttribute("subjects", subjects);
-            request.setAttribute("selectedSubjects", selectedSubjects);
-        } catch (UnsuccessfulDAOException e) {
-            logger.error(e.getMessage());
-        }
+        List<Subject> subjects = subjectService.getAll();
+        List<Subject> selectedSubjects = subjectService.getByApplicantId(id);
+        subjects.removeAll(selectedSubjects);
+        request.setAttribute("subjects", subjects);
+        request.setAttribute("selectedSubjects", selectedSubjects);
+
         return new Page(PathPageManager.getProperty("page.choice-subjects"), false);
     }
 }

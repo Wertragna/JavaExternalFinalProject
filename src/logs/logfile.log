@@ -472,3 +472,18 @@
 2018-12-31 16:46:43 ERROR CommandFactory:27 - Not found Command for /admin/
 2018-12-31 16:46:44 ERROR CommandFactory:27 - Not found Command for /admin/
 2018-12-31 16:46:45 ERROR CommandFactory:27 - Not found Command for /admin/
+2019-01-01 22:49:26 ERROR ApplicantDAOSql:62 - No value specified for parameter 1
+2019-01-01 22:49:26 ERROR StatusServiceSql:31 - No value specified for parameter 1
+2019-01-02 01:25:24 ERROR SubjectDAOSql:73 - Unknown column 'aplicant' in 'where clause'
+2019-01-02 01:25:24 ERROR SubjectServiceSql:48 - 
+2019-01-02 01:25:27 ERROR SubjectDAOSql:73 - Unknown column 'aplicant' in 'where clause'
+2019-01-02 01:25:27 ERROR SubjectServiceSql:48 - 
+2019-01-02 01:27:18 ERROR SubjectDAOSql:89 - Unknown column 'aplicant' in 'where clause'
+2019-01-02 01:27:18 ERROR SubjectServiceSql:37 - 
+2019-01-02 01:27:20 ERROR SubjectDAOSql:89 - Unknown column 'aplicant' in 'where clause'
+2019-01-02 01:27:20 ERROR SubjectServiceSql:37 - 
+2019-01-02 01:27:21 ERROR SubjectDAOSql:89 - Unknown column 'aplicant' in 'where clause'
+2019-01-02 01:27:21 ERROR SubjectServiceSql:37 - 
+2019-01-02 01:27:22 ERROR SubjectDAOSql:89 - Unknown column 'aplicant' in 'where clause'
+2019-01-02 01:27:22 ERROR SubjectServiceSql:37 - 
+2019-01-02 01:30:03 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))

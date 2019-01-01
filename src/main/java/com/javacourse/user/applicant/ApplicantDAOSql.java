@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicantDAOSql implements ApplicantDAO<Integer> {
@@ -39,20 +40,70 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
         try (PreparedStatement statement =
                      connection.prepareStatement
                              ("INSERT INTO applicant(user,period,status) VALUE (?,?,?)")) {
-            statement.setInt(1, applicant.getUser().getId());
-            statement.setInt(2, applicant.getPeriod().getId());
-            statement.setInt(3, applicant.getStatus().getId());
+            statement.setInt(1, applicant.getUser());
+            statement.setInt(2, applicant.getPeriod());
+            statement.setInt(3, applicant.getStatus());
             changeNumber = statement.executeUpdate();
         } catch (SQLException e) {
             logger.error(e.getMessage());
-            throw new UnsuccessfulDAOException();
+            throw new UnsuccessfulDAOException(e.getMessage());
         }
         return changeNumber > 0;
     }
 
     @Override
+    public List<ApplicantSubject> getByPeriodAndSubject(int period, int subject) throws UnsuccessfulDAOException {
+        List<ApplicantSubject> applicantSubjects = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement("select * from applicant " +
+                "inner join applicant_subject on applicant.id = applicant_subject.applicant where subject=? and period =?")) {
+            statement.setInt(1,subject);
+            statement.setInt(2,period);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                applicantSubjects.add(createApplicantSubject(resultSet));
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+        return applicantSubjects;
+    }
+
+    private ApplicantSubject createApplicantSubject(ResultSet resultSet) throws SQLException {
+        ApplicantSubject applicantSubject = new ApplicantSubject();
+        applicantSubject.setApplicant(resultSet.getInt("applicant"));
+        int mark = resultSet.getInt("mark");
+        if (!resultSet.wasNull())
+            applicantSubject.setMark(mark);
+        applicantSubject.setSubject(resultSet.getInt("subject"));
+        return applicantSubject;
+    }
+
+    @Override
     public Applicant getById(Integer integer) throws UnsuccessfulDAOException {
-        return null;
+        Applicant applicant = null;
+        try (PreparedStatement statement = connection.prepareStatement("select * from applicant where id=?")) {
+            statement.setInt(1, integer);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                applicant = createApplicant(resultSet);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+
+            throw new UnsuccessfulDAOException(e.getMessage());
+        }
+        return applicant;
+    }
+
+    private Applicant createApplicant(ResultSet resultSet) throws SQLException {
+        Applicant applicant = new Applicant();
+        applicant.setPeriod(resultSet.getInt("period"));
+        applicant.setStatus(resultSet.getInt("status"));
+        applicant.setUser(resultSet.getInt("user"));
+        applicant.setId(resultSet.getInt("id"));
+        applicant.setSpeciality(resultSet.getInt("speciality"));
+        //add rating
+        return applicant;
     }
 
 

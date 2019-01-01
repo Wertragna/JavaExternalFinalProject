@@ -30,9 +30,9 @@ public class PeriodCommandPOST implements ActionCommand {
             applicantId = applicantDAOSql.getApplicantIdByUserIdAndPeriod(user, periodId);
             if (applicantId == -1) {//todo -1 mean dont exist
                 Applicant applicant = new Applicant();
-                applicant.setUser(user);
-                applicant.setPeriod(new Period(periodId, namePeriod, 1/*todo magic number change this*/));
-                applicant.setStatus(new Status(1, "under consideration"));
+                applicant.setUser(user.getId());
+                applicant.setPeriod(1/*todo magic number change this*/);
+                applicant.setStatus(1);
                 if (applicantDAOSql.create(applicant)) {
                     applicantId = applicantDAOSql.getApplicantIdByUserIdAndPeriod(user, periodId);
                     session.setAttribute("applicantId", applicantId);
