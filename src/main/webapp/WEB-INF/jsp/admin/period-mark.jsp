@@ -17,7 +17,7 @@
                 <h3>Subjects</h3>
                 <div class="list-group-flush">
                     <c:forEach items="${subjects}" var="subject">
-                        <a href="${pageContext.request.contextPath}/admin/period-subject-mark?id=${param["id"]}&subject=${subject.id}"
+                        <a href="${pageContext.request.contextPath}/admin/period-subject-marks?id=${param["id"]}&subject=${subject.id}"
                            class="list-group-item list-group-item-action">${subject.name}</a>
                     </c:forEach>
                 </div>

@@ -25,8 +25,28 @@ public class ApplicantServiceSql extends AbstractServiceSql<Integer, Applicant> 
     @Override
     public List<ApplicantSubject> getByPeriodAndSubject(int period, int subject) {
         List<ApplicantSubject> applicantSubjects = new ArrayList<>();
-        //todo
+        try (Connection connection = factoryDAO.createConnection()) {
+            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
+            applicantSubjects = applicantDAO.getByPeriodAndSubject(period, subject);
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
         return applicantSubjects;
+    }
+
+    @Override
+    public boolean updateMarks(List<ApplicantSubject> applicantSubjects) {
+        try (Connection connection = factoryDAO.createConnection()) {
+            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
+            for (ApplicantSubject a : applicantSubjects) {
+                if (!applicantDAO.updateApplicantSubjectMarks(a))
+                    return false;
+            }
+
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
+        return true;
     }
 
     @Override

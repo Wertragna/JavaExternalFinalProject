@@ -10,10 +10,7 @@ import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.subject.command.ChoiceSubjectCommand;
 import com.javacourse.subject.command.ChoiceSubjectCommandPOST;
 import com.javacourse.subject.command.SelectSubjectMark;
-import com.javacourse.user.applicant.command.ApplicantHomeCommand;
-import com.javacourse.user.applicant.command.ApplicantInfoCommand;
-import com.javacourse.user.applicant.command.PeriodCommand;
-import com.javacourse.user.applicant.command.PeriodCommandPOST;
+import com.javacourse.user.applicant.command.*;
 import com.javacourse.user.applicant.period.command.PeriodEditCommand;
 import com.javacourse.user.applicant.period.command.PeriodEditCommandPOST;
 import com.javacourse.user.applicant.period.command.PeriodInfoCommand;
@@ -139,6 +136,18 @@ public enum ActionCommandEnum {
     APPLICATION_INFO {
         {
             this.command = new ApplicantInfoCommand();
+        }
+    },
+    @Action(url = "/admin/period-subject-marks", method = "GET")
+    PERIOD_SUBJECT_MARKS {
+        {
+            this.command = new PeriodSubjectMarks();
+        }
+    },
+    @Action(url = "/admin/period-subject-marks", method = "POST")
+    PERIOD_SUBJECT_MARKS_POST {
+        {
+            this.command = new PeriodSubjectMarksPOST();
         }
     };
 

@@ -9,4 +9,5 @@ import java.util.List;
 public interface ApplicantService<K> extends Service<K, Applicant> {
     int getApplicantIdByUserIdAndPeriod(User user, Integer period) throws UnsuccessfulDAOException;
     List<ApplicantSubject> getByPeriodAndSubject(int period, int subject);
+    boolean updateMarks(List<ApplicantSubject> applicantSubjects);
 }

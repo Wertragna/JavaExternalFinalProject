@@ -5,7 +5,7 @@ import java.util.Objects;
 public class ApplicantSubject {
     int applicant;
     int subject;
-    int mark;
+    Integer mark;
 
     public ApplicantSubject() {
     }
@@ -26,11 +26,11 @@ public class ApplicantSubject {
         this.subject = subject;
     }
 
-    public int getMark() {
+    public Integer getMark() {
         return mark;
     }
 
-    public void setMark(int mark) {
+    public void setMark(Integer mark) {
         this.mark = mark;
     }
 

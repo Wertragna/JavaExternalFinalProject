@@ -487,3 +487,46 @@
 2019-01-02 01:27:22 ERROR SubjectDAOSql:89 - Unknown column 'aplicant' in 'where clause'
 2019-01-02 01:27:22 ERROR SubjectServiceSql:37 - 
 2019-01-02 01:30:03 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:24:38 DEBUG logging:22 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2019-01-02 22:24:38 INFO  Version:21 - HV000001: Hibernate Validator 6.0.13.Final
+2019-01-02 22:24:38 DEBUG TraversableResolvers:60 - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2019-01-02 22:24:38 DEBUG ValidationXmlParser:120 - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2019-01-02 22:24:38 DEBUG ResourceLoaderHelper:60 - Trying to load META-INF/validation.xml via TCCL
+2019-01-02 22:24:38 DEBUG ResourceLoaderHelper:66 - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2019-01-02 22:24:38 DEBUG ValidationXmlParser:127 - No META-INF/validation.xml found. Using annotation based configuration only.
+2019-01-02 22:24:39 DEBUG ResourceBundleMessageInterpolator:89 - Loaded expression factory via original TCCL
+2019-01-02 22:24:39 DEBUG ValidatorFactoryImpl:578 - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2019-01-02 22:24:39 DEBUG ValidatorFactoryImpl:579 - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2019-01-02 22:24:39 DEBUG ValidatorFactoryImpl:580 - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2019-01-02 22:24:39 DEBUG ValidatorFactoryImpl:581 - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2019-01-02 22:24:39 DEBUG ValidatorFactoryImpl:582 - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2019-01-02 22:24:39 DEBUG PlatformResourceBundleLocator:128 - ValidationMessages not found.
+2019-01-02 22:24:39 DEBUG PlatformResourceBundleLocator:128 - ContributorValidationMessages not found.
+2019-01-02 22:24:39 DEBUG PlatformResourceBundleLocator:125 - org.hibernate.validator.ValidationMessages found.
+2019-01-02 22:26:42 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:31:09 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:31:11 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:31:12 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:31:13 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:31:14 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:31:14 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:31:15 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:31:16 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-02 22:33:40 ERROR ApplicantDAOSql:48 - Cannot add or update a child row: a foreign key constraint fails (`enrollment_db`.`applicant`, CONSTRAINT `fk_aplicant_period1` FOREIGN KEY (`period`) REFERENCES `period` (`id`))
+2019-01-03 00:48:51 ERROR CommandFactory:27 - Not found Command for /admin/period-subject-marks
+2019-01-03 00:49:50 ERROR CommandFactory:27 - Not found Command for /admin/period-subject-marks
+2019-01-03 00:49:53 ERROR CommandFactory:27 - Not found Command for /admin/period-subject-marks
+2019-01-03 00:49:57 ERROR CommandFactory:27 - Not found Command for /admin/
+2019-01-03 00:49:59 ERROR CommandFactory:27 - Not found Command for /admin/
+2019-01-03 00:50:00 ERROR CommandFactory:27 - Not found Command for /admin/
+2019-01-03 00:50:00 ERROR CommandFactory:27 - Not found Command for /admin/
+2019-01-03 00:50:01 ERROR CommandFactory:27 - Not found Command for /admin/
+2019-01-03 01:11:40 ERROR ApplicantDAOSql:48 - Parameter index out of range (3 > number of parameters, which is 2).
+2019-01-03 01:11:40 ERROR ApplicantDAOSql:47 - Parameter index out of range (3 > number of parameters, which is 2).
+2019-01-03 01:11:48 ERROR ApplicantDAOSql:48 - Parameter index out of range (3 > number of parameters, which is 2).
+2019-01-03 01:11:48 ERROR ApplicantDAOSql:47 - Parameter index out of range (3 > number of parameters, which is 2).
+2019-01-03 18:36:14 ERROR CommandFactory:27 - Not found Command for /admin//admin/period-mark
+2019-01-03 18:39:51 ERROR PeriodDAOSql:57 - Data truncation: Data too long for column 'name' at row 1
+2019-01-03 18:39:57 ERROR PeriodDAOSql:57 - Data truncation: Data too long for column 'name' at row 1
+2019-01-03 18:40:07 ERROR PeriodDAOSql:57 - Data truncation: Data too long for column 'name' at row 1
+2019-01-03 18:40:11 ERROR PeriodDAOSql:57 - Data truncation: Data too long for column 'name' at row 1

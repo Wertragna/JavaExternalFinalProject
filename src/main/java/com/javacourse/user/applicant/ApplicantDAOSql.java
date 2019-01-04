@@ -35,6 +35,23 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
     }
 
     @Override
+    public boolean updateApplicantSubjectMarks(ApplicantSubject applicantSubject) throws UnsuccessfulDAOException {
+        int changeNumber = 0;
+        try (PreparedStatement preparedStatement =
+                     connection.prepareStatement(
+                             "update applicant_subject set mark = ? where applicant = ? and subject=?")) {
+            preparedStatement.setObject(1,applicantSubject.getMark());
+            preparedStatement.setInt(2,applicantSubject.getApplicant());
+            preparedStatement.setInt(3,applicantSubject.getSubject());
+            changeNumber = preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException(e.getMessage());
+        }
+        return changeNumber>0;
+    }
+
+    @Override
     public boolean create(Applicant applicant) throws UnsuccessfulDAOException {
         int changeNumber = 0;
         try (PreparedStatement statement =

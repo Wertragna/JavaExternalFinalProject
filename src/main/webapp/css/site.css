@@ -14,3 +14,15 @@
     margin: auto;
 }
 .top-buffer { padding-top:20px; }
+.input-table{
+    position: absolute;
+    display: block;
+    top:0;
+    left:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
