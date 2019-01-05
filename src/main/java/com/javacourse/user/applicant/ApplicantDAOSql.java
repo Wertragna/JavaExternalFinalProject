@@ -25,8 +25,21 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
     }
 
     @Override
-    public boolean update(Applicant v) throws UnsuccessfulDAOException {
-        return false;
+    public boolean update(Applicant entity) throws UnsuccessfulDAOException {
+        int changeNumber = 0;
+        try (PreparedStatement preparedStatement =
+                     connection.prepareStatement(
+                             "update applicant set speciality=?, status=?, rating =? where id =?")) {
+            preparedStatement.setObject(1, entity.getSpeciality());
+            preparedStatement.setInt(2, entity.getStatus());
+            preparedStatement.setObject(3, entity.getRating());
+            preparedStatement.setInt(4, entity.getId());
+            changeNumber = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException(e.getMessage());
+        }
+        return changeNumber > 0;
     }
 
     @Override
@@ -40,15 +53,15 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
         try (PreparedStatement preparedStatement =
                      connection.prepareStatement(
                              "update applicant_subject set mark = ? where applicant = ? and subject=?")) {
-            preparedStatement.setObject(1,applicantSubject.getMark());
-            preparedStatement.setInt(2,applicantSubject.getApplicant());
-            preparedStatement.setInt(3,applicantSubject.getSubject());
+            preparedStatement.setObject(1, applicantSubject.getMark());
+            preparedStatement.setInt(2, applicantSubject.getApplicant());
+            preparedStatement.setInt(3, applicantSubject.getSubject());
             changeNumber = preparedStatement.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             logger.error(e.getMessage());
             throw new UnsuccessfulDAOException(e.getMessage());
         }
-        return changeNumber>0;
+        return changeNumber > 0;
     }
 
     @Override
@@ -73,8 +86,8 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
         List<ApplicantSubject> applicantSubjects = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement("select * from applicant " +
                 "inner join applicant_subject on applicant.id = applicant_subject.applicant where subject=? and period =?")) {
-            statement.setInt(1,subject);
-            statement.setInt(2,period);
+            statement.setInt(1, subject);
+            statement.setInt(2, period);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 applicantSubjects.add(createApplicantSubject(resultSet));
@@ -118,8 +131,9 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
         applicant.setStatus(resultSet.getInt("status"));
         applicant.setUser(resultSet.getInt("user"));
         applicant.setId(resultSet.getInt("id"));
-        applicant.setSpeciality(resultSet.getInt("speciality"));
-        //add rating
+        int speciality = resultSet.getInt("speciality");
+        if (!resultSet.wasNull())
+            applicant.setSpeciality(speciality);
         return applicant;
     }
 

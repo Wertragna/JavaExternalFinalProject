@@ -1,5 +1,6 @@
 package com.javacourse.shared.dao;
 
+import com.javacourse.speciality.SpecialityDAO;
 import com.javacourse.subject.SubjectDAO;
 import com.javacourse.user.UserDAO;
 import com.javacourse.user.applicant.ApplicantDAO;
@@ -19,5 +20,6 @@ public interface FactoryDAO {
     PeriodDAO createPeriodDAO(Connection connection);
     StateDAO createStateDAO(Connection connection);
     StatusDAO createStatusDAO(Connection connection);
+    SpecialityDAO createSpecialityDAO(Connection connection);
     Connection createConnection();
 }

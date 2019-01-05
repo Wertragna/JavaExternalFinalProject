@@ -1,6 +1,8 @@
 package com.javacourse.shared.dao;
 
 import com.javacourse.shared.service.SQLConnection;
+import com.javacourse.speciality.SpecialityDAO;
+import com.javacourse.speciality.SpecialityDAOSql;
 import com.javacourse.subject.SubjectDAO;
 import com.javacourse.subject.SubjectDAOSql;
 import com.javacourse.user.UserDAO;
@@ -58,5 +60,10 @@ public class FactoryDAOSql implements FactoryDAO {
     @Override
     public Connection createConnection() {
         return new SQLConnection().getConnection();
+    }
+
+    @Override
+    public SpecialityDAO createSpecialityDAO(Connection connection) {
+        return new SpecialityDAOSql(connection);
     }
 }

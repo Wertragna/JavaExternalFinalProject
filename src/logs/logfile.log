@@ -530,3 +530,6 @@
 2019-01-03 18:39:57 ERROR PeriodDAOSql:57 - Data truncation: Data too long for column 'name' at row 1
 2019-01-03 18:40:07 ERROR PeriodDAOSql:57 - Data truncation: Data too long for column 'name' at row 1
 2019-01-03 18:40:11 ERROR PeriodDAOSql:57 - Data truncation: Data too long for column 'name' at row 1
+2019-01-04 16:08:43 ERROR CommandFactory:27 - Not found Command for /applicant/choose-speciality
+2019-01-05 01:12:32 ERROR SubjectDAOSql:112 - Duplicate entry '22-1' for key 'PRIMARY'
+2019-01-05 01:12:32 ERROR SubjectServiceSql:32 - 

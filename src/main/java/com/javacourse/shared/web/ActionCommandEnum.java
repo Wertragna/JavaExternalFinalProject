@@ -7,6 +7,8 @@ import com.javacourse.security.command.SingInCommandPOST;
 import com.javacourse.security.command.SingUpCommandPOST;
 import com.javacourse.shared.annotations.Action;
 import com.javacourse.shared.command.ActionCommand;
+import com.javacourse.speciality.Command.ChoiceSpecialityCommand;
+import com.javacourse.speciality.Command.ChoiceSpecialityCommandPOST;
 import com.javacourse.subject.command.ChoiceSubjectCommand;
 import com.javacourse.subject.command.ChoiceSubjectCommandPOST;
 import com.javacourse.subject.command.SelectSubjectMark;
@@ -149,7 +151,20 @@ public enum ActionCommandEnum {
         {
             this.command = new PeriodSubjectMarksPOST();
         }
-    };
+    },
+    @Action(url = "/applicant/choose-speciality", method = "GET")
+    CHOICE_SPECIALITY{
+        {
+            this.command = new ChoiceSpecialityCommand();
+        }
+    },
+    @Action(url = "/applicant/choose-speciality", method = "POST")
+    CHOICE_SPECIALITY_POST{
+        {
+            this.command = new ChoiceSpecialityCommandPOST();
+        }
+    }
+    ;
 
 
     ActionCommand command;

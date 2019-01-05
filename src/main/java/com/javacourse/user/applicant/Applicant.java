@@ -11,7 +11,7 @@ public class Applicant {
     private int id;
     private int user;
     private int period;
-    private int speciality;
+    private Integer speciality;
     private int status;
     private Status statusEntity;
     private Period periodEntity;
@@ -77,11 +77,11 @@ public class Applicant {
         this.period = period;
     }
 
-    public int getSpeciality() {
+    public Integer getSpeciality() {
         return speciality;
     }
 
-    public void setSpeciality(int speciality) {
+    public void setSpeciality(Integer speciality) {
         this.speciality = speciality;
     }
 

@@ -34,6 +34,9 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-subjects">subject</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-speciality">speciality</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/applicant/info">info</a>
                 </li>
             </c:if>

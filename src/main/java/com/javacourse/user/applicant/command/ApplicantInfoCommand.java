@@ -2,6 +2,9 @@ package com.javacourse.user.applicant.command;
 
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
+import com.javacourse.speciality.Speciality;
+import com.javacourse.speciality.SpecialityService;
+import com.javacourse.speciality.SpecialityServiceSql;
 import com.javacourse.subject.Subject;
 import com.javacourse.subject.SubjectService;
 import com.javacourse.subject.SubjectServiceSql;
@@ -25,6 +28,10 @@ public class ApplicantInfoCommand implements ActionCommand {
         StatusService statusService = new StatusServiceSql();
         Status status = statusService.getByApplicantId(id);
         request.setAttribute( "status",status);
+        SpecialityService specialityService= new SpecialityServiceSql();
+        Speciality speciality = specialityService.getByApplicantId(id);
+        System.out.println(speciality);
+        request.setAttribute("speciality",speciality);
         return new Page(PathPageManager.getProperty("page.applicant-info"), false);
 
     }

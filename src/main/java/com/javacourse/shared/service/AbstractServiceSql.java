@@ -83,17 +83,13 @@ public class AbstractServiceSql<K, E> implements Service<K, E> {
     }
 
     @Override
-    public E getById(K key) throws UnsuccessfulDAOException {
+    public E getById(K key)  {
         AbstractDAO abstractDAO = null;
         E entity = null;
         try (Connection connection = DataBaseConnectionPool.getConnection()) {
             abstractDAO = abstractDaoClass.getDeclaredConstructor(Connection.class).newInstance(connection);
             entity = (E) abstractDAO.getById(key);
-        } catch (InstantiationException
-                | IllegalAccessException
-                | InvocationTargetException
-                | NoSuchMethodException
-                | SQLException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
         return entity;

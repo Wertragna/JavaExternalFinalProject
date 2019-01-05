@@ -33,7 +33,7 @@
             <div class="col-md-10">
                 <c:choose>
                     <c:when test="${not empty speciality}">
-                        ${speciality}
+                        ${speciality.name}
                     </c:when>
                     <c:otherwise>
                         You haven't chosen speciality yet.

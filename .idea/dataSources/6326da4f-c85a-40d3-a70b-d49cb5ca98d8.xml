@@ -1130,6 +1130,7 @@
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="292" parent="281" name="user">
@@ -1212,7 +1213,7 @@ period</ColNames>
       <RefTableName>status</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="307" parent="282" name="aplicant">
+    <column id="307" parent="282" name="applicant">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1224,7 +1225,7 @@ period</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="282" name="grade">
+    <column id="309" parent="282" name="mark">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -1235,12 +1236,12 @@ period</ColNames>
     </index>
     <key id="311" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>aplicant
+      <ColNames>applicant
 subject</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="312" parent="282" name="fk_aplicant_subject_aplicant1">
-      <ColNames>aplicant</ColNames>
+    <foreign-key id="312" parent="282" name="fk_aplicant_sujbject_applicant">
+      <ColNames>applicant</ColNames>
       <RefSchemaName>enrollment_db</RefSchemaName>
       <RefTableName>applicant</RefTableName>
       <RefColNames>id</RefColNames>
@@ -1347,8 +1348,9 @@ subject</ColNames>
     </key>
     <column id="330" parent="287" name="id">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(1)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="331" parent="287" name="name">
@@ -1372,6 +1374,7 @@ subject</ColNames>
     <column id="334" parent="288" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="335" parent="288" name="is_available">

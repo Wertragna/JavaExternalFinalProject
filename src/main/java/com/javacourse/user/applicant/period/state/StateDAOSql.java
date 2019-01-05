@@ -79,4 +79,22 @@ public class StateDAOSql implements StateDAO<Integer> {
         state.setName(rs.getString("name"));
         return state;
     }
+
+    @Override
+    public State getByPeriodId(int id) throws UnsuccessfulDAOException {
+        State state = null;
+        try (PreparedStatement statement =
+                     connection.prepareStatement(
+                             "select * from state inner join period on state.id = period.state where period.id= ?")) {
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                state = createState(rs);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException();
+        }
+        return state;
+    }
 }
