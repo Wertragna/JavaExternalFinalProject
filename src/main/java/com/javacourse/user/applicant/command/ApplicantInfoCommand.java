@@ -30,7 +30,6 @@ public class ApplicantInfoCommand implements ActionCommand {
         request.setAttribute( "status",status);
         SpecialityService specialityService= new SpecialityServiceSql();
         Speciality speciality = specialityService.getByApplicantId(id);
-        System.out.println(speciality);
         request.setAttribute("speciality",speciality);
         return new Page(PathPageManager.getProperty("page.applicant-info"), false);
 

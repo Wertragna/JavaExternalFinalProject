@@ -1,6 +1,8 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <tags:page-template><h3>Info</h3>
+
+
     <ul class="list-group list-group-flush">
         <li class="list-group-item row d-flex">
             <div class="col-md-2">

@@ -5,6 +5,11 @@ import com.javacourse.shared.web.Page;
 import com.javacourse.subject.Subject;
 import com.javacourse.subject.SubjectService;
 import com.javacourse.subject.SubjectServiceSql;
+import com.javacourse.user.applicant.ApplicantService;
+import com.javacourse.user.applicant.ApplicantServiceSql;
+import com.javacourse.user.applicant.period.state.StateName;
+import com.javacourse.user.applicant.period.state.StateService;
+import com.javacourse.user.applicant.period.state.StateServiceSql;
 import com.javacourse.utils.PathPageManager;
 import org.apache.log4j.Logger;
 
@@ -17,7 +22,18 @@ public class ChoiceSubjectCommand implements ActionCommand {
 
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
+
         int id = (Integer) request.getSession().getAttribute("applicantId");
+
+        ApplicantService<Integer> applicantService = new ApplicantServiceSql();
+        StateService<Integer> stateService = new StateServiceSql();
+        StateName stateName = stateService.getByPeriodId(applicantService.getById(id).getPeriod());
+        if (!stateName.equals(StateName.CHOICE_SUBJECTS)) {
+            request.setAttribute("access", false);
+        } else
+            request.setAttribute("access", true);
+
+
         SubjectService subjectService = new SubjectServiceSql();
         List<Subject> subjects = subjectService.getAll();
         List<Subject> selectedSubjects = subjectService.getByApplicantId(id);

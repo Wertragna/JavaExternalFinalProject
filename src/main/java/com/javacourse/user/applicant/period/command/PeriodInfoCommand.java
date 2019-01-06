@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class PeriodInfoCommand implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
-        String idString = request.getParameter("id");
+        String idString = request.getParameter("id-period");
         System.out.println(idString);
         int id = Integer.parseInt(idString);
         PeriodService periodService = new PeriodServiceSql();

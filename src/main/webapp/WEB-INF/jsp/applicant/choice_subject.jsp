@@ -4,46 +4,86 @@
 <t:page-template>
     <jsp:body>
         <h3>Subjects</h3>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">name</th>
-                <th scope="col"></th>
-            </tr>
-            <tbody>
+        <c:if test="${not access}">
+            <div class="alert alert-info" role="alert">
+                Sorry, you don't have access to do changes!
+            </div>
+        </c:if>
+        <ul class="list-group list-group-flush">
             <c:forEach items="${selectedSubjects}" var="selectedSubject">
-                <form method="post" name="choose-subjects">
-                    <tr><input type="hidden" name="type" value="delete">
-                        <input type="hidden" name="idSelectedSubject" value="${selectedSubject.id}">
-                        <td class="col-sm-9">${selectedSubject.name}</td>
-                        <td class="col-sm-3">
-                            <button type="submit" class="btn btn-primary">delete</button>
-                        </td>
-                    </tr>
-                </form>
-            </c:forEach>
+                <li class="list-group-item ">
+                    <form method="post" name="choose-subjects"><input type="hidden" name="type" value="delete">
+                        <c:choose>
 
-            </tbody>
-            </thead>
-        </table>
+                            <c:when test="${not access}">
+                                <fieldset disabled>
+                                    <input type="hidden" name="idSelectedSubject" value="${selectedSubject.id}">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <div class="vertical-center">${selectedSubject.name}</div>
+                                        </div>
+                                        <div class="col-md-2 ">
+                                            <button type="submit" class="btn btn-primary">delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </c:when>
+                            <c:otherwise>
+                                <input type="hidden" name="idSelectedSubject" value="${selectedSubject.id}">
+                                <div class="row">
+                                    <div class="col-md-10">${selectedSubject.name}</div>
+                                    <div class="col-md-2">
+                                        <button type="submit" class="btn btn-primary vertical-center">delete</button>
+                                    </div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                    </form>
+                </li>
+            </c:forEach>
+        </ul>
         <c:if test="${not empty subjects}">
             <form action="choose-subjects" method="post">
-                <input type="hidden" name="type" value="add">
-                <div class="form-row align-items-center">
-                    <div class="col-auto my-1">
-                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="idSubject">
+                <c:choose>
+                    <c:when test="${not access}">
+                        <fieldset disabled>
+                            <input type="hidden" name="type" value="add">
+                            <div class="form-row align-items-center">
+                                <div class="col-auto my-1">
+                                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="idSubject">
 
-                            <c:forEach items="${subjects}" var="subject">
-                                <option name="idSubject" value="${subject.id}">${subject.name}</option>
-                            </c:forEach>
+                                        <c:forEach items="${subjects}" var="subject">
+                                            <option name="idSubject" value="${subject.id}">${subject.name}</option>
+                                        </c:forEach>
 
-                        </select>
-                    </div>
-                    <div class="col-auto my-1">
-                        <button type="submit" class="btn btn-primary">Add</button>
-                    </div>
-                </div>
+                                    </select>
+                                </div>
+                                <div class="col-auto my-1">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="form-row align-items-center">
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="idSubject">
+
+                                    <c:forEach items="${subjects}" var="subject">
+                                        <option name="idSubject" value="${subject.id}">${subject.name}</option>
+                                    </c:forEach>
+
+                                </select>
+                            </div>
+                            <div class="col-auto my-1">
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </form>
         </c:if>
     </jsp:body>

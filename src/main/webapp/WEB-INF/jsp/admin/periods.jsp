@@ -6,7 +6,7 @@
         <c:forEach items="${periods}" var="period">
             <form method="GET" action="period-info">
                 <button type="submit" class="btn btn-outline-primary btn-block text-left">${period.name}</button>
-                <input type="hidden" value="${period.id}" name="id">
+                <input type="hidden" value="${period.id}" name="id-period">
             </form>
         </c:forEach>
     </jsp:body>

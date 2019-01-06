@@ -5,11 +5,11 @@
         <div class="card-header">
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap">
                 <a class="text-sm-center nav-link"
-                   href="${pageContext.request.contextPath}/admin/period-info?id=${param["id"]}">info</a>
+                   href="${pageContext.request.contextPath}/admin/period-info?id-period=${param["id-period"]}">info</a>
                 <a class="text-sm-center nav-link"
-                   href="${pageContext.request.contextPath}/admin/period-edit?id-period=${param["id"]}">edit</a>
+                   href="${pageContext.request.contextPath}/admin/period-edit?id-period=${param["id-period"]}">edit</a>
                 <a class="text-sm-center nav-link active"
-                   href="${pageContext.request.contextPath}/admin/period-mark?id=${param["id"]}">mark</a>
+                   href="${pageContext.request.contextPath}/admin/period-mark?id-period=${param["id-period"]}">mark</a>
             </nav>
         </div>
         <div class="card-body">
@@ -17,7 +17,7 @@
                 <h3>Subjects</h3>
                 <div class="list-group-flush">
                     <c:forEach items="${subjects}" var="subject">
-                        <a href="${pageContext.request.contextPath}/admin/period-subject-marks?id=${param["id"]}&subject=${subject.id}"
+                        <a href="${pageContext.request.contextPath}/admin/period-subject-marks?id-period=${param["id-period"]}&subject=${subject.id}"
                            class="list-group-item list-group-item-action">${subject.name}</a>
                     </c:forEach>
                 </div>

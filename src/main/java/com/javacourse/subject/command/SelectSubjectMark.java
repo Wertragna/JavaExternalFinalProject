@@ -14,6 +14,8 @@ import java.util.List;
 public class SelectSubjectMark implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
+
+
         SubjectService<Integer> subjectService = new SubjectServiceSql();
         List<Subject> subjects = subjectService.getAll();
         request.setAttribute("subjects",subjects);
