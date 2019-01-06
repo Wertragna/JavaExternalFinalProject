@@ -5,7 +5,7 @@
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap">
                 <a class="text-sm-center nav-link active"
                    href="${pageContext.request.contextPath}/admin/period-info?id-period=${param["id-period"]}">info</a>
-                <a class="text-sm-center nav-link "
+                <a class="text-sm-center nav-link"
                    href="${pageContext.request.contextPath}/admin/period-edit?id-period=${param["id-period"]}">edit</a>
                 <a class="text-sm-center nav-link"
                    href="${pageContext.request.contextPath}/admin/period-mark?id-period=${param["id-period"]}">mark</a>

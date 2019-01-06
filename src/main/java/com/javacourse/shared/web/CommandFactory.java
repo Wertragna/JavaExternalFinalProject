@@ -35,8 +35,9 @@ public class CommandFactory {
         for (Field field : enumCommand.getDeclaredFields()) {
             for (Annotation annotation : field.getAnnotations()) {
                 if (annotation instanceof Action) {
-                    System.out.println(field.getName());
+
                     if (((Action) annotation).url().equals(url) && ((Action) annotation).method().equals(request.getMethod())) {
+                        System.out.println(field.getName());
                         return field.getName();
                     }
                 }

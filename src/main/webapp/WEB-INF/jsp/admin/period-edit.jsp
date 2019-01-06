@@ -29,15 +29,38 @@
                 </div>
             </form>
 
-            <form name="period-edit" method="post">
-                <h3>Set the next stage of period</h3>
-                <input type="hidden" name="type" value="state">
-                <input type="hidden" name="id" value="${period.id}">
-                <input type="hidden" name="state" value="${period.state}">
-                <input type="hidden" class="form-control" name="name" value="${period.name}">
 
-                <input type="submit" class="btn btn-primary">
-            </form>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Set the next step of period
+            </button>
+
         </div>
     </div>
+    <form name="period-edit" id="nextStep" method="post">
+        <input type="hidden" name="type" value="state">
+        <input type="hidden" name="id" value="${period.id}">
+        <input type="hidden" name="state" value="${period.state}">
+        <input type="hidden" class="form-control" name="name" value="${period.name}">
+    </form>
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Set the next step of period</h5>
+                </div>
+                <div class="modal-body">
+                    You cant rollback this changes.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" id="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </tags:page-template>

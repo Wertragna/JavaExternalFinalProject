@@ -12,7 +12,7 @@
         <ul class="navbar-nav mr-auto">
             <c:if test="${sessionScope.user.roleEntity == ADMIN}">
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/admin">home</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/">home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/admin/create-new-period">create new
@@ -25,7 +25,7 @@
             <c:if test="${sessionScope.user.roleEntity == USER}">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/applicant">home</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/">home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/period">period</a>

@@ -18,5 +18,10 @@
         </main>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-slim.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <script>
+            $('#submit').click(function(){
+                $('#nextStep').submit();
+            });
+        </script>
     </jsp:body>
 </t:genericpage>

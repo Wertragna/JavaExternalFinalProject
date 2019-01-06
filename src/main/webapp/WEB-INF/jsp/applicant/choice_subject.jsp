@@ -12,7 +12,8 @@
         <ul class="list-group list-group-flush">
             <c:forEach items="${selectedSubjects}" var="selectedSubject">
                 <li class="list-group-item ">
-                    <form method="post" name="choose-subjects"><input type="hidden" name="type" value="delete">
+                    <form method="post" name="choose-subjects">
+                        <input type="hidden" name="type" value="delete">
                         <c:choose>
 
                             <c:when test="${not access}">
@@ -67,6 +68,7 @@
                         </fieldset>
                     </c:when>
                     <c:otherwise>
+                        <input type="hidden" name="type" value="add">
                         <div class="form-row align-items-center">
                             <div class="col-auto my-1">
                                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>

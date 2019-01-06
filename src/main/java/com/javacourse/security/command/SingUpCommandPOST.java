@@ -35,7 +35,7 @@ public class SingUpCommandPOST implements ActionCommand {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<User>> constraintViolations = validator.validate(user);
-
+        System.out.println(user);
         //Show errors
         if (constraintViolations.size() > 0) {
             for (ConstraintViolation<User> violation : constraintViolations) {
