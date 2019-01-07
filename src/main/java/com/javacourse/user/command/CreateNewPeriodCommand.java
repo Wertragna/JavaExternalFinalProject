@@ -1,7 +1,6 @@
 package com.javacourse.user.command;
 
 import com.javacourse.user.applicant.period.Period;
-import com.javacourse.user.applicant.period.PeriodService;
 import com.javacourse.user.applicant.period.PeriodServiceSql;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
@@ -21,7 +20,7 @@ public class CreateNewPeriodCommand implements ActionCommand {
         Period period = new Period();
         period.setState(1/* todo magic number */);
         period.setName(name);
-        PeriodService periodService = new PeriodServiceSql();
+        PeriodServiceSql periodService = new PeriodServiceSql();
         try {
             if(periodService.create(period)){
                 //todo change page

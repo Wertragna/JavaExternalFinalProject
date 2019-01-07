@@ -50,7 +50,7 @@
                 </c:when>
                 <c:otherwise>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-in">sign in</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-in"> <span class="glyphicon glyphicon-log-in " aria-hidden="true"></span>sign in</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-up">sign up</a>

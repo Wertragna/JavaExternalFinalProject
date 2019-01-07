@@ -9,7 +9,6 @@ import com.javacourse.subject.Subject;
 import com.javacourse.subject.SubjectService;
 import com.javacourse.subject.SubjectServiceSql;
 import com.javacourse.user.applicant.status.Status;
-import com.javacourse.user.applicant.status.StatusService;
 import com.javacourse.user.applicant.status.StatusServiceSql;
 import com.javacourse.utils.PathPageManager;
 
@@ -25,7 +24,7 @@ public class ApplicantInfoCommand implements ActionCommand {
         SubjectService subjectService = new SubjectServiceSql();
         List<Subject> subjects = subjectService.getByApplicantId(id);
         request.setAttribute("subjects",subjects);
-        StatusService statusService = new StatusServiceSql();
+        StatusServiceSql statusService = new StatusServiceSql();
         Status status = statusService.getByApplicantId(id);
         request.setAttribute( "status",status);
         SpecialityService specialityService= new SpecialityServiceSql();

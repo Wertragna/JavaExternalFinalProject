@@ -3,7 +3,6 @@ package com.javacourse.user.applicant.period.command;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.applicant.period.Period;
-import com.javacourse.user.applicant.period.PeriodService;
 import com.javacourse.user.applicant.period.PeriodServiceSql;
 import com.javacourse.utils.PathPageManager;
 
@@ -14,7 +13,7 @@ import java.util.List;
 public class ShowPeriodsCommand implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response){
-        PeriodService periodService = new PeriodServiceSql();
+        PeriodServiceSql periodService = new PeriodServiceSql();
         List<Period> periods = periodService.getAll();
         request.setAttribute("periods",periods);
         return new Page(PathPageManager.getProperty("page.periods"),false);

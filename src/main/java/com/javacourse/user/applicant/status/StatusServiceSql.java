@@ -4,13 +4,14 @@ import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.dao.FactoryDAO;
 import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.shared.service.AbstractServiceSql;
+import com.javacourse.shared.service.Service;
 import com.javacourse.user.applicant.ApplicantDAO;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class StatusServiceSql extends AbstractServiceSql<Integer, Status> implements StatusService {
+public class StatusServiceSql extends AbstractServiceSql<Integer, Status> implements Service<Integer,Status> {
     private final Logger logger = Logger.getLogger(StatusServiceSql.class);
     FactoryDAO factoryDAO;
 
@@ -19,7 +20,6 @@ public class StatusServiceSql extends AbstractServiceSql<Integer, Status> implem
         factoryDAO = new FactoryDAOSql();
     }
 
-    @Override
     public Status getByApplicantId(int applicantId) {
         Status status = null;
         try (Connection connection = factoryDAO.createConnection()) {

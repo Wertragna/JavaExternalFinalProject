@@ -4,6 +4,7 @@ import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.dao.FactoryDAO;
 import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.shared.service.AbstractServiceSql;
+import com.javacourse.shared.service.Service;
 import com.javacourse.user.applicant.period.state.State;
 import com.javacourse.user.applicant.period.state.StateDAO;
 import com.javacourse.user.applicant.period.state.StateName;
@@ -14,7 +15,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-public class PeriodServiceSql<K> extends AbstractServiceSql<K, Period> implements PeriodService<K> {
+public class PeriodServiceSql extends AbstractServiceSql<Integer, Period> implements Service<Integer,Period> {
     private static final Logger logger = Logger.getLogger(PeriodServiceSql.class);
     FactoryDAO factoryDAO;
 
@@ -23,7 +24,7 @@ public class PeriodServiceSql<K> extends AbstractServiceSql<K, Period> implement
         factoryDAO = new FactoryDAOSql();
     }
 
-    @Override
+
     public boolean checkAllPeriodIsEnded() throws UnsuccessfulDAOException {
         /*List<Period> periods = null;
         try (Connection connection = factoryDAO.createConnection()){
@@ -40,23 +41,23 @@ public class PeriodServiceSql<K> extends AbstractServiceSql<K, Period> implement
         return false;
     }
 
-    //todo implement
-    @Override
-    public boolean checkPeriodsChoiceSubjects() throws UnsuccessfulDAOException {
-        return false;
+    public List<Period> getAvailablePeriodsByUserId(int userID){
+        List<Period> periods = null;
+        try(Connection connection = factoryDAO.createConnection()){
+            PeriodDAO periodDAO=  factoryDAO.createPeriodDAO(connection);
+            periods= periodDAO.getAvailablePeriodWithStateForUserIdOrStateId(userID, 1);
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
+        return periods;
     }
 
-    //todo implement
-    @Override
-    public List<Period> selectPeriodsChoiceSubject() throws UnsuccessfulDAOException {
-        return null;
-    }
 
-    @Override
+
     public Period getByIdWithState(int id) {
         Period period = null;
         try (Connection connection = factoryDAO.createConnection()) {
-            PeriodDAO<Integer> periodDAO = factoryDAO.createPeriodDAO(connection);
+            PeriodDAO periodDAO = factoryDAO.createPeriodDAO(connection);
             StateDAO<Integer> stateDAO = factoryDAO.createStateDAO(connection);
             period = periodDAO.getById(id);
             State state = stateDAO.getById(period.getState());
@@ -67,10 +68,10 @@ public class PeriodServiceSql<K> extends AbstractServiceSql<K, Period> implement
         return period;
     }
 
-    @Override
+
     public boolean setNextState(Period period) {
         try (Connection connection = factoryDAO.createConnection()) {
-            PeriodDAO<Integer> periodDAO = factoryDAO.createPeriodDAO(connection);
+            PeriodDAO periodDAO = factoryDAO.createPeriodDAO(connection);
             StateDAO<Integer> stateDAO = factoryDAO.createStateDAO(connection);
             State currentState = stateDAO.getById(period.getState());
             StateName stateName= StateName.valueOf(currentState.getName().toUpperCase());

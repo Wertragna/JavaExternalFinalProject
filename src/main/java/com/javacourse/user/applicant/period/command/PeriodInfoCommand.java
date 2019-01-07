@@ -3,7 +3,6 @@ package com.javacourse.user.applicant.period.command;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.applicant.period.Period;
-import com.javacourse.user.applicant.period.PeriodService;
 import com.javacourse.user.applicant.period.PeriodServiceSql;
 import com.javacourse.utils.PathPageManager;
 
@@ -16,7 +15,7 @@ public class PeriodInfoCommand implements ActionCommand {
         String idString = request.getParameter("id-period");
         System.out.println(idString);
         int id = Integer.parseInt(idString);
-        PeriodService periodService = new PeriodServiceSql();
+        PeriodServiceSql periodService = new PeriodServiceSql();
         Period period = periodService.getByIdWithState(id);
         request.setAttribute("name", period.getName());
         request.setAttribute("state", period.getStateEntity().getName());

@@ -1,6 +1,10 @@
 package com.javacourse.user.applicant.period;
 
+import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.dao.AbstractDAO;
 
-public interface PeriodDAO<K> extends AbstractDAO<K,Period> {
+import java.util.List;
+
+public interface PeriodDAO extends AbstractDAO<Integer,Period> {
+    List<Period> getAvailablePeriodWithStateForUserIdOrStateId(int userId, int stateIdd) throws UnsuccessfulDAOException;
 }

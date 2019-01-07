@@ -3,7 +3,6 @@ package com.javacourse.user.applicant.period.command;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.applicant.period.Period;
-import com.javacourse.user.applicant.period.PeriodService;
 import com.javacourse.user.applicant.period.PeriodServiceSql;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,7 @@ public class PeriodEditCommandPOST implements ActionCommand {
         String name = request.getParameter("name");
         int state = Integer.parseInt(request.getParameter("state"));
         int id = Integer.parseInt(request.getParameter("id"));
-        PeriodService<Integer> periodService = new PeriodServiceSql<>();
+        PeriodServiceSql periodService = new PeriodServiceSql();
         Period period = new Period();
         period.setName(name);
         period.setState(state);
