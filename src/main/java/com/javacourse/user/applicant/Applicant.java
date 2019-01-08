@@ -1,6 +1,7 @@
 package com.javacourse.user.applicant;
 
 import com.javacourse.speciality.Speciality;
+import com.javacourse.user.User;
 import com.javacourse.user.applicant.period.Period;
 import com.javacourse.user.applicant.status.Status;
 
@@ -16,6 +17,7 @@ public class Applicant {
     private Status statusEntity;
     private Period periodEntity;
     private Speciality specialityEntity;
+    private User userEntity;
 
     public Applicant(int id, int user, int period, int speciality, int status, int rating) {
         this.id = id;
@@ -27,6 +29,14 @@ public class Applicant {
     }
 
     public Applicant() {
+    }
+
+    public User getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(User userEntity) {
+        this.userEntity = userEntity;
     }
 
     public Status getStatusEntity() {

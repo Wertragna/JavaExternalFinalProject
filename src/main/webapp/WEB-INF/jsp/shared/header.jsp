@@ -30,27 +30,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/period">period</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-subjects">subject</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-speciality">speciality</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/applicant/info">info</a>
-                </li>
             </c:if>
         </ul>
         <ul class="navbar-nav right">
             <c:choose>
                 <c:when test="${not empty sessionScope.user}">
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/login/logout">logout</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login/logout"> <i data-feather="log-out"></i> logout</a>
                     </li>
                 </c:when>
                 <c:otherwise>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-in"> <span class="glyphicon glyphicon-log-in " aria-hidden="true"></span>sign in</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-in"> <i data-feather="log-in"></i>sign in</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/login/sign-up">sign up</a>

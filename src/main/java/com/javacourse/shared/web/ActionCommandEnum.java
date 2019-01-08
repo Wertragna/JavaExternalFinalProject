@@ -9,6 +9,7 @@ import com.javacourse.shared.annotations.Action;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.speciality.Command.ChoiceSpecialityCommand;
 import com.javacourse.speciality.Command.ChoiceSpecialityCommandPOST;
+import com.javacourse.speciality.Command.ShowSpecialitiesCommand;
 import com.javacourse.subject.command.ChoiceSubjectCommand;
 import com.javacourse.subject.command.ChoiceSubjectCommandPOST;
 import com.javacourse.subject.command.SelectSubjectMark;
@@ -163,8 +164,20 @@ public enum ActionCommandEnum {
         {
             this.command = new ChoiceSpecialityCommandPOST();
         }
-    }
-    ;
+    },
+
+    @Action(url = "/admin/specialities", method = "GET")
+    SHOW_SPECIALITIES{
+        {
+            this.command = new ShowSpecialitiesCommand();
+        }
+    },
+    @Action(url = "/admin/statistic", method = "GET")
+    SHOW_STATISTICS{
+        {
+            this.command = new ShowStatisticBySpeciality();
+        }
+    };
 
 
     ActionCommand command;

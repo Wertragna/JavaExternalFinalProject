@@ -13,11 +13,12 @@ public class ChoiceSpecialityCommandPOST implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
         int id = (Integer) request.getSession().getAttribute("applicantId");
-        ApplicantService<Integer> service =new ApplicantServiceSql();
+        ApplicantServiceSql service =new ApplicantServiceSql();
         Applicant applicant= service.getById(id);
         System.out.println(request.getParameter("idSpeciality"));
         int idSpeciality = Integer.parseInt(request.getParameter("idSpeciality"));
         applicant.setSpeciality(idSpeciality);
+        applicant.setRating(service.calculateRatingForSubjectSpeciality(id,idSpeciality));
         service.update(applicant);
          return new Page(request.getContextPath() + "/applicant/choose-speciality", true);
     }

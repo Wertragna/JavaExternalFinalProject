@@ -590,3 +590,29 @@
 2019-01-06 12:11:54 DEBUG ValidatorFactoryImpl:580 - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
 2019-01-06 12:11:54 DEBUG ValidatorFactoryImpl:581 - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
 2019-01-06 12:11:54 DEBUG ValidatorFactoryImpl:582 - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2019-01-07 19:02:33 ERROR ApplicantDAOSql:103 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:02:35 ERROR ApplicantDAOSql:68 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:02:57 ERROR ApplicantDAOSql:103 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:02:57 ERROR ApplicantDAOSql:68 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:03:22 ERROR ApplicantDAOSql:103 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:03:22 ERROR ApplicantDAOSql:68 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:04:22 ERROR ApplicantDAOSql:103 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:04:22 ERROR ApplicantDAOSql:68 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:05:28 ERROR ApplicantDAOSql:103 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:06:20 ERROR ApplicantDAOSql:68 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:07:20 ERROR ApplicantDAOSql:103 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:07:20 ERROR ApplicantDAOSql:68 - Parameter index out of range (1 > number of parameters, which is 0).
+2019-01-07 19:33:06 ERROR CommandFactory:27 - Not found Command for /admin/statistic
+2019-01-07 19:33:40 ERROR CommandFactory:27 - Not found Command for /admin/statistic
+2019-01-07 19:33:43 ERROR CommandFactory:27 - Not found Command for /admin/statistic
+2019-01-07 19:33:59 ERROR CommandFactory:27 - Not found Command for /admin/statistic
+2019-01-07 19:34:09 ERROR CommandFactory:27 - Not found Command for /admin/statistic
+2019-01-07 22:16:53 ERROR CommandFactory:27 - Not found Command for /admin/statistic
+2019-01-07 22:20:06 ERROR ApplicantDAOSql:33 - No value specified for parameter 2
+2019-01-07 22:20:06 ERROR ApplicantDAOSql:43 - No value specified for parameter 2
+2019-01-07 22:20:08 ERROR ApplicantDAOSql:33 - No value specified for parameter 2
+2019-01-07 22:20:08 ERROR ApplicantDAOSql:43 - No value specified for parameter 2
+2019-01-07 22:20:56 ERROR ApplicantDAOSql:33 - No value specified for parameter 2
+2019-01-07 22:20:56 ERROR ApplicantDAOSql:43 - No value specified for parameter 2
+2019-01-07 22:20:57 ERROR ApplicantDAOSql:33 - No value specified for parameter 2
+2019-01-07 22:20:57 ERROR ApplicantDAOSql:43 - No value specified for parameter 2

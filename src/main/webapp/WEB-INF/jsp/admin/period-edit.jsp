@@ -10,6 +10,8 @@
                    href="${pageContext.request.contextPath}/admin/period-edit?id-period=${param["id-period"]}">edit</a>
                 <a class="text-sm-center nav-link"
                    href="${pageContext.request.contextPath}/admin/period-mark?id-period=${param["id-period"]}">mark</a>
+                <a class="text-sm-center nav-link"
+                   href="${pageContext.request.contextPath}/admin/specialities?id-period=${param["id-period"]}">statistics</a>
             </nav>
         </div>
         <div class="card-body">

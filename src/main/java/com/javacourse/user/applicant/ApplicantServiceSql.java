@@ -34,6 +34,17 @@ public class ApplicantServiceSql extends AbstractServiceSql<Integer, Applicant> 
         return applicantSubjects;
     }
 
+    public List<Applicant> getBySpecialityIdAndPeriodId(int specialityId, int periodId) {
+        List<Applicant> applicants = new ArrayList<>();
+        try (Connection connection = factoryDAO.createConnection()) {
+            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
+            applicants = applicantDAO.getBySpecialityIdAndPeriodIdWithUserEntity(specialityId,periodId);
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
+        return applicants;
+    }
+
     @Override
     public boolean updateMarks(List<ApplicantSubject> applicantSubjects) {
         try (Connection connection = factoryDAO.createConnection()) {
@@ -58,5 +69,15 @@ public class ApplicantServiceSql extends AbstractServiceSql<Integer, Applicant> 
             logger.error(e.getMessage());
         }
         return -1;
+    }
+
+    public Integer calculateRatingForSubjectSpeciality(int idApplicant, int idSpeciality) {
+        try (Connection connection = factoryDAO.createConnection()) {
+            ApplicantDAO applicantDAO = factoryDAO.createApplicantDAO(connection);
+            return applicantDAO.calculateRatingForSubjectSpeciality(idApplicant, idSpeciality);
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
+        return null;
     }
 }

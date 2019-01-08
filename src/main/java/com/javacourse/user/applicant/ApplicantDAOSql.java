@@ -20,6 +20,43 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
     }
 
     @Override
+    public List<Applicant> getBySpecialityIdAndPeriodIdWithUserEntity(int specialityID, int periodId) throws UnsuccessfulDAOException {
+        List<Applicant> applicantSubjects = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement("select * from applicant inner join user on applicant.user = user.id  where applicant.speciality =? and applicant.period=?")) {
+            statement.setInt(1, specialityID);
+            statement.setInt(2,periodId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                applicantSubjects.add(createApplicantWithUserEntity(resultSet));
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException(e.getMessage());
+        }
+        return applicantSubjects;
+    }
+
+    private Applicant createApplicantWithUserEntity(ResultSet resultSet) throws SQLException {
+        Applicant applicant = new Applicant();
+        applicant.setPeriod(resultSet.getInt("applicant.period"));
+        applicant.setStatus(resultSet.getInt("applicant.status"));
+        applicant.setUser(resultSet.getInt("applicant.user"));
+        applicant.setId(resultSet.getInt("applicant.id"));
+        applicant.setRating(resultSet.getInt("applicant.rating"));
+        int speciality = resultSet.getInt("applicant.speciality");
+        User user = new User();
+        user.setSurname( resultSet.getString("user.surname"));
+        user.setRole(resultSet.getInt("user.role"));
+        user.setFirstname(resultSet.getString("user.firstname"));
+        user.setEmail(resultSet.getString("user.email"));
+        user.setId(resultSet.getInt("user.id"));
+        if (!resultSet.wasNull())
+            applicant.setSpeciality(speciality);
+        applicant.setUserEntity(user);
+        return applicant;
+    }
+
+    @Override
     public List<Applicant> getAll() throws UnsuccessfulDAOException {
         return null;
     }
@@ -48,6 +85,22 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
     }
 
     @Override
+    public boolean updateRatingByApplicantId(int applicantId, Integer rating) throws UnsuccessfulDAOException {
+        int changeNumber = 0;
+        try (PreparedStatement preparedStatement =
+                     connection.prepareStatement(
+                             "update applicant set rating =? where id =?")) {
+            preparedStatement.setObject(1, rating);
+            preparedStatement.setInt(2, applicantId);
+            changeNumber = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException(e.getMessage());
+        }
+        return changeNumber > 0;
+    }
+
+    @Override
     public boolean updateApplicantSubjectMarks(ApplicantSubject applicantSubject) throws UnsuccessfulDAOException {
         int changeNumber = 0;
         try (PreparedStatement preparedStatement =
@@ -62,6 +115,30 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
             throw new UnsuccessfulDAOException(e.getMessage());
         }
         return changeNumber > 0;
+    }
+
+    @Override
+    public int calculateRatingForSubjectSpeciality(int idApplicant, int idSpeciality) throws UnsuccessfulDAOException {
+        int rating = 0;
+        try (PreparedStatement preparedStatement =
+                     connection.prepareStatement(
+                             "select sum(applicant_subject.mark) " +
+                                     "from applicant_subject " +
+                                     "inner join subject_speciality " +
+                                     "on subject_speciality.subject = applicant_subject.subject " +
+                                     "where applicant=? and subject_speciality.speciality = ?")) {
+            preparedStatement.setInt(1, idApplicant);
+            preparedStatement.setInt(2, idSpeciality);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                rating = resultSet.getInt(1);
+            } else
+                throw new UnsuccessfulDAOException();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException(e.getMessage());
+        }
+        return rating;
     }
 
     @Override

@@ -20,7 +20,17 @@ public class SpecialityDAOSql implements SpecialityDAO {
 
     @Override
     public List<Speciality> getAll() throws UnsuccessfulDAOException {
-        return null;
+        List<Speciality> specialities = new ArrayList<>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(
+                "select * from speciality")){
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+                specialities.add(createSpeciality(resultSet));
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException(e.getMessage());
+        }
+        return specialities;
     }
 
     @Override
@@ -80,7 +90,7 @@ public class SpecialityDAOSql implements SpecialityDAO {
                 "    select * from subject_speciality as y" +
                 "    where y.speciality = x.id and not exists(" +
                 "       select* from applicant_subject as z" +
-                "       where z.applicant = ? and y.subject = z.subject" +
+                "       where z.applicant = ? and y.subject = z.subject and z.mark is not null" +
                 "    )" +
                 ")"
         )) {

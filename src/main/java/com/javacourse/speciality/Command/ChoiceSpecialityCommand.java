@@ -24,6 +24,8 @@ public class ChoiceSpecialityCommand implements ActionCommand {
         
         ApplicantService<Integer> applicantService = new ApplicantServiceSql();
         StateService<Integer> stateService = new StateServiceSql();
+
+
         StateName stateName= stateService.getByPeriodId(applicantService.getById(id).getPeriod());
         if(!stateName.equals(StateName.CHOICE_SPECIALITY)){
             request.setAttribute("access", false);

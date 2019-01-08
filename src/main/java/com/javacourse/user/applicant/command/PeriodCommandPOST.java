@@ -44,7 +44,7 @@ public class PeriodCommandPOST implements ActionCommand {
             //todo logging
         }
 
-        page = new Page(request.getContextPath() + "/applicant", true);
+        page = new Page(request.getContextPath() + "/applicant/info", true);
         return page;
     }
 }
