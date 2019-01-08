@@ -8,18 +8,17 @@ import com.javacourse.shared.service.Service;
 import com.javacourse.user.applicant.period.state.State;
 import com.javacourse.user.applicant.period.state.StateDAO;
 import com.javacourse.user.applicant.period.state.StateName;
-import com.sun.corba.se.spi.orbutil.fsm.StateEngine;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-public class PeriodServiceSql extends AbstractServiceSql<Integer, Period> implements Service<Integer,Period> {
-    private static final Logger logger = Logger.getLogger(PeriodServiceSql.class);
+public class PeriodService extends AbstractServiceSql<Integer, Period> implements Service<Integer,Period> {
+    private static final Logger logger = Logger.getLogger(PeriodService.class);
     FactoryDAO factoryDAO;
 
-    public PeriodServiceSql() {
+    public PeriodService() {
         super(PeriodDAOSql.class);
         factoryDAO = new FactoryDAOSql();
     }

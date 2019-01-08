@@ -4,7 +4,7 @@ import com.javacourse.user.User;
 import com.javacourse.user.applicant.period.Period;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
-import com.javacourse.user.applicant.period.PeriodServiceSql;
+import com.javacourse.user.applicant.period.PeriodService;
 import com.javacourse.utils.PathPageManager;
 import org.apache.log4j.Logger;
 
@@ -17,7 +17,7 @@ public class PeriodCommand implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
         User user = (User) request.getSession().getAttribute("user");
-            PeriodServiceSql periodService = new PeriodServiceSql();
+            PeriodService periodService = new PeriodService();
             List<Period> periods = periodService.getAvailablePeriodsByUserId(user.getId());
             request.setAttribute("periods",periods);
 

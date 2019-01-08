@@ -3,7 +3,6 @@ package com.javacourse.subject.command;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
-import com.javacourse.subject.SubjectService;
 import com.javacourse.subject.SubjectServiceSql;
 import org.apache.log4j.Logger;
 
@@ -37,7 +36,7 @@ public class ChoiceSubjectCommandPOST implements ActionCommand {
     }
 
     public boolean deleteSubjectBySubjectIdAndApplicactId(int subjectId, int applicantId) {
-        SubjectService subjectService = new SubjectServiceSql();
+        SubjectServiceSql subjectService = new SubjectServiceSql();
         return subjectService.deleteSubjectBySubjectIdAndApplicantId(subjectId,applicantId);
     }
 

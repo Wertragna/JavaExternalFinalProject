@@ -3,7 +3,7 @@ package com.javacourse.user.applicant.command;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.applicant.Applicant;
-import com.javacourse.user.applicant.ApplicantServiceSql;
+import com.javacourse.user.applicant.ApplicantService;
 import com.javacourse.utils.PathPageManager;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +13,7 @@ import java.util.List;
 public class ShowStatisticBySpeciality implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
-        ApplicantServiceSql serviceSql = new ApplicantServiceSql();
+        ApplicantService serviceSql = new ApplicantService();
         int specialityId = Integer.parseInt(request.getParameter("speciality"));
         int page = Integer.parseInt(request.getParameter("page"));
         int periodId= Integer.parseInt(request.getParameter("id-period"));

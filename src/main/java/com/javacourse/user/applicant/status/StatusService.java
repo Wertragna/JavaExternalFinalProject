@@ -11,11 +11,11 @@ import org.apache.log4j.Logger;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class StatusServiceSql extends AbstractServiceSql<Integer, Status> implements Service<Integer,Status> {
-    private final Logger logger = Logger.getLogger(StatusServiceSql.class);
+public class StatusService extends AbstractServiceSql<Integer, Status> implements Service<Integer,Status> {
+    private final Logger logger = Logger.getLogger(StatusService.class);
     FactoryDAO factoryDAO;
 
-    public StatusServiceSql() {
+    public StatusService() {
         super(StatusDAOSql.class);
         factoryDAO = new FactoryDAOSql();
     }

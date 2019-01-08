@@ -4,9 +4,7 @@ import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.speciality.Speciality;
 import com.javacourse.speciality.SpecialityService;
-import com.javacourse.speciality.SpecialityServiceSql;
 import com.javacourse.user.applicant.ApplicantService;
-import com.javacourse.user.applicant.ApplicantServiceSql;
 import com.javacourse.user.applicant.period.state.StateName;
 import com.javacourse.user.applicant.period.state.StateService;
 import com.javacourse.user.applicant.period.state.StateServiceSql;
@@ -22,7 +20,7 @@ public class ChoiceSpecialityCommand implements ActionCommand {
         int id = (Integer) request.getSession().getAttribute("applicantId");
 
         
-        ApplicantService<Integer> applicantService = new ApplicantServiceSql();
+        ApplicantService applicantService = new ApplicantService();
         StateService<Integer> stateService = new StateServiceSql();
 
 
@@ -34,7 +32,7 @@ public class ChoiceSpecialityCommand implements ActionCommand {
 
 
 
-        SpecialityService specialityService = new SpecialityServiceSql();
+        SpecialityService specialityService = new SpecialityService();
         List<Speciality> specialities = specialityService.getAvailableSpecialitiesByApplicantId(id);
         request.setAttribute("specialities", specialities);
         System.out.println(specialities);

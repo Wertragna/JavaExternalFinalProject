@@ -5,7 +5,6 @@ import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.User;
 import com.javacourse.user.UserService;
-import com.javacourse.user.UserServiceSql;
 import com.javacourse.user.role.Role;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +44,7 @@ public class SingUpCommandPOST implements ActionCommand {
             System.out.println("Valid Object");
 
 
-            UserService<Integer> userService = new UserServiceSql();//
+            UserService userService = new UserService();
             try {
                 if (userService.create(user)) {
                     page = new Page(request.getContextPath() + "/applicant", true);

@@ -6,7 +6,6 @@ import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.User;
 import com.javacourse.user.UserService;
-import com.javacourse.user.UserServiceSql;
 import com.javacourse.user.role.Role;
 import com.javacourse.utils.PathPageManager;
 
@@ -19,7 +18,7 @@ public class SingInCommandPOST implements ActionCommand {
         Page page = null;
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        UserService userDAOSql = new UserServiceSql();
+        UserService userDAOSql = new UserService();
         User user=null;
         try {
             user = userDAOSql.findByLoginAndPassword(login,password);

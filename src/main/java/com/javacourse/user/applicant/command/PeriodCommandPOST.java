@@ -1,12 +1,7 @@
 package com.javacourse.user.applicant.command;
 
 import com.javacourse.user.applicant.Applicant;
-import com.javacourse.user.applicant.ApplicantDAOSql;
 import com.javacourse.user.applicant.ApplicantService;
-import com.javacourse.user.applicant.ApplicantServiceSql;
-import com.javacourse.user.applicant.period.Period;
-import com.javacourse.user.applicant.period.state.State;
-import com.javacourse.user.applicant.status.Status;
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
@@ -23,7 +18,7 @@ public class PeriodCommandPOST implements ActionCommand {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         int periodId = Integer.parseInt(request.getParameter("id"));
-        ApplicantService applicantDAOSql = new ApplicantServiceSql();
+        ApplicantService applicantDAOSql = new ApplicantService();
         String namePeriod = request.getParameter("name");
         int applicantId;
         try {

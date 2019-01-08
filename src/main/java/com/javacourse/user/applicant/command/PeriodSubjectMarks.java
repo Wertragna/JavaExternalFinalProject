@@ -3,7 +3,6 @@ package com.javacourse.user.applicant.command;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.applicant.ApplicantService;
-import com.javacourse.user.applicant.ApplicantServiceSql;
 import com.javacourse.user.applicant.ApplicantSubject;
 import com.javacourse.user.applicant.period.state.StateName;
 import com.javacourse.user.applicant.period.state.StateService;
@@ -27,7 +26,7 @@ public class PeriodSubjectMarks implements ActionCommand {
 
 
         int subject = Integer.parseInt(request.getParameter("subject"));
-        ApplicantService<Integer> applicantService =  new ApplicantServiceSql();
+        ApplicantService applicantService =  new ApplicantService();
         List<ApplicantSubject> applicantSubjectList = applicantService.getByPeriodAndSubject(id,subject);
         request.setAttribute("applicants",applicantSubjectList);
 
