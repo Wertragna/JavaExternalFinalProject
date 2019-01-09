@@ -4,8 +4,8 @@ import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.speciality.Speciality;
 import com.javacourse.speciality.SpecialityService;
-import com.javacourse.subject.Subject;
 import com.javacourse.subject.SubjectServiceSql;
+import com.javacourse.user.applicant.ApplicantSubject;
 import com.javacourse.user.applicant.status.Status;
 import com.javacourse.user.applicant.status.StatusService;
 import com.javacourse.utils.PathPageManager;
@@ -20,8 +20,8 @@ public class ApplicantInfoCommand implements ActionCommand {
 
         int id = (Integer) request.getSession().getAttribute("applicantId");
         SubjectServiceSql subjectService = new SubjectServiceSql();
-        List<Subject> subjects = subjectService.getByApplicantId(id);
-        request.setAttribute("subjects",subjects);
+        List<ApplicantSubject> subjects = subjectService.getByApplicantId(id);
+        request.setAttribute("subjects", subjects);
         StatusService statusService = new StatusService();
         Status status = statusService.getByApplicantId(id);
         request.setAttribute( "status",status);

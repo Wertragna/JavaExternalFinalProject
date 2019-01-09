@@ -32,4 +32,6 @@ public class StatusService extends AbstractServiceSql<Integer, Status> implement
         }
         return status;
     }
+
+
 }

@@ -1,6 +1,7 @@
 package com.javacourse.subject;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.user.applicant.ApplicantSubject;
 import com.javacourse.utils.DataBaseConnectionPool;
 import org.apache.log4j.Logger;
 
@@ -57,23 +58,55 @@ public class SubjectDAOSql implements SubjectDAO<Integer> {
     }
 
     @Override
-    public List<Subject> getByApplicantId(Integer applicantId) throws UnsuccessfulDAOException {
-        List<Subject> subjects = new ArrayList<>();
+    public List<Subject> getSubjectsByApplicantId(int applicantId) throws UnsuccessfulDAOException {
+            List<Subject> subjects = new ArrayList<>();
+            try (PreparedStatement statement =
+                         connection.prepareStatement(
+                                 "select name, id from subject " +
+                                         "join applicant_subject on subject.id = applicant_subject.subject " +
+                                         "where applicant=?")) {
+                statement.setInt(1, applicantId);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    subjects.add(createSubject(resultSet));
+                }
+            } catch (SQLException e) {
+                logger.error(e.getMessage());
+                throw new UnsuccessfulDAOException();
+            }
+            return subjects;
+    }
+
+    @Override
+    public List<ApplicantSubject> getByApplicantId(int applicantId) throws UnsuccessfulDAOException {
+        List<ApplicantSubject> subjects = new ArrayList<>();
         try (PreparedStatement statement =
                      connection.prepareStatement(
-                             "select name, id from subject " +
+                             "select * from subject " +
                                      "join applicant_subject on subject.id = applicant_subject.subject " +
                                      "where applicant=?")) {
             statement.setInt(1, applicantId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                subjects.add(createSubject(resultSet));
+                subjects.add(createApplicantSubject(resultSet));
             }
         } catch (SQLException e) {
             logger.error(e.getMessage());
             throw new UnsuccessfulDAOException();
         }
         return subjects;
+    }
+
+    private ApplicantSubject createApplicantSubject(ResultSet resultSet) throws SQLException {
+        ApplicantSubject applicantSubject = new ApplicantSubject();
+        applicantSubject.setSubject(resultSet.getInt("applicant_subject.applicant"));
+        applicantSubject.setSubject(resultSet.getInt("applicant_subject.subject"));
+        applicantSubject.setMark((Integer) resultSet.getObject("applicant_subject.mark"));
+        Subject subject = new Subject();
+        subject.setId(resultSet.getInt("subject.id"));
+        subject.setName(resultSet.getString("subject.name"));
+        applicantSubject.setSubjectEntity(subject);
+        return applicantSubject;
     }
 
     @Override

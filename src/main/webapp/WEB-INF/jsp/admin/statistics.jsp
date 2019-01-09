@@ -2,9 +2,29 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:page-template>
     <jsp:body>
+        <style>
+            .bg-green{
+                background-color: palegreen !important;
+            }
+            .bg-red{
+                background-color: salmon !important;
+            }
+            table.table-bordered{
+                border:1px solid black;
+                margin-top:20px;
+            }
+            table.table-bordered > thead > tr > th{
+                border:1px solid black;
+            }
+            table.table-bordered > tbody > tr > td{
+                border:1px solid black;
+            }
+        </style>
+        <c:set var = "accept" scope="request" value = "accepted"/>
+        <c:set var = "derived" scope="request" value = "derived"/>
         <h3>Statistics</h3>
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-sm table-bordered">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -13,18 +33,47 @@
                     <th>second name</th>
                     <th>email</th>
                     <th>rating</th>
+                    <th>status</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${applicants}" var="applicant" varStatus="loop">
-                    <tr>
-                        <td>${loop.index}</td>
-                        <td>${applicant.id}</td>
-                        <td>${applicant.userEntity.firstname}</td>
-                        <td>${applicant.userEntity.surname}</td>
-                        <td>${applicant.userEntity.email}</td>
-                        <td>${applicant.rating}</td>
-                    </tr>
+                    <c:choose>
+                        <c:when test="${applicant.statusEntity.name eq accept}">
+                            <tr class="bg-green"  >
+                                <td>${loop.index}</td>
+                                <td>${applicant.id}</td>
+                                <td>${applicant.userEntity.firstname}</td>
+                                <td>${applicant.userEntity.surname}</td>
+                                <td>${applicant.userEntity.email}</td>
+                                <td>${applicant.rating}</td>
+                                <td>${applicant.statusEntity.name}</td>
+                            </tr>
+                        </c:when>
+                        <c:when test="${applicant.statusEntity.name eq derived}">
+                            <tr class="bg-red">
+                                <td>${loop.index}</td>
+                                <td>${applicant.id}</td>
+                                <td>${applicant.userEntity.firstname}</td>
+                                <td>${applicant.userEntity.surname}</td>
+                                <td>${applicant.userEntity.email}</td>
+                                <td>${applicant.rating}</td>
+                                <td>${applicant.statusEntity.name}</td>
+                            </tr>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td>${loop.index}</td>
+                                <td>${applicant.id}</td>
+                                <td>${applicant.userEntity.firstname}</td>
+                                <td>${applicant.userEntity.surname}</td>
+                                <td>${applicant.userEntity.email}</td>
+                                <td>${applicant.rating}</td>
+                                <td>${applicant.statusEntity.name}</td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
+
                 </c:forEach>
                 </tbody>
             </table>

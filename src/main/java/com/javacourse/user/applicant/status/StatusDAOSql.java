@@ -55,6 +55,24 @@ public class StatusDAOSql implements StatusDAO {
         return status;
     }
 
+    @Override
+    public Status getByName(String name) throws UnsuccessfulDAOException {
+        Status status = null;
+        try (PreparedStatement statement =
+                     connection.prepareStatement(
+                             "select * from status where name=?")) {
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                status = createStatus(rs);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException();
+        }
+        return status;
+    }
+
     private Status createStatus(ResultSet rs) throws SQLException {
         Status status = new Status();
         status.setId(rs.getInt("id"));

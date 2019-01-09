@@ -6,7 +6,6 @@ import com.javacourse.speciality.Speciality;
 import com.javacourse.speciality.SpecialityService;
 import com.javacourse.user.applicant.ApplicantService;
 import com.javacourse.user.applicant.period.state.StateName;
-import com.javacourse.user.applicant.period.state.StateService;
 import com.javacourse.user.applicant.period.state.StateServiceSql;
 import com.javacourse.utils.PathPageManager;
 
@@ -21,7 +20,7 @@ public class ChoiceSpecialityCommand implements ActionCommand {
 
         
         ApplicantService applicantService = new ApplicantService();
-        StateService<Integer> stateService = new StateServiceSql();
+        StateServiceSql stateService = new StateServiceSql();
 
 
         StateName stateName= stateService.getByPeriodId(applicantService.getById(id).getPeriod());

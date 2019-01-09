@@ -1,13 +1,24 @@
 package com.javacourse.user.applicant;
 
+import com.javacourse.subject.Subject;
+
 import java.util.Objects;
 
 public class ApplicantSubject {
-    int applicant;
-    int subject;
-    Integer mark;
+    private int applicant;
+    private int subject;
+    private Subject SubjectEntity;
+    private Integer mark;
 
     public ApplicantSubject() {
+    }
+
+    public Subject getSubjectEntity() {
+        return SubjectEntity;
+    }
+
+    public void setSubjectEntity(Subject subjectEntity) {
+        SubjectEntity = subjectEntity;
     }
 
     public int getApplicant() {

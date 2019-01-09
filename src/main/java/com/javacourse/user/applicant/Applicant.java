@@ -4,11 +4,12 @@ import com.javacourse.speciality.Speciality;
 import com.javacourse.user.User;
 import com.javacourse.user.applicant.period.Period;
 import com.javacourse.user.applicant.status.Status;
+import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.Objects;
 
 public class Applicant {
-    int rating;
+    private Integer rating;
     private int id;
     private int user;
     private int period;
@@ -103,11 +104,11 @@ public class Applicant {
         this.status = status;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 

@@ -109,6 +109,7 @@ public class SpecialityDAOSql implements SpecialityDAO {
         Speciality speciality = new Speciality();
         speciality.setId(resultSet.getInt("id"));
         speciality.setName(resultSet.getString("name"));
+        speciality.setLimit(resultSet.getInt("limit"));
         return speciality;
     }
 }

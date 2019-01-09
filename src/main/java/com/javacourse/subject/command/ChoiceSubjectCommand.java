@@ -6,7 +6,6 @@ import com.javacourse.subject.Subject;
 import com.javacourse.subject.SubjectServiceSql;
 import com.javacourse.user.applicant.ApplicantService;
 import com.javacourse.user.applicant.period.state.StateName;
-import com.javacourse.user.applicant.period.state.StateService;
 import com.javacourse.user.applicant.period.state.StateServiceSql;
 import com.javacourse.utils.PathPageManager;
 import org.apache.log4j.Logger;
@@ -24,7 +23,7 @@ public class ChoiceSubjectCommand implements ActionCommand {
         int id = (Integer) request.getSession().getAttribute("applicantId");
 
         ApplicantService applicantService = new ApplicantService();
-        StateService<Integer> stateService = new StateServiceSql();
+        StateServiceSql stateService = new StateServiceSql();
         StateName stateName = stateService.getByPeriodId(applicantService.getById(id).getPeriod());
         if (!stateName.equals(StateName.CHOICE_SUBJECTS)) {
             request.setAttribute("access", false);
@@ -34,7 +33,7 @@ public class ChoiceSubjectCommand implements ActionCommand {
 
         SubjectServiceSql subjectService = new SubjectServiceSql();
         List<Subject> subjects = subjectService.getAll();
-        List<Subject> selectedSubjects = subjectService.getByApplicantId(id);
+        List<Subject> selectedSubjects = subjectService.getSubjectByApplicantId(id);
         subjects.removeAll(selectedSubjects);
         request.setAttribute("subjects", subjects);
         request.setAttribute("selectedSubjects", selectedSubjects);

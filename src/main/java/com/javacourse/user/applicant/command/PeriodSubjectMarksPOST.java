@@ -5,7 +5,6 @@ import com.javacourse.shared.web.Page;
 import com.javacourse.user.applicant.ApplicantService;
 import com.javacourse.user.applicant.ApplicantSubject;
 import com.javacourse.user.applicant.period.state.StateName;
-import com.javacourse.user.applicant.period.state.StateService;
 import com.javacourse.user.applicant.period.state.StateServiceSql;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +27,7 @@ public class PeriodSubjectMarksPOST implements ActionCommand {
             else
                 applicantSubjectList.get(i).setMark(Integer.parseInt(currentMark));
         }
-        StateService<Integer> stateService = new StateServiceSql();
+        StateServiceSql stateService = new StateServiceSql();
         StateName stateName = stateService.getByPeriodId(periodId);
 
         applicantService.updateMarks(applicantSubjectList);

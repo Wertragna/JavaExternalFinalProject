@@ -5,6 +5,8 @@ import com.javacourse.shared.dao.FactoryDAO;
 import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.shared.service.AbstractServiceSql;
 import com.javacourse.shared.service.Service;
+import com.javacourse.user.applicant.Applicant;
+import com.javacourse.user.applicant.ApplicantService;
 import com.javacourse.user.applicant.period.state.State;
 import com.javacourse.user.applicant.period.state.StateDAO;
 import com.javacourse.user.applicant.period.state.StateName;
@@ -73,10 +75,14 @@ public class PeriodService extends AbstractServiceSql<Integer, Period> implement
             PeriodDAO periodDAO = factoryDAO.createPeriodDAO(connection);
             StateDAO<Integer> stateDAO = factoryDAO.createStateDAO(connection);
             State currentState = stateDAO.getById(period.getState());
-            StateName stateName= StateName.valueOf(currentState.getName().toUpperCase());
+            StateName stateName= StateName.getByName(currentState.getName());
             stateName = stateName.getNext();
-            currentState = stateDAO.getByName(stateName.name().toLowerCase());
+            currentState = stateDAO.getByName(stateName.getNames().get(stateName));
             period.setState(currentState.getId());
+            if(stateName.equals(StateName.ENDED)){
+                ApplicantService service = new ApplicantService();
+                service.updatePeriod(period.getId());
+            }
             return periodDAO.update(period);
         } catch (
                 UnsuccessfulDAOException | SQLException e) {

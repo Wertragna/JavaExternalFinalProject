@@ -18,4 +18,8 @@ public interface ApplicantDAO<K> extends AbstractDAO<K, Applicant> {
     boolean updateRatingByApplicantId(int applicantId, Integer rating) throws UnsuccessfulDAOException;
 
     List<Applicant> getBySpecialityIdAndPeriodIdWithUserEntity(int specialityID, int periodId) throws UnsuccessfulDAOException;
+
+    List<Applicant> getBySpecialityIdAndPeriodId(int specialityID, int periodId) throws UnsuccessfulDAOException;
+
+    boolean updateList(List<Applicant> applicants) throws UnsuccessfulDAOException;
 }

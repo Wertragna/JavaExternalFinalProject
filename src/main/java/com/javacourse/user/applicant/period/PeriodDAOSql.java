@@ -109,8 +109,8 @@ public class PeriodDAOSql implements PeriodDAO {
     public List<Period> getAvailablePeriodWithStateForUserIdOrStateId(int userId, int stateId) throws UnsuccessfulDAOException {
         List<Period> periods = new ArrayList<>();
         try (PreparedStatement preparedStatement =
-                     connection.prepareStatement("select period.id, period.name, period.state, state.name " +
-                             "from period inner join state on period.state=state.id inner join applicant on period.id=applicant.period " +
+                     connection.prepareStatement("select distinct period.id, period.name, period.state, state.name " +
+                             "from period inner join state on period.state=state.id left join applicant on period.id=applicant.period " +
                              "where applicant.user=? or state.id = ?")) {
             preparedStatement.setInt(1,userId);
             preparedStatement.setInt(2, stateId);

@@ -28,8 +28,25 @@
                             <c:choose>
                                 <c:when test="${not empty subjects}">
                                     <ul class="list-group list-group-flush">
+                                        <li class="list-group-item p-0">
+                                            <div class="row">
+                                                <div class="col-9"><i>name</i></div>
+                                                <div class="col-3>"><i>mark</i></div>
+                                            </div>
+                                        </li>
                                         <c:forEach items="${subjects}" var="subject">
-                                            <li class="list-group-item">${subject.name}</li>
+                                            <li class="list-group-item p-0">
+                                                <div class="row">
+                                                    <div class="col-9"> ${subject.subjectEntity.name}</div>
+                                                    <c:choose>
+                                                        <c:when test="${not empty subject.mark}">
+                                                            <div class="col-3>">${subject.mark}</div>
+                                                        </c:when><c:otherwise>
+                                                        <div class="col-3>">-</div>
+                                                    </c:otherwise>
+                                                    </c:choose>
+                                                </div>
+                                            </li>
                                         </c:forEach>
                                     </ul>
                                 </c:when>

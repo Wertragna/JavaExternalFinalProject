@@ -5,6 +5,15 @@ import java.util.Objects;
 public class Speciality {
     private int id;
     private String name;
+    int limit;
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
 
     public Speciality(int id, String name) {
         this.id = id;

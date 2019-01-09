@@ -5,6 +5,7 @@ import com.javacourse.shared.dao.FactoryDAO;
 import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.shared.service.AbstractServiceSql;
 import com.javacourse.shared.service.Service;
+import com.javacourse.user.applicant.ApplicantSubject;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -39,10 +40,21 @@ public class SubjectServiceSql extends AbstractServiceSql<Integer, Subject> impl
         return false;
     }
 
-    public List<Subject> getByApplicantId(Integer applicantId)  {
+    public List<ApplicantSubject> getByApplicantId(int applicantId)  {
+        List<ApplicantSubject>list=null;
+        try (Connection connection = factoryDAO.createConnection()) {
+             SubjectDAO<Integer> subjectDAO= factoryDAO.createSubjectDAO(connection);
+             list = subjectDAO.getByApplicantId(applicantId);
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
+        return list;
+    }
+    public List<Subject> getSubjectByApplicantId(int applicantId)  {
         List<Subject>list=null;
         try (Connection connection = factoryDAO.createConnection()) {
-             list= factoryDAO.createSubjectDAO(connection).getByApplicantId(applicantId);
+            SubjectDAO<Integer> subjectDAO= factoryDAO.createSubjectDAO(connection);
+            list = subjectDAO.getSubjectsByApplicantId(applicantId);
         } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
