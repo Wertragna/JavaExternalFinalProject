@@ -6,9 +6,9 @@
         <div class="card">
         <div class="card-header">
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap">
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/info">application</a>
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-subjects">subject</a>
-                <a class="nav-link active" href="${pageContext.request.contextPath}/applicant/choose-speciality">speciality</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/info">Application</a>
+                <a class="nav-link " href="${pageContext.request.contextPath}/applicant/choose-subjects">Subject</a>
+                <a class="nav-link active bg-info" href="${pageContext.request.contextPath}/applicant/choose-speciality">Speciality</a>
             </nav>
         </div>
         <div class="card-body">

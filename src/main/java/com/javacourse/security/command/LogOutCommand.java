@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 public class LogOutCommand implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
-
         request.getSession().invalidate();
-        Page page = new Page( request.getContextPath(),true);
+        Page page = new Page( request.getContextPath()).setDispatchType(Page.DispatchType.REDIRECT);
         return page;
     }
 }

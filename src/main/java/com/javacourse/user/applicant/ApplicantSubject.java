@@ -1,6 +1,6 @@
 package com.javacourse.user.applicant;
 
-import com.javacourse.subject.Subject;
+import com.javacourse.user.subject.Subject;
 
 import java.util.Objects;
 

@@ -1,9 +1,7 @@
 package com.javacourse.shared.web;
 
 import com.javacourse.shared.command.ActionCommand;
-import com.javacourse.shared.web.ActionCommandEnum;
-import com.javacourse.shared.web.CommandFactory;
-import com.javacourse.user.command.AdminHomeCommand;
+import com.javacourse.user.admin_command.AdminHomeCommand;
 import com.javacourse.exception.NotFoundCommandException;
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,7 +20,7 @@ public class CommandFactoryTest {
     String actual;
 
     @Before
-    public   void setUp() throws Exception {
+    public   void setUp()  {
         request =mock(HttpServletRequest.class);
         when(request.getRequestURI()).thenReturn("example.com/admin");
         when(request.getContextPath()).thenReturn("example.com");
@@ -39,8 +37,6 @@ public class CommandFactoryTest {
         actual = commandFactory.getCommandName(ActionCommandEnum.class).trim();
         ActionCommand actionCommand = commandFactory.getCommand();
         Assert.assertTrue(actionCommand instanceof AdminHomeCommand);
-
-
     }
 
     @Test

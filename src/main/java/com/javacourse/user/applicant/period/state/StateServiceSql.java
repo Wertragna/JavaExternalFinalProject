@@ -5,7 +5,7 @@ import com.javacourse.shared.dao.FactoryDAO;
 import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.shared.service.AbstractServiceSql;
 import com.javacourse.shared.service.Service;
-import com.javacourse.speciality.SpecialityDAO;
+import com.javacourse.user.speciality.SpecialityDAO;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;

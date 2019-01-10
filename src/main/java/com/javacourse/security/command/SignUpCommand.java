@@ -11,6 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 public class SignUpCommand implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
-        return new Page( PathPageManager.getProperty("page.sign-up"),false);
+        return new Page( PathPageManager.getProperty("page.sign-up")).setDispatchType(Page.DispatchType.FORWARD);
     }
 }

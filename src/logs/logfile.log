@@ -671,3 +671,21 @@
 2019-01-09 20:25:06 DEBUG ValidatorFactoryImpl:581 - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
 2019-01-09 20:25:06 DEBUG ValidatorFactoryImpl:582 - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
 2019-01-09 20:36:28 ERROR UserDAOSql:93 - Cannot get a connection, general error
+2019-01-10 14:34:18 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-10 14:48:03 ERROR ApplicantDAOSql:80 - 
+2019-01-10 14:48:17 ERROR ApplicantDAOSql:80 - 
+2019-01-10 14:48:46 ERROR ApplicantDAOSql:80 - 
+2019-01-10 14:52:51 ERROR ApplicantDAOSql:80 - 
+2019-01-10 14:58:35 ERROR ApplicantDAOSql:77 - 
+2019-01-10 14:59:31 ERROR ApplicantDAOSql:77 - 
+2019-01-10 15:00:31 ERROR ApplicantDAOSql:75 - 
+2019-01-10 15:09:10 ERROR ApplicantDAOSql:75 - 
+2019-01-10 15:24:09 ERROR ApplicantDAOSql:75 - 
+2019-01-10 17:52:19 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-10 17:53:13 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-10 17:59:16 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-10 18:01:02 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-10 18:07:15 ERROR ApplicantDAOSql:75 - 
+2019-01-10 18:09:13 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-10 18:09:40 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-10 20:34:34 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial

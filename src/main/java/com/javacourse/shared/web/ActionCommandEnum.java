@@ -7,20 +7,14 @@ import com.javacourse.security.command.SingInCommandPOST;
 import com.javacourse.security.command.SingUpCommandPOST;
 import com.javacourse.shared.annotations.Action;
 import com.javacourse.shared.command.ActionCommand;
-import com.javacourse.speciality.Command.ChoiceSpecialityCommand;
-import com.javacourse.speciality.Command.ChoiceSpecialityCommandPOST;
-import com.javacourse.speciality.Command.ShowSpecialitiesCommand;
-import com.javacourse.subject.command.ChoiceSubjectCommand;
-import com.javacourse.subject.command.ChoiceSubjectCommandPOST;
-import com.javacourse.subject.command.SelectSubjectMark;
-import com.javacourse.user.applicant.command.*;
-import com.javacourse.user.applicant.period.command.PeriodEditCommand;
-import com.javacourse.user.applicant.period.command.PeriodEditCommandPOST;
-import com.javacourse.user.applicant.period.command.PeriodInfoCommand;
-import com.javacourse.user.applicant.period.command.ShowPeriodsCommand;
-import com.javacourse.user.command.AdminHomeCommand;
-import com.javacourse.user.command.CreateNewPeriodCommand;
-import com.javacourse.user.command.CreateNewPeriodCommandGet;
+import com.javacourse.user.admin_command.*;
+import com.javacourse.user.applicant.applicant_command.ChoiceSpecialityCommand;
+import com.javacourse.user.applicant.applicant_command.ChoiceSpecialityCommandPOST;
+import com.javacourse.user.applicant.applicant_command.ShowSpecialitiesCommand;
+import com.javacourse.user.applicant.applicant_command.ChoiceSubjectCommand;
+import com.javacourse.user.applicant.applicant_command.ChoiceSubjectCommandPOST;
+import com.javacourse.user.applicant.applicant_command.SelectSubjectMark;
+import com.javacourse.user.applicant.applicant_command.*;
 
 public enum ActionCommandEnum {
     @Action(url = "/admin/create-new-period", method = "POST")
@@ -178,7 +172,6 @@ public enum ActionCommandEnum {
             this.command = new ShowStatisticBySpeciality();
         }
     };
-
 
     ActionCommand command;
 

@@ -25,7 +25,10 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
         List<Applicant> applicantSubjects = new ArrayList<>();
         try (PreparedStatement statement =
                      connection.prepareStatement
-                             ("select * from applicant inner join user on applicant.user = user.id inner join status on applicant.status = status.id where applicant.speciality =? and applicant.period=?")) {
+                             ("select * from applicant " +
+                                     "inner join user on applicant.user = user.id " +
+                                     "inner join status on applicant.status = status.id " +
+                                     "where applicant.speciality =? and applicant.period=? order by rating desc ")) {
             statement.setInt(1, specialityID);
             statement.setInt(2,periodId);
             ResultSet resultSet = statement.executeQuery();
@@ -63,7 +66,7 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
     //
     public List<Applicant> getBySpecialityIdAndPeriodId(int specialityID, int periodId) throws UnsuccessfulDAOException {
         List<Applicant> applicantSubjects = new ArrayList<>();
-        try (PreparedStatement statement = connection.prepareStatement("select * from applicant where applicant.speciality =? and applicant.period=?")) {
+        try (PreparedStatement statement = connection.prepareStatement("select * from applicant where applicant.speciality =? and applicant.period=? order by  rating desc ")) {
             statement.setInt(1, specialityID);
             statement.setInt(2,periodId);
             ResultSet resultSet = statement.executeQuery();

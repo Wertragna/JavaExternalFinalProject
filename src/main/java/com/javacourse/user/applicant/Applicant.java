@@ -1,10 +1,9 @@
 package com.javacourse.user.applicant;
 
-import com.javacourse.speciality.Speciality;
+import com.javacourse.user.speciality.Speciality;
 import com.javacourse.user.User;
 import com.javacourse.user.applicant.period.Period;
 import com.javacourse.user.applicant.status.Status;
-import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.Objects;
 

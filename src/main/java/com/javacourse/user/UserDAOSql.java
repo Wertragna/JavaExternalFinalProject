@@ -100,6 +100,7 @@ public class UserDAOSql implements UserDAO <Integer> {
         User user;
         user = new User();
         user.setEmail(rs.getString("email"));
+        user.setSurname(rs.getString("surname"));
         user.setFirstname(rs.getString("firstname"));
         user.setId(rs.getInt("id"));
         user.setPassword(rs.getString("password"));

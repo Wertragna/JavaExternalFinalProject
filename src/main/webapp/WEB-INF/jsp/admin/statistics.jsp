@@ -3,26 +3,39 @@
 <t:page-template>
     <jsp:body>
         <style>
-            .bg-green{
+            .bg-green {
                 background-color: palegreen !important;
             }
-            .bg-red{
+
+            .bg-red {
                 background-color: salmon !important;
             }
-            table.table-bordered{
-                border:1px solid black;
-                margin-top:20px;
+
+            table.table-bordered {
+                border: 1px solid black;
+                margin-top: 20px;
             }
-            table.table-bordered > thead > tr > th{
-                border:1px solid black;
+
+            table.table-bordered > thead > tr > th {
+                border: 1px solid black;
             }
-            table.table-bordered > tbody > tr > td{
-                border:1px solid black;
+
+            table.table-bordered > tbody > tr > td {
+                border: 1px solid black;
+            }
+
+            hr.style1 {
+                border-top: 3px solid #F1C40F;
             }
         </style>
-        <c:set var = "accept" scope="request" value = "accepted"/>
-        <c:set var = "derived" scope="request" value = "derived"/>
-        <h3>Statistics</h3>
+        <a class="btn-primary btn"
+           href="${pageContext.request.contextPath}/admin/specialities?id-period=${param["id-period"]}">back</a>
+        <div class="container pt-3" >
+        <h3 style="background-color: #FEF9E7" class="mb-0">Statistics</h3>
+        <hr class="style1 mt-0 mb-0" style= "background-color: #FEF9E7"/>
+        <c:set var="accept" scope="request" value="accepted"/>
+        <c:set var="derived" scope="request" value="derived"/>
+
         <div class="table-responsive">
             <table class="table table-striped table-sm table-bordered">
                 <thead>
@@ -40,7 +53,7 @@
                 <c:forEach items="${applicants}" var="applicant" varStatus="loop">
                     <c:choose>
                         <c:when test="${applicant.statusEntity.name eq accept}">
-                            <tr class="bg-green"  >
+                            <tr class="bg-green">
                                 <td>${loop.index}</td>
                                 <td>${applicant.id}</td>
                                 <td>${applicant.userEntity.firstname}</td>
@@ -98,9 +111,10 @@
             <ul class="pagination justify-content-center">
                 <c:choose>
                     <c:when test="${currentPage != 1}">
-                    <li class="page-item">
-                        <a class="page-link" href="${pageContext.request.contextPath}/admin/statistic?id-period=${param["id-period"]}&speciality=${param["speciality"]}&page=${currentPage-1}"><< </a>
-                    </li>
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="${pageContext.request.contextPath}/admin/statistic?id-period=${param["id-period"]}&speciality=${param["speciality"]}&page=${currentPage-1}"><< </a>
+                        </li>
                     </c:when>
                     <c:otherwise>
                         <li class="page-item disabled">
@@ -112,12 +126,14 @@
                     <c:choose>
                         <c:when test="${currentPage == i}">
                             <li class="page-item active">
-                                <a class="page-link" href="${pageContext.request.contextPath}/admin/statistic?id-period=${param["id-period"]}&speciality=${param["speciality"]}&page=${i}">${i}</a>
+                                <a class="page-link"
+                                   href="${pageContext.request.contextPath}/admin/statistic?id-period=${param["id-period"]}&speciality=${param["speciality"]}&page=${i}">${i}</a>
                             </li>
                         </c:when>
                         <c:otherwise>
                             <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/admin/statistic?id-period=${param["id-period"]}&speciality=${param["speciality"]}&page=${i}">${i}</a>
+                                <a class="page-link"
+                                   href="${pageContext.request.contextPath}/admin/statistic?id-period=${param["id-period"]}&speciality=${param["speciality"]}&page=${i}">${i}</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
@@ -125,7 +141,8 @@
                 <c:choose>
                     <c:when test="${currentPage != lastPage}">
                         <li class="page-item">
-                            <a class="page-link" href="${pageContext.request.contextPath}/admin/statistic?id-period=${param["id-period"]}&speciality=${param["speciality"]}&page=${currentPage+1}">>> </a>
+                            <a class="page-link"
+                               href="${pageContext.request.contextPath}/admin/statistic?id-period=${param["id-period"]}&speciality=${param["speciality"]}&page=${currentPage+1}">>> </a>
                         </li>
                     </c:when>
                     <c:otherwise>

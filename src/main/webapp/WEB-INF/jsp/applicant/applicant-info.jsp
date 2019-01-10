@@ -4,15 +4,30 @@
     <div class="card">
         <div class="card-header">
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap">
-                <a class="nav-link active bg-success" href="${pageContext.request.contextPath}/applicant/info">application</a>
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-subjects">subject</a>
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-speciality">speciality</a>
+                <a class="nav-link active bg-success" href="${pageContext.request.contextPath}/applicant/info">Application</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-subjects">Subject</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-speciality">Speciality</a>
             </nav>
         </div>
         <div class="card-body">
             <div class="container">
-                <h3>Info</h3>
+                <h3>Application</h3>
                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item row d-flex">
+                        <div class="col-md-2">
+                            <b>First name:</b></div>
+                        <div class="col-md-10">${sessionScope.user.firstname}</div>
+                    </li>
+                    <li class="list-group-item row d-flex">
+                        <div class="col-md-2">
+                            <b>Surname:</b></div>
+                        <div class="col-md-10">${sessionScope.user.surname}</div>
+                    </li>
+                    <li class="list-group-item row d-flex">
+                        <div class="col-md-2">
+                            <b>Email:</b></div>
+                        <div class="col-md-10">${sessionScope.user.email}</div>
+                    </li>
                     <li class="list-group-item row d-flex">
                         <div class="col-md-2">
                             <b>Status:</b></div>

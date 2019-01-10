@@ -1,4 +1,4 @@
-package com.javacourse.security.command;
+package com.javacourse.user.admin_command;
 
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
@@ -7,10 +7,10 @@ import com.javacourse.utils.PathPageManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SignInCommand implements ActionCommand {
+public class CreateNewPeriodCommandGet implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
-        Page page = new Page(PathPageManager.getProperty("page.sign-in")).setDispatchType(Page.DispatchType.FORWARD);
-        return page;
+
+        return  new Page(PathPageManager.getProperty("page.create-period")).setDispatchType(Page.DispatchType.FORWARD);
     }
 }

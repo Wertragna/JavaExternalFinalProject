@@ -19,23 +19,23 @@ public class SingInCommandPOST implements ActionCommand {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         UserService userDAOSql = new UserService();
-        User user=null;
+        User user = null;
         try {
-            user = userDAOSql.findByLoginAndPassword(login,password);
+            user = userDAOSql.findByLoginAndPassword(login, password);
         } catch (UnsuccessfulDAOException e) {
             //todo loging
         }
-        if (user!=null) {
+        if (user != null) {
             request.getSession().setAttribute("user", user);
             //todo change page
-            if(user.getRoleEntity().equals(Role.ADMIN))
-                page=  new Page( request.getContextPath()+"/admin", true);
-            else{
-
-                page= new Page(request.getContextPath()+"/applicant",true);}
+            if (user.getRoleEntity().equals(Role.ADMIN))
+                page = new Page(request.getContextPath() + "/admin").setDispatchType(Page.DispatchType.REDIRECT);
+            else {
+                page = new Page(request.getContextPath() + "/applicant").setDispatchType(Page.DispatchType.REDIRECT);
+            }
         } else {
-          //todo show message (incorrect password or login)
-            page =new Page( PathPageManager.getProperty("page.sign-in"),false);
+            //todo show message (incorrect password or login)
+            page = new Page(PathPageManager.getProperty("page.sign-in")).setDispatchType(Page.DispatchType.FORWARD);
         }
         return page;
     }

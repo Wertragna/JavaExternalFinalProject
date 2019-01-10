@@ -47,11 +47,11 @@ public class SingUpCommandPOST implements ActionCommand {
             UserService userService = new UserService();
             try {
                 if (userService.create(user)) {
-                    page = new Page(request.getContextPath() + "/applicant", true);
+                    page = new Page(request.getContextPath() + "/applicant").setDispatchType(Page.DispatchType.REDIRECT);
                 }
             } catch (UnsuccessfulDAOException e) {
                 //todo add message
-                page = new Page(request.getContextPath() + "/login/sign-up", true);
+                page = new Page(request.getContextPath() + "/login/sign-up").setDispatchType(Page.DispatchType.REDIRECT);
             }
         }
 

@@ -1,10 +1,7 @@
 package com.javacourse.shared.dao;
 
 import com.javacourse.shared.service.SQLConnection;
-import com.javacourse.speciality.SpecialityDAO;
-import com.javacourse.speciality.SpecialityDAOSql;
-import com.javacourse.subject.SubjectDAO;
-import com.javacourse.subject.SubjectDAOSql;
+
 import com.javacourse.user.UserDAO;
 import com.javacourse.user.UserDAOSql;
 import com.javacourse.user.applicant.ApplicantDAO;
@@ -17,6 +14,10 @@ import com.javacourse.user.applicant.status.StatusDAO;
 import com.javacourse.user.applicant.status.StatusDAOSql;
 import com.javacourse.user.role.RoleDAO;
 import com.javacourse.user.role.RoleDAOSql;
+import com.javacourse.user.speciality.SpecialityDAO;
+import com.javacourse.user.speciality.SpecialityDAOSql;
+import com.javacourse.user.subject.SubjectDAO;
+import com.javacourse.user.subject.SubjectDAOSql;
 
 import java.sql.Connection;
 

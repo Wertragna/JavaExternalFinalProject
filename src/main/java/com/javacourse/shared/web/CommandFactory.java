@@ -20,13 +20,10 @@ public class CommandFactory {
     }
 
     public ActionCommand getCommand() {
-//todo error when command dont exist
-        try {
+//todo error when applicant_command dont exist
+
             return ActionCommandEnum.valueOf(getCommandName(ActionCommandEnum.class)).getCurrentCommand();
-        } catch (NotFoundCommandException e) {
-            logger.error(e.getMessage());
-            return null;
-        }
+
     }
 
     String getCommandName(Class enumCommand) {

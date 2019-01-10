@@ -5,8 +5,8 @@ import com.javacourse.shared.dao.FactoryDAO;
 import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.shared.service.AbstractServiceSql;
 import com.javacourse.shared.service.Service;
-import com.javacourse.speciality.Speciality;
-import com.javacourse.speciality.SpecialityDAO;
+import com.javacourse.user.speciality.Speciality;
+import com.javacourse.user.speciality.SpecialityDAO;
 import com.javacourse.user.User;
 import com.javacourse.user.applicant.status.StatusDAO;
 import com.javacourse.user.applicant.status.StatusName;
@@ -20,13 +20,13 @@ import java.util.List;
 
 public class ApplicantService extends AbstractServiceSql<Integer, Applicant> implements Service<Integer, Applicant> {
     private static final Logger logger = Logger.getLogger(ApplicantDAOSql.class);
-    FactoryDAO factoryDAO;
 
-    public ApplicantService() {
+    private final FactoryDAO factoryDAO;
+
+    public ApplicantService( ) {
         super(ApplicantDAOSql.class);
         factoryDAO = new FactoryDAOSql();
     }
-
 
     public List<ApplicantSubject> getByPeriodAndSubject(int period, int subject) {
         List<ApplicantSubject> applicantSubjects = new ArrayList<>();
