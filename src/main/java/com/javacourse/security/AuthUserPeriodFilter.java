@@ -16,9 +16,6 @@ import static java.util.Objects.nonNull;
 
 @WebFilter(urlPatterns = {"/applicant/*"})
 public class AuthUserPeriodFilter extends HttpFilter {
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-    }
 
     @Override
     public void doFilter(final ServletRequest request,
@@ -41,11 +38,6 @@ public class AuthUserPeriodFilter extends HttpFilter {
                             getProperty("path.page.sign-in"));
             dispatcher.forward(request, response);
         }
-
-
     }
 
-    @Override
-    public void destroy() {
-    }
 }

@@ -2,23 +2,22 @@ package com.javacourse.user.applicant;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.dao.FactoryDAO;
-import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.user.User;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.omg.PortableInterceptor.INACTIVE;
 
 import java.sql.Connection;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-@Ignore
+
 public class ApplicantServiceTest {
+
     @Mock
     FactoryDAO factoryDAO;
 
@@ -26,7 +25,8 @@ public class ApplicantServiceTest {
     ApplicantService applicantService;
 
     @Before
-   public void init_mocks() {
+    public void init_mocks() {
+
         MockitoAnnotations.initMocks(this);
     }
 
@@ -50,12 +50,11 @@ public class ApplicantServiceTest {
         when(factoryDAO.createConnection()).thenReturn(connection);
         when(factoryDAO.createApplicantDAO(connection)).thenReturn(applicantDAO);
         try {
-            when(applicantDAO.getApplicantIdByUserIdAndPeriod(new User(),4)).thenThrow(UnsuccessfulDAOException.class);
-
+            when(applicantDAO.getApplicantIdByUserIdAndPeriod(new User(), 4)).thenThrow(UnsuccessfulDAOException.class);
         } catch (UnsuccessfulDAOException e) {
             e.printStackTrace();
         }
-        assertEquals(-1, applicantService.getApplicantIdByUserIdAndPeriod(new User(),4));
+        assertEquals(-1, applicantService.getApplicantIdByUserIdAndPeriod(new User(), 4));
 
     }
 

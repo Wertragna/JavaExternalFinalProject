@@ -32,6 +32,6 @@ public class PeriodSubjectMarksPOST implements ActionCommand {
 
         applicantService.updateMarks(applicantSubjectList);
         // request.setAttribute("applicants", applicantSubjectList);
-        return new Page(request.getRequestURL().append('?').append(request.getQueryString()).toString()).setDispatchType(Page.DispatchType.REDIRECT);
+        return new Page("/admin/period-subject-marks"+'?'+request.getQueryString()).setDispatchType(Page.DispatchType.REDIRECT);
     }
 }

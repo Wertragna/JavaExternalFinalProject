@@ -21,7 +21,7 @@ public class PeriodCommandPOST implements ActionCommand {
             applicantId = applicantDAOSql.getApplicantIdByUserIdAndPeriod(user, periodId);
         }
         session.setAttribute("applicantId", applicantId);
-        Page page = new Page(request.getContextPath() + "/applicant/info").setDispatchType(Page.DispatchType.REDIRECT);
+        Page page = new Page( "/applicant/info").setDispatchType(Page.DispatchType.REDIRECT);
         return page;
     }
 }

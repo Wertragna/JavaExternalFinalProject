@@ -21,16 +21,14 @@ public class CreateNewPeriodCommand implements ActionCommand {
         period.setState(1/* todo magic number */);
         period.setName(name);
         PeriodService periodService = new PeriodService();
-        try {
+
             if(periodService.create(period)){
                 //todo change page
                 page = new Page( PathPageManager.getProperty("page.index")).setDispatchType(Page.DispatchType.FORWARD);
             }
             else
                 page =new Page(PathPageManager.getProperty("page.create-period")).setDispatchType(Page.DispatchType.FORWARD);
-        } catch (UnsuccessfulDAOException e) {
-           logger.error(e.getMessage());
-        }
+
         return page;
     }
 }

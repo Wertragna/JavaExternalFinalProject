@@ -12,6 +12,14 @@ public class Page {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Page{" +
+                "name='" + name + '\'' +
+                ", dispatchType=" + dispatchType +
+                '}';
+    }
+
     public DispatchType getDispatchType() {
         return dispatchType;
     }
@@ -34,15 +42,14 @@ public class Page {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Page page = (Page) o;
-        return isRedirect == page.isRedirect &&
-                Objects.equals(name, page.name);
+        return name.equals(page.name) &&
+                dispatchType == page.dispatchType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, isRedirect);
+        return Objects.hash(name, dispatchType);
     }
-
 
     public enum DispatchType {FORWARD, REDIRECT}
 
@@ -64,7 +71,11 @@ public class Page {
         WebPath(String path) {
             this.path = path;
         }
+
+        public String getPath() {
+            return path;
         }
+    }
 
 
 }

@@ -67,16 +67,12 @@ public class AbstractServiceSql<K, E> implements Service<K, E> {
     }
 
     @Override
-    public boolean create(E entity) throws UnsuccessfulDAOException {
+    public boolean create(E entity) {
         AbstractDAO abstractDAO = null;
         try (Connection connection = DataBaseConnectionPool.getConnection()) {
             abstractDAO = abstractDaoClass.getDeclaredConstructor(Connection.class).newInstance(connection);
             return abstractDAO.create(entity);
-        } catch (InstantiationException |
-                IllegalAccessException |
-                InvocationTargetException |
-                NoSuchMethodException |
-                SQLException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
         return false;

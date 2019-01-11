@@ -21,7 +21,7 @@ import java.util.List;
 public class ApplicantService extends AbstractServiceSql<Integer, Applicant> implements Service<Integer, Applicant> {
     private static final Logger logger = Logger.getLogger(ApplicantDAOSql.class);
 
-    private final FactoryDAO factoryDAO;
+    private FactoryDAO factoryDAO;
 
     public ApplicantService( ) {
         super(ApplicantDAOSql.class);

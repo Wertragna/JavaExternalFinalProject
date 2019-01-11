@@ -15,9 +15,6 @@ import static java.util.Objects.nonNull;
 
 @WebFilter(filterName = "admin-security")
 public class AuthAdminFilter extends HttpFilter {
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-    }
 
     @Override
     public void doFilter(final ServletRequest request,
@@ -32,9 +29,5 @@ public class AuthAdminFilter extends HttpFilter {
             RequestDispatcher dispatcher = ((HttpServletRequest) request).getSession().getServletContext().getRequestDispatcher(PathPageManager.getProperty("page.error404")); // вызов страницы ответа на запрос
             dispatcher.forward(request, response);
         }
-    }
-
-    @Override
-    public void destroy() {
     }
 }

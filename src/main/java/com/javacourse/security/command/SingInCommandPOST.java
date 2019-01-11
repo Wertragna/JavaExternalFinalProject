@@ -1,42 +1,37 @@
 package com.javacourse.security.command;
 
 
-import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
+import com.javacourse.shared.service.ServiceLoader;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.User;
 import com.javacourse.user.UserService;
-import com.javacourse.user.role.Role;
+import com.javacourse.utils.MessagesManager;
 import com.javacourse.utils.PathPageManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class SingInCommandPOST implements ActionCommand {
+
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
-        Page page = null;
+        return executeWithServiceLoader(request,response,new ServiceLoader());
+    }
+    Page executeWithServiceLoader(HttpServletRequest request, HttpServletResponse response, ServiceLoader serviceLoader){
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        UserService userDAOSql = new UserService();
-        User user = null;
-        try {
-            user = userDAOSql.findByLoginAndPassword(login, password);
-        } catch (UnsuccessfulDAOException e) {
-            //todo loging
-        }
+        User user = serviceLoader.userService().findByLoginAndPassword(login, password);
         if (user != null) {
             request.getSession().setAttribute("user", user);
-            //todo change page
-            if (user.getRoleEntity().equals(Role.ADMIN))
-                page = new Page(request.getContextPath() + "/admin").setDispatchType(Page.DispatchType.REDIRECT);
-            else {
-                page = new Page(request.getContextPath() + "/applicant").setDispatchType(Page.DispatchType.REDIRECT);
-            }
+            return new Page(Page.WebPath.HOME.getPath()).setDispatchType(Page.DispatchType.REDIRECT);
         } else {
-            //todo show message (incorrect password or login)
-            page = new Page(PathPageManager.getProperty("page.sign-in")).setDispatchType(Page.DispatchType.FORWARD);
+            setErrorMessages(request);
+            return new Page(PathPageManager.getProperty("page.sign-in")).setDispatchType(Page.DispatchType.FORWARD);
         }
-        return page;
+    }
+
+    void setErrorMessages(HttpServletRequest request) {
+        request.setAttribute("error",  true);
     }
 }

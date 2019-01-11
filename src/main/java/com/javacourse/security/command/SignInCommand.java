@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SignInCommand implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(request.getParameter("error"));
         Page page = new Page(PathPageManager.getProperty("page.sign-in")).setDispatchType(Page.DispatchType.FORWARD);
         return page;
     }

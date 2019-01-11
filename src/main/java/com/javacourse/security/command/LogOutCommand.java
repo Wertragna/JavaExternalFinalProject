@@ -11,7 +11,7 @@ public class LogOutCommand implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
         request.getSession().invalidate();
-        Page page = new Page( request.getContextPath()).setDispatchType(Page.DispatchType.REDIRECT);
+        Page page = new Page( Page.WebPath.HOME.getPath()).setDispatchType(Page.DispatchType.REDIRECT);
         return page;
     }
 }

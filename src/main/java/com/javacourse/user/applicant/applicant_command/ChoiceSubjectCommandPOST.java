@@ -31,7 +31,7 @@ public class ChoiceSubjectCommandPOST implements ActionCommand {
                 logger.error(e.getMessage());
             }
         }
-        return new Page(request.getContextPath() + "/applicant/choose-subjects").setDispatchType(Page.DispatchType.REDIRECT);
+        return new Page("/applicant/choose-subjects").setDispatchType(Page.DispatchType.REDIRECT);
 
     }
 

@@ -40,7 +40,7 @@ public class FrontServlet extends HttpServlet {
             resultPage = new Page("/index.jsp").setDispatchType(Page.DispatchType.FORWARD);
             dispatch(request, response, resultPage.getName());
         } else if (resultPage.getDispatchType().equals(Page.DispatchType.REDIRECT))
-            response.sendRedirect(resultPage.getName());
+            response.sendRedirect(request.getContextPath()+ resultPage.getName());
         else
             dispatch(request, response, resultPage.getName());
     }

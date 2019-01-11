@@ -19,12 +19,12 @@ public class UserService extends AbstractServiceSql<Integer, User> implements Se
         factoryDAO = new FactoryDAOSql();
     }
 
-    public User findByLoginAndPassword(String login, String password) throws UnsuccessfulDAOException {
+    public User findByLoginAndPassword(String login, String password) {
         User user = null;
         try (Connection connection = factoryDAO.createConnection()){
             UserDAO<Integer> userDAO = factoryDAO.createUserDAO(connection);
             user = userDAO.findByLoginAndPassword(login, password);
-        } catch (SQLException e) {
+        } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
         return user;

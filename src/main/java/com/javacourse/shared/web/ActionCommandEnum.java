@@ -1,10 +1,7 @@
 package com.javacourse.shared.web;
 
 
-import com.javacourse.security.command.LogOutCommand;
-import com.javacourse.security.command.SignUpCommand;
-import com.javacourse.security.command.SingInCommandPOST;
-import com.javacourse.security.command.SingUpCommandPOST;
+import com.javacourse.security.command.*;
 import com.javacourse.shared.annotations.Action;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.user.admin_command.*;
@@ -41,7 +38,7 @@ public enum ActionCommandEnum {
     @Action(url = "/login/sign-in", method = "GET")
     SIGN_IN_GET {
         {
-            this.command = new SingInCommandPOST();
+            this.command = new SignInCommand();
         }
     },
 

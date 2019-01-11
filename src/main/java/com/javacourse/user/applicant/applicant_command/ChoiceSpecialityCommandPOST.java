@@ -19,6 +19,6 @@ public class ChoiceSpecialityCommandPOST implements ActionCommand {
         applicant.setSpeciality(idSpeciality);
         applicant.setRating(service.calculateRatingForSubjectSpeciality(id,idSpeciality));
         service.update(applicant);
-         return new Page(request.getContextPath() + "/applicant/choose-speciality").setDispatchType(Page.DispatchType.REDIRECT);
+         return new Page( "/applicant/choose-speciality").setDispatchType(Page.DispatchType.REDIRECT);
     }
 }

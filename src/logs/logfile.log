@@ -689,3 +689,38 @@
 2019-01-10 18:09:13 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
 2019-01-10 18:09:40 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
 2019-01-10 20:34:34 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-11 15:02:56 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-11 15:03:27 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-11 15:03:39 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-11 15:04:14 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-11 15:04:39 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-11 15:05:07 ERROR DataBaseConnectionPool:23 - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2019-01-11 15:05:59 ERROR ApplicantDAOSql:73 - 
+2019-01-11 16:18:09 ERROR ApplicantDAOSql:73 - 
+2019-01-11 16:19:10 ERROR ApplicantDAOSql:73 - 
+2019-01-11 16:19:52 ERROR ApplicantDAOSql:73 - 
+2019-01-11 17:19:23 ERROR ApplicantDAOSql:73 - 
+2019-01-11 17:30:21 ERROR UserService:28 - 
+2019-01-11 17:31:18 ERROR UserService:28 - 
+2019-01-11 17:31:46 ERROR UserService:28 - 
+2019-01-11 17:32:05 ERROR UserService:28 - 
+2019-01-11 17:38:00 ERROR UserService:28 - 
+2019-01-11 17:38:00 ERROR ApplicantDAOSql:73 - 
+2019-01-11 17:38:33 ERROR UserService:28 - 
+2019-01-11 17:38:33 ERROR ApplicantDAOSql:73 - 
+2019-01-11 17:43:58 ERROR UserService:28 - 
+2019-01-11 17:43:58 ERROR ApplicantDAOSql:73 - 
+2019-01-11 17:48:43 ERROR UserService:28 - 
+2019-01-11 17:48:43 ERROR ApplicantDAOSql:73 - 
+2019-01-11 17:50:57 ERROR UserService:28 - 
+2019-01-11 17:50:57 ERROR ApplicantDAOSql:73 - 
+2019-01-11 18:26:39 ERROR UserService:28 - 
+2019-01-11 18:26:39 ERROR ApplicantDAOSql:73 - 
+2019-01-11 18:34:55 ERROR UserService:28 - 
+2019-01-11 18:34:55 ERROR ApplicantDAOSql:73 - 
+2019-01-11 18:50:21 ERROR UserService:28 - 
+2019-01-11 18:50:21 ERROR ApplicantDAOSql:73 - 
+2019-01-11 19:03:35 ERROR UserService:28 - 
+2019-01-11 19:03:35 ERROR ApplicantDAOSql:73 - 
+2019-01-11 19:04:10 ERROR UserService:28 - 
+2019-01-11 19:04:10 ERROR ApplicantDAOSql:73 - 

@@ -25,6 +25,6 @@ public class PeriodEditCommandPOST implements ActionCommand {
             periodService.update(period);
         }
 
-        return new Page(request.getRequestURL().append('?').append(request.getQueryString()).toString()).setDispatchType(Page.DispatchType.REDIRECT);
+        return new Page("/admin/period-edit"+'?'+request.getQueryString()).setDispatchType(Page.DispatchType.REDIRECT);
     }
 }

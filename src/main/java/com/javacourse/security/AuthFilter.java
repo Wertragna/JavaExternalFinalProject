@@ -15,10 +15,6 @@ import static java.util.Objects.nonNull;
 public class AuthFilter implements Filter {
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-    }
-
-    @Override
     public void doFilter(final ServletRequest request,
                          final ServletResponse response,
                          final FilterChain filterChain)
@@ -26,16 +22,9 @@ public class AuthFilter implements Filter {
         HttpSession session = ((HttpServletRequest) request).getSession();
         User user = (User) session.getAttribute("user");
         if (nonNull(session) && nonNull(user)) {
-
             filterChain.doFilter(request, response);
-
         } else {
-            ((HttpServletResponse)response).sendRedirect( ((HttpServletRequest) request).getContextPath()+"/login/sign-in");
+            ((HttpServletResponse) response).sendRedirect(((HttpServletRequest) request).getContextPath() + "/login/sign-in");
         }
     }
-
-    @Override
-    public void destroy() {
-    }
-
 }

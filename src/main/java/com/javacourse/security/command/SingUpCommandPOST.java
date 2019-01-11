@@ -1,6 +1,5 @@
 package com.javacourse.security.command;
 
-import com.javacourse.exception.UnsuccessfulDAOException;
 import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.User;
@@ -19,44 +18,35 @@ public class SingUpCommandPOST implements ActionCommand {
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
         Page page = null;
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        String surname = request.getParameter("surname");
-        String firstname = request.getParameter("firstname");
-        User user = new User();
-        user.setRoleEntity(Role.USER);
-        user.setRole(Role.USER.getId());
-        user.setPassword(password);
-        user.setFirstname(firstname);
-        user.setEmail(login);
-        user.setSurname(surname);
-
+       User user = createUsingByRequest(request);
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<User>> constraintViolations = validator.validate(user);
-        System.out.println(user);
-        //Show errors
-        if (constraintViolations.size() > 0) {
+        if(constraintViolations.iterator().hasNext())
+            System.out.println(constraintViolations.iterator().next().getMessage());
+       /* if (constraintViolations.size()>0) {
             for (ConstraintViolation<User> violation : constraintViolations) {
                 System.out.println(violation.getPropertyPath() + violation.getMessage() + "m");
             }
-        } else {
+        } */
+        else {
             System.out.println("Valid Object");
-
-
             UserService userService = new UserService();
-            try {
-                if (userService.create(user)) {
-                    page = new Page(request.getContextPath() + "/applicant").setDispatchType(Page.DispatchType.REDIRECT);
-                }
-            } catch (UnsuccessfulDAOException e) {
-                //todo add message
-                page = new Page(request.getContextPath() + "/login/sign-up").setDispatchType(Page.DispatchType.REDIRECT);
+            if (userService.create(user)) {
+                page = new Page ("/applicant").setDispatchType(Page.DispatchType.REDIRECT);
             }
         }
-
         return page;
     }
 
-
+    User createUsingByRequest( HttpServletRequest  request){
+        User user = new User();
+        user.setRoleEntity(Role.USER);
+        user.setRole(2);
+        user.setPassword(request.getParameter("password"));
+        user.setFirstname( request.getParameter("firstname"));
+        user.setEmail(request.getParameter("login"));
+        user.setSurname(request.getParameter("surname"));
+        return user;
+    }
 }
