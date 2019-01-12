@@ -39,15 +39,26 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
         return applicantSubjects;
     }
 
-    public List<Applicant> getBySpecialityIdAndPeriodId(int specialityId, int periodId) {
+    public List<Applicant> getBySpecialityIdAndPeriodId(int specialityId, int periodId, int limitStart, int numberOrResult) {
         List<Applicant> applicants = new ArrayList<>();
         try (Connection connection = factoryDAO.createConnection()) {
             ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
-            applicants = applicantDAO.getBySpecialityIdAndPeriodIdWithUserEntity(specialityId, periodId);
+            applicants = applicantDAO.getBySpecialityIdAndPeriodIdWithUserEntity(specialityId, periodId,limitStart,numberOrResult);
         } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
         return applicants;
+    }
+
+    public int getNumberOfApplicantBySpecialityIdAndPeriodId(int specialityId, int periodId) {
+        List<Applicant> applicants = new ArrayList<>();
+        try (Connection connection = factoryDAO.createConnection()) {
+            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
+            return applicantDAO.getNumberOfApplicantBySpecialityIdAndPeriodIdWithUserEntity(specialityId, periodId);
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
+        return 0;
     }
 
 

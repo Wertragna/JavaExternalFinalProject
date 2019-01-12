@@ -21,16 +21,19 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
     }
 //todo add pagination
     @Override
-    public List<Applicant> getBySpecialityIdAndPeriodIdWithUserEntity(int specialityID, int periodId) throws UnsuccessfulDAOException {
+    public List<Applicant> getBySpecialityIdAndPeriodIdWithUserEntity(int specialityID, int periodId, int limitStart, int numberOrLine) throws UnsuccessfulDAOException {
         List<Applicant> applicantSubjects = new ArrayList<>();
         try (PreparedStatement statement =
                      connection.prepareStatement
                              ("select * from applicant " +
                                      "inner join user on applicant.user = user.id " +
                                      "inner join status on applicant.status = status.id " +
-                                     "where applicant.speciality =? and applicant.period=? order by rating desc ")) {
+                                     "where applicant.speciality =? and applicant.period=? " +
+                                     "order by rating desc limit ?,?")) {
             statement.setInt(1, specialityID);
             statement.setInt(2,periodId);
+            statement.setInt(3,limitStart);
+            statement.setInt(4,numberOrLine);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 applicantSubjects.add(createApplicantWithUserEntity(resultSet));
@@ -40,6 +43,27 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
             throw new UnsuccessfulDAOException(e.getMessage());
         }
         return applicantSubjects;
+    }
+
+    @Override
+    public int getNumberOfApplicantBySpecialityIdAndPeriodIdWithUserEntity(int specialityID, int periodId) throws UnsuccessfulDAOException {
+        try (PreparedStatement statement =
+                     connection.prepareStatement
+                             ("select count(*) from applicant " +
+                                     "inner join user on applicant.user = user.id " +
+                                     "inner join status on applicant.status = status.id " +
+                                     "where applicant.speciality =? and applicant.period=? order by rating desc ")) {
+            statement.setInt(1, specialityID);
+            statement.setInt(2,periodId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException(e.getMessage());
+        }
+        return 0;
     }
 
 

@@ -11,23 +11,22 @@ public class User {
 
     private int id;
 
-    @NotBlank
-    @Size(min = 2, max = 45)
+    @NotBlank(message = "{msg.first-name}")
+    @Size(min = 2, max = 45, message = "{msg.first-name}")
     private String firstname;
 
-    @NotBlank
-    @Size(min = 2, max = 45)
+    @NotBlank(message = "{msg.surname}")
+    @Size(min = 2, max = 45, message = "{msg.surname}")
     private String surname;
 
-    @NotBlank
-    @Size(min = 6, max = 45)
+    @NotBlank(message = "{msg.password}")
+    @Size(min = 4, max = 45,message = "{msg.password}")
     private String password;
 
-    @Email
-    @Size(min = 2, max = 45)
+    @Email(message = "{msg.email}")
+    @Size(min = 2, max = 45, message = "{msg.email}")
     private String email;
 
-    @Positive
     private int role;
 
     private Role roleEntity;

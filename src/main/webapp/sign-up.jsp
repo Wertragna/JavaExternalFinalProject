@@ -1,9 +1,17 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<fmt:setLocale value="${sessionScope.lang}"/>
 <t:page-template>
     <jsp:body>
         <div class="container">
             <form method="POST" action="sign-up" class="form-signin">
+
                 <h1 class="h1 m-lg-3 text-center">Welcome to enrollment system!</h1>
+                <c:if test="${not empty error}">
+                        <div class="alert alert-danger">${error}</div>
+                </c:if>
                 <div class="form-group">
                     <label for="InputEmail1">Email address</label>
                     <input name="login" type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp"
