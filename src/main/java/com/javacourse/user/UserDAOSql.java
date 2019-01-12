@@ -1,6 +1,7 @@
 package com.javacourse.user;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.exception.UnsupportedDaoOperationException;
 import com.javacourse.user.role.RoleDAOSql;
 import com.javacourse.utils.DataBaseConnectionPool;
 import org.apache.log4j.Logger;
@@ -10,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-//todo write javadoc
+
 
 public class UserDAOSql implements UserDAO <Integer> {
     private final static Logger logger = Logger.getLogger(UserDAOSql.class);
@@ -20,25 +21,24 @@ public class UserDAOSql implements UserDAO <Integer> {
         this.connection = connection;
     }
 
-    //todo implement
+
     @Override
     public List<User> getAll() throws UnsuccessfulDAOException {
-        return null;
+        throw new UnsupportedDaoOperationException();
     }
 
-    //todo implement
+
     @Override
     public boolean update(User v) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
-    //todo implement
+
     @Override
     public boolean delete(Integer integer) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
-    //todo add hash for password
     @Override
     public boolean create(User user) throws UnsuccessfulDAOException {
 

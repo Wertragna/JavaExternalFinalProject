@@ -1,6 +1,7 @@
 package com.javacourse.user.speciality;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.exception.UnsupportedDaoOperationException;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -35,17 +36,17 @@ public class SpecialityDAOSql implements SpecialityDAO {
 
     @Override
     public boolean update(Speciality entity) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean delete(Integer integer) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean create(Speciality entity) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.javacourse.user.applicant.period.state;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.exception.UnsupportedDaoOperationException;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -20,22 +21,22 @@ public class StateDAOSql implements StateDAO<Integer> {
 
     @Override
     public List<State> getAll() throws UnsuccessfulDAOException {
-        return null;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean update(State entity) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean delete(Integer integer) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean create(State entity) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override

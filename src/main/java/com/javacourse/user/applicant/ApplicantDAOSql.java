@@ -1,6 +1,7 @@
 package com.javacourse.user.applicant;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.exception.UnsupportedDaoOperationException;
 import com.javacourse.user.User;
 import com.javacourse.user.applicant.status.Status;
 import org.apache.log4j.Logger;
@@ -19,7 +20,7 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
     public ApplicantDAOSql(Connection connection) {
         this.connection = connection;
     }
-//todo add pagination
+
     @Override
     public List<Applicant> getBySpecialityIdAndPeriodIdWithUserEntity(int specialityID, int periodId, int limitStart, int numberOrLine) throws UnsuccessfulDAOException {
         List<Applicant> applicantSubjects = new ArrayList<>();
@@ -130,7 +131,7 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
 
     @Override
     public List<Applicant> getAll() throws UnsuccessfulDAOException {
-        return null;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override

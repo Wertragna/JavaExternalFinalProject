@@ -26,7 +26,6 @@ public class ApplicantServiceTest {
 
     @Before
     public void init_mocks() {
-
         MockitoAnnotations.initMocks(this);
     }
 

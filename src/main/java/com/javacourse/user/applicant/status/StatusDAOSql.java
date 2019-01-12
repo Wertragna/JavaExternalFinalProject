@@ -1,6 +1,7 @@
 package com.javacourse.user.applicant.status;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.exception.UnsupportedDaoOperationException;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -19,22 +20,22 @@ public class StatusDAOSql implements StatusDAO {
 
     @Override
     public List<Status> getAll() throws UnsuccessfulDAOException {
-        return null;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean update(Status entity) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean delete(Integer integer) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean create(Status entity) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override

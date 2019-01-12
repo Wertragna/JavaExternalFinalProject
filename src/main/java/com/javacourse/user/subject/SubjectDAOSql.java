@@ -1,6 +1,7 @@
 package com.javacourse.user.subject;
 
 import com.javacourse.exception.UnsuccessfulDAOException;
+import com.javacourse.exception.UnsupportedDaoOperationException;
 import com.javacourse.user.applicant.ApplicantSubject;
 import org.apache.log4j.Logger;
 
@@ -38,22 +39,22 @@ public class SubjectDAOSql implements SubjectDAO<Integer> {
 
     @Override
     public boolean update(Subject entity) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean delete(Integer integer) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public boolean create(Subject entity) throws UnsuccessfulDAOException {
-        return false;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
     public Subject getById(Integer integer) throws UnsuccessfulDAOException {
-        return null;
+        throw new UnsupportedDaoOperationException();
     }
 
     @Override
