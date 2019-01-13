@@ -1,14 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <t:page-template>
     <jsp:body>
+        <fmt:bundle basename="messages">
         <div class="card">
         <div class="card-header">
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap">
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/info">application</a>
-                <a class="nav-link active bg-warning" href="${pageContext.request.contextPath}/applicant/choose-subjects">subject</a>
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-speciality">speciality</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/info"><fmt:message key="msg.application"/></a>
+                <a class="nav-link active bg-warning" href="${pageContext.request.contextPath}/applicant/choose-subjects"><fmt:message key="msg.subjects"/></a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-speciality"><fmt:message key="msg.speciality"/></a>
 
             </nav>
         </div>
@@ -17,7 +20,7 @@
                 <h3>Subjects</h3>
                 <c:if test="${not access}">
                     <div class="alert alert-info" role="alert">
-                        Sorry, you don't have access to do changes!
+                        <fmt:message key="msg.subject-alert"/>
                     </div>
                 </c:if>
                 <ul class="list-group list-group-flush">
@@ -106,5 +109,6 @@
                 </c:if>
             </div>
         </div>
+        </fmt:bundle>
     </jsp:body>
 </t:page-template>

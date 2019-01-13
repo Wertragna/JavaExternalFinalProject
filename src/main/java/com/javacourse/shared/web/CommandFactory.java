@@ -21,6 +21,7 @@ public class CommandFactory {
 
     public ActionCommand getCommand() {
             return ActionCommandEnum.valueOf(getCommandName(ActionCommandEnum.class)).getCurrentCommand();
+
     }
 
     String getCommandName(Class enumCommand) {

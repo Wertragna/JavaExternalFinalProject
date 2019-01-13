@@ -2360,3 +2360,15 @@
 2019-01-12 16:20:31 ERROR ApplicantDAOSql:59 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) from applicant inner join user on applicant.user = user.id inner join status ' at line 1
 2019-01-12 16:25:49 ERROR UserService:28 - 
 2019-01-12 16:25:49 ERROR ApplicantDAOSql:84 - 
+2019-01-13 23:22:25 ERROR UserService:28 - 
+2019-01-13 23:22:25 ERROR ApplicantDAOSql:84 - 
+2019-01-13 23:46:37 ERROR UserDAOSql:93 - Column 'msg.email' not found.
+2019-01-13 23:46:37 ERROR UserService:28 - 
+2019-01-13 23:46:42 ERROR UserDAOSql:93 - Column 'msg.email' not found.
+2019-01-13 23:46:42 ERROR UserService:28 - 
+2019-01-13 23:46:48 ERROR UserDAOSql:93 - Column 'msg.email' not found.
+2019-01-13 23:46:48 ERROR UserService:28 - 
+2019-01-13 23:48:02 ERROR UserDAOSql:93 - Column 'msg.email' not found.
+2019-01-13 23:48:02 ERROR UserService:28 - 
+2019-01-13 23:48:07 ERROR UserDAOSql:93 - Column 'msg.email' not found.
+2019-01-13 23:48:07 ERROR UserService:28 - 

@@ -1,23 +1,25 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <tags:page-template>
+    <fmt:bundle basename="messages">
     <div class="card">
         <div class="card-header">
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap ">
                 <a class="text-sm-center nav-link"
-                   href="${pageContext.request.contextPath}/admin/period-info?id-period=${param["id-period"]}">info</a>
+                   href="${pageContext.request.contextPath}/admin/period-info?id-period=${param["id-period"]}"><fmt:message key="msg.info"/></a>
                 <a class="text-sm-center nav-link active"
-                   href="${pageContext.request.contextPath}/admin/period-edit?id-period=${param["id-period"]}">edit</a>
+                   href="${pageContext.request.contextPath}/admin/period-edit?id-period=${param["id-period"]}"><fmt:message key="msg.edit"/></a>
                 <a class="text-sm-center nav-link"
-                   href="${pageContext.request.contextPath}/admin/period-mark?id-period=${param["id-period"]}">mark</a>
+                   href="${pageContext.request.contextPath}/admin/period-mark?id-period=${param["id-period"]}"><fmt:message key="msg.mark"/></a>
                 <a class="text-sm-center nav-link"
-                   href="${pageContext.request.contextPath}/admin/specialities?id-period=${param["id-period"]}">statistics</a>
+                   href="${pageContext.request.contextPath}/admin/specialities?id-period=${param["id-period"]}"><fmt:message key="msg.statistics"/></a>
             </nav>
         </div>
         <div class="card-body">
             <form name="period-edit" method="post">
                 <h3>
-                    Edit
+                    <fmt:message key="msg.edit"/>
                 </h3>
                 <input type="hidden" name="type" value="update">
                 <input type="hidden" name="id" value="${period.id}">
@@ -33,7 +35,7 @@
 
 
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Set the next step of period
+                <fmt:message key="msg.next-step"/>
             </button>
 
         </div>
@@ -64,5 +66,5 @@
         </div>
     </div>
 
-
+    </fmt:bundle>
 </tags:page-template>

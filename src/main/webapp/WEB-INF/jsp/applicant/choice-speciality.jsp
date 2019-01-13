@@ -1,14 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <t:page-template>
     <jsp:body>
+        <fmt:bundle basename="messages">
         <div class="card">
         <div class="card-header">
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap">
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/info">Application</a>
-                <a class="nav-link " href="${pageContext.request.contextPath}/applicant/choose-subjects">Subject</a>
-                <a class="nav-link active bg-info" href="${pageContext.request.contextPath}/applicant/choose-speciality">Speciality</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/info"><fmt:message key="msg.application"/></a>
+                <a class="nav-link " href="${pageContext.request.contextPath}/applicant/choose-subjects"><fmt:message key="msg.subjects"/></a>
+                <a class="nav-link active bg-info" href="${pageContext.request.contextPath}/applicant/choose-speciality"><fmt:message key="msg.speciality"/></a>
             </nav>
         </div>
         <div class="card-body">
@@ -16,7 +19,7 @@
                 <h3>Choose speciality</h3>
                 <c:if test="${not access}">
                     <div class="alert alert-info" role="alert">
-                        Sorry, you don't have access to do changes!
+                        <fmt:message key="msg.speciality-alert"/>
                     </div>
                 </c:if>
                 <c:if test="${not empty specialities}">
@@ -41,7 +44,6 @@
                                         <button type="submit" class="btn btn-primary">Add</button>
                                     </div>
                                 </div>
-
                             </fieldset>
                         </c:when>
                         <c:otherwise>
@@ -67,5 +69,6 @@
                 </c:if>
             </div>
         </div>
+        </fmt:bundle>
     </jsp:body>
 </t:page-template>

@@ -3,13 +3,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="${sessionScope.lang}"/>
 <tags:page-template>
-    <fmt:bundle basename="application_messages">
+    <fmt:bundle basename="messages">
         <div class="card">
         <div class="card-header">
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap">
-                <a class="nav-link active bg-success" href="${pageContext.request.contextPath}/applicant/info">Application</a>
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-subjects">Subject</a>
-                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-speciality">Speciality</a>
+                <a class="nav-link active bg-success" href="${pageContext.request.contextPath}/applicant/info"><fmt:message key="msg.application"/></a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-subjects"><fmt:message key="msg.subjects"/></a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/applicant/choose-speciality"><fmt:message key="msg.speciality"/></a>
             </nav>
         </div>
         <div class="card-body">
@@ -23,17 +23,17 @@
                     </li>
                     <li class="list-group-item row d-flex">
                         <div class="col-md-2">
-                            <b><fmt:message key="surname"/></b></div>
+                            <b><fmt:message key="msg.surname"/></b></div>
                         <div class="col-md-10">${sessionScope.user.surname}</div>
                     </li>
                     <li class="list-group-item row d-flex">
                         <div class="col-md-2">
-                            <b><fmt:message key="email"/></b></div>
+                            <b><fmt:message key="msg.email"/></b></div>
                         <div class="col-md-10">${sessionScope.user.email}</div>
                     </li>
                     <li class="list-group-item row d-flex">
                         <div class="col-md-2">
-                            <b><fmt:message key="status"/></b></div>
+                            <b><fmt:message key="msg.status"/></b></div>
                         <div class="col-md-10">${status.name}</div>
                     </li>
                     <li class="list-group-item row d-flex">
@@ -75,7 +75,7 @@
                         </div>
                     </li>
                     <li class="list-group-item row d-flex">
-                        <div class="col-md-2"><b><fmt:message key="speciality"/></b></div>
+                        <div class="col-md-2"><b><fmt:message key="msg.speciality"/></b></div>
                         <div class="col-md-10">
                             <c:choose>
                                 <c:when test="${not empty speciality}">

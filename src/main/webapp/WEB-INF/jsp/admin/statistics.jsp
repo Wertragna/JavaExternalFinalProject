@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <t:page-template>
     <jsp:body>
+        <fmt:bundle basename="messages">
         <style>
             .bg-green {
                 background-color: palegreen !important;
@@ -153,5 +156,6 @@
                 </c:choose>
             </ul>
         </nav>
+        </fmt:bundle>
     </jsp:body>
 </t:page-template>

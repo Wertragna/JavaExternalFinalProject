@@ -1,14 +1,18 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <t:page-template>
     <jsp:body>
-        <h3 class="h3">Create new Period!</h3>
+        <fmt:bundle basename="messages">
+        <h3 class="h3"><fmt:message key="msg.create-new-period"/> </h3>
         <form method="POST" action="create-new-period">
             <input type="hidden" name="command" value="create_new_period"/>
             <div class="form-group">
-                <label for="period">name</label>
+                <label for="period"><fmt:message key="msg.name"/></label>
                 <input name="name" class="form-control" id="period"/>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary"><fmt:message key="msg.create"/></button>
         </form>
+        </fmt:bundle>
     </jsp:body>
 </t:page-template>

@@ -1,18 +1,19 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <tags:page-template>
-    <jsp:body>
+
+    <jsp:body><fmt:bundle basename="messages">
         <style>
             .vertical-center{
                 vertical-align: center !important;
             }
-
         </style>
-        <h3>Marks</h3>
+        <h3><fmt:message key="msg.mark"/></h3>
         <a class="btn-primary btn"
            href="${pageContext.request.contextPath}/admin/period-mark?id-period=${param["id-period"]}">back</a>
         <div class="container pt-3">
-
             <c:choose>
                 <c:when test="${not empty applicants and access==true}">
                     <form method="post" name="period-subject-marks" class="pt-2">
@@ -100,5 +101,6 @@
                 </c:otherwise>
             </c:choose>
         </div>
+    </fmt:bundle>
     </jsp:body>
 </tags:page-template>

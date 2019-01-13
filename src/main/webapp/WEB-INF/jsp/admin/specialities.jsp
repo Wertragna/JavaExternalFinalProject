@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <t:page-template>
     <jsp:body>
+        <fmt:bundle basename="messages">
         <div class="card">
         <div class="card-header">
             <nav class="nav nav-pills flex-column flex-sm-row d-flex align-content-start flex-wrap">
@@ -29,5 +32,6 @@
                 </c:forEach>
             </div>
         </div>
+        </fmt:bundle>
     </jsp:body>
 </t:page-template>

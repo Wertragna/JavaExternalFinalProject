@@ -15,23 +15,22 @@
             <ul class="navbar-nav mr-auto">
                 <c:if test="${sessionScope.user.roleEntity == ADMIN}">
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/">home</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/"><fmt:message key="msg.home"/></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/admin/create-new-period">create new
                             period</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/admin/periods">periods</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/admin/periods"><fmt:message key="msg.periods"/></a>
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.user.roleEntity == USER}">
-
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/">home</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/"><fmt:message key="msg.home"/></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/period">period</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/period"><fmt:message key="msg.application"/></a>
                     </li>
                 </c:if>
             </ul>
@@ -40,7 +39,7 @@
                     <c:when test="${not empty sessionScope.user}">
                         <li class="nav-item">
                             <a class="nav-link" href="${pageContext.request.contextPath}/login/logout"> <i
-                                    data-feather="log-out"></i> logout</a>
+                                    data-feather="log-out"></i> <fmt:message key="msg.logout"/></a>
                         </li>
                     </c:when>
                     <c:otherwise>
