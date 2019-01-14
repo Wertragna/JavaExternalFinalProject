@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApplicantDAOSql implements ApplicantDAO<Integer> {
+public class ApplicantDAOSql implements ApplicantDAO {
     private static final Logger logger = Logger.getLogger(ApplicantDAOSql.class);
     private Connection connection;
 
@@ -174,20 +174,25 @@ public class ApplicantDAOSql implements ApplicantDAO<Integer> {
     }
 
     @Override
-    public boolean updateApplicantSubjectMarks(ApplicantSubject applicantSubject) throws UnsuccessfulDAOException {
+    public boolean updateApplicantSubjectMarks(List<ApplicantSubject> applicantSubjects) throws UnsuccessfulDAOException {
         int changeNumber = 0;
         try (PreparedStatement preparedStatement =
                      connection.prepareStatement(
                              "update applicant_subject set mark = ? where applicant = ? and subject=?")) {
+
+            for(ApplicantSubject applicantSubject:applicantSubjects){
             preparedStatement.setObject(1, applicantSubject.getMark());
             preparedStatement.setInt(2, applicantSubject.getApplicant());
             preparedStatement.setInt(3, applicantSubject.getSubject());
-            changeNumber = preparedStatement.executeUpdate();
+            preparedStatement.addBatch();
+            return true;
+            }
+            preparedStatement.executeBatch();
         } catch (SQLException e) {
             logger.error(e.getMessage());
             throw new UnsuccessfulDAOException(e.getMessage());
         }
-        return changeNumber > 0;
+        return false;
     }
 
     @Override

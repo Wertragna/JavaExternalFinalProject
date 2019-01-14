@@ -1,7 +1,9 @@
 package com.javacourse.user.speciality;
 
 import java.util.Objects;
-
+/**
+ * A model class for speciality database table
+ */
 public class Speciality {
     private int id;
     private String name;

@@ -1,7 +1,9 @@
 package com.javacourse.user.subject;
 
 import java.util.Objects;
-
+/**
+ * A model class for subject database table
+ */
 public class Subject {
     private int id;
     private String name;

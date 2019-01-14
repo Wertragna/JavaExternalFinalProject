@@ -6,7 +6,9 @@ import com.javacourse.user.applicant.period.Period;
 import com.javacourse.user.applicant.status.Status;
 
 import java.util.Objects;
-
+/**
+ * A model class for applicant database table
+ */
 public class Applicant {
     private Integer rating;
     private int id;

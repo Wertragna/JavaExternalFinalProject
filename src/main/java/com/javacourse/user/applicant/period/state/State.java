@@ -1,22 +1,18 @@
 package com.javacourse.user.applicant.period.state;
 
+/**
+ * A model class for state database table
+ */
 public class State {
 
     private int id;
+
     private String name;
 
     public State() {
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    State(String name, int id){
+    State(String name, int id) {
         this.id = id;
         this.name = name;
     }
@@ -25,8 +21,16 @@ public class State {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

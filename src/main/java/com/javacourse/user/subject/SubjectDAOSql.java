@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectDAOSql implements SubjectDAO<Integer> {
+public class SubjectDAOSql implements SubjectDAO {
     private static final Logger logger = Logger.getLogger(SubjectDAOSql.class);
     Connection connection;
 
@@ -133,7 +133,7 @@ public class SubjectDAOSql implements SubjectDAO<Integer> {
     }
 
     @Override
-    public boolean addSubjectApplicant(Integer subject, Integer applicant) throws UnsuccessfulDAOException {
+    public boolean addSubjectApplicant(int subject, int applicant) throws UnsuccessfulDAOException {
         int changeNumber = 0;
         try (PreparedStatement statement =
                      connection.prepareStatement(

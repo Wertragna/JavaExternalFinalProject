@@ -5,13 +5,15 @@ import com.javacourse.shared.dao.AbstractDAO;
 import com.javacourse.user.User;
 
 import java.util.List;
-
-public interface ApplicantDAO<K> extends AbstractDAO<K, Applicant> {
+/**
+ * Basic interface used for implementing FactoryDAO for switching easily
+ */
+public interface ApplicantDAO extends AbstractDAO<Integer, Applicant> {
     int getApplicantIdByUserIdAndPeriod(User user, Integer period) throws UnsuccessfulDAOException;
 
     List<ApplicantSubject> getByPeriodAndSubject(int period, int subject) throws UnsuccessfulDAOException;
 
-    boolean updateApplicantSubjectMarks(ApplicantSubject a) throws UnsuccessfulDAOException;
+    public boolean updateApplicantSubjectMarks(List<ApplicantSubject> applicantSubjects) throws UnsuccessfulDAOException;
 
     int calculateRatingForSubjectSpeciality(int idApplicant, int idSpeciality) throws UnsuccessfulDAOException;
 

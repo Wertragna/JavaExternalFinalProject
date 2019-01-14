@@ -1,7 +1,9 @@
 package com.javacourse.user.applicant.status;
 
 import java.util.EnumMap;
-
+/**
+ * A class for enum name of status database table
+ */
 public enum StatusName {
     UNDER_CONSIDERATION,
     ACCEPTED,

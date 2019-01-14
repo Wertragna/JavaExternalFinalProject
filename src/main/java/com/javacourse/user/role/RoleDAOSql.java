@@ -10,8 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-//todo write javadoc
-public class RoleDAOSql implements RoleDAO<Integer> {
+public class RoleDAOSql implements RoleDAO {
     private static final Logger logger = Logger.getLogger(RoleDAOSql.class);
     Connection connection;
 
@@ -44,6 +43,22 @@ public class RoleDAOSql implements RoleDAO<Integer> {
         Role role = null;
         try (PreparedStatement statement = connection.prepareStatement("select * from role where id=?")) {
             statement.setInt(1, integer);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                role = createRole(rs);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+            throw new UnsuccessfulDAOException();
+        }
+        return role;
+    }
+
+    @Override
+    public Role getByName(String name) throws UnsuccessfulDAOException {
+        Role role = null;
+        try (PreparedStatement statement = connection.prepareStatement("select * from role where name=?")) {
+            statement.setString(1, name);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 role = createRole(rs);

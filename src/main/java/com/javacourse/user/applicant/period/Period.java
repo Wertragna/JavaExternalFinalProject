@@ -3,7 +3,9 @@ package com.javacourse.user.applicant.period;
 import com.javacourse.user.applicant.period.state.State;
 
 import java.util.Objects;
-
+/**
+ * A model class for period database table
+ */
 public class Period {
     private int id;
     private String name;

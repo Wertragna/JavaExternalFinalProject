@@ -1,7 +1,9 @@
 package com.javacourse.user.applicant.status;
 
 import java.util.Objects;
-
+/**
+ * A model class for status database table
+ */
 public class Status {
     private int id;
     private String name;

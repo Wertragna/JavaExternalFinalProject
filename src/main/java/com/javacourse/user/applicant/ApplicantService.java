@@ -5,11 +5,11 @@ import com.javacourse.shared.dao.FactoryDAO;
 import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.shared.service.AbstractServiceSql;
 import com.javacourse.shared.service.Service;
-import com.javacourse.user.speciality.Speciality;
-import com.javacourse.user.speciality.SpecialityDAO;
 import com.javacourse.user.User;
 import com.javacourse.user.applicant.status.StatusDAO;
 import com.javacourse.user.applicant.status.StatusName;
+import com.javacourse.user.speciality.Speciality;
+import com.javacourse.user.speciality.SpecialityDAO;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -23,7 +23,7 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
 
     private FactoryDAO factoryDAO;
 
-    public ApplicantService( ) {
+    public ApplicantService() {
         super(ApplicantDAOSql.class);
         factoryDAO = new FactoryDAOSql();
     }
@@ -31,7 +31,7 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
     public List<ApplicantSubject> getByPeriodAndSubject(int period, int subject) {
         List<ApplicantSubject> applicantSubjects = new ArrayList<>();
         try (Connection connection = factoryDAO.createConnection()) {
-            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
+            ApplicantDAO applicantDAO = factoryDAO.createApplicantDAO(connection);
             applicantSubjects = applicantDAO.getByPeriodAndSubject(period, subject);
         } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
@@ -42,8 +42,8 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
     public List<Applicant> getBySpecialityIdAndPeriodId(int specialityId, int periodId, int limitStart, int numberOrResult) {
         List<Applicant> applicants = new ArrayList<>();
         try (Connection connection = factoryDAO.createConnection()) {
-            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
-            applicants = applicantDAO.getBySpecialityIdAndPeriodIdWithUserEntity(specialityId, periodId,limitStart,numberOrResult);
+            ApplicantDAO applicantDAO = factoryDAO.createApplicantDAO(connection);
+            applicants = applicantDAO.getBySpecialityIdAndPeriodIdWithUserEntity(specialityId, periodId, limitStart, numberOrResult);
         } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
@@ -53,7 +53,7 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
     public int getNumberOfApplicantBySpecialityIdAndPeriodId(int specialityId, int periodId) {
         List<Applicant> applicants = new ArrayList<>();
         try (Connection connection = factoryDAO.createConnection()) {
-            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
+            ApplicantDAO applicantDAO = factoryDAO.createApplicantDAO(connection);
             return applicantDAO.getNumberOfApplicantBySpecialityIdAndPeriodIdWithUserEntity(specialityId, periodId);
         } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
@@ -64,16 +64,21 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
 
     public boolean updateMarks(List<ApplicantSubject> applicantSubjects) {
         try (Connection connection = factoryDAO.createConnection()) {
-            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
-            for (ApplicantSubject a : applicantSubjects) {
-                if (!applicantDAO.updateApplicantSubjectMarks(a))
-                    return false;
+            connection.setAutoCommit(false);
+            ApplicantDAO applicantDAO = factoryDAO.createApplicantDAO(connection);
+            try {
+                applicantDAO.updateApplicantSubjectMarks(applicantSubjects);
+                connection.commit();
+                return true;
+            } catch (UnsuccessfulDAOException e) {
+                connection.rollback();
+                logger.error(e.getMessage());
             }
+        } catch (SQLException e) {
 
-        } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
-        return true;
+        return false;
     }
 
     public int getApplicantIdByUserIdAndPeriod(User user, Integer period) {
@@ -115,7 +120,7 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
         try (Connection connection = factoryDAO.createConnection()) {
             connection.setAutoCommit(false);
             SpecialityDAO specialityDAO = factoryDAO.createSpecialityDAO(connection);
-            ApplicantDAO<Integer> applicantDAO = factoryDAO.createApplicantDAO(connection);
+            ApplicantDAO applicantDAO = factoryDAO.createApplicantDAO(connection);
             try {
                 List<Speciality> specialities = specialityDAO.getAll();
                 for (Speciality speciality : specialities) {
@@ -125,7 +130,7 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
                         applicantDAO.updateList(applicants);
                 }
                 connection.commit();
-            } catch (SQLException | UnsuccessfulDAOException e) {
+            } catch (UnsuccessfulDAOException e) {
                 connection.rollback();
                 logger.error(e.getMessage());
             }

@@ -1,5 +1,7 @@
 package com.javacourse.user.role;
-//todo write javadoc
+/**
+ * A model class for role database table
+ */
 public enum Role {
     ADMIN("admin",1),
     USER("user",2);

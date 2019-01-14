@@ -43,7 +43,7 @@ public class SubjectServiceSql extends AbstractServiceSql<Integer, Subject> impl
     public List<ApplicantSubject> getByApplicantId(int applicantId)  {
         List<ApplicantSubject>list=null;
         try (Connection connection = factoryDAO.createConnection()) {
-             SubjectDAO<Integer> subjectDAO= factoryDAO.createSubjectDAO(connection);
+             SubjectDAO subjectDAO= factoryDAO.createSubjectDAO(connection);
              list = subjectDAO.getByApplicantId(applicantId);
         } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
@@ -53,7 +53,7 @@ public class SubjectServiceSql extends AbstractServiceSql<Integer, Subject> impl
     public List<Subject> getSubjectByApplicantId(int applicantId)  {
         List<Subject>list=null;
         try (Connection connection = factoryDAO.createConnection()) {
-            SubjectDAO<Integer> subjectDAO= factoryDAO.createSubjectDAO(connection);
+            SubjectDAO subjectDAO= factoryDAO.createSubjectDAO(connection);
             list = subjectDAO.getSubjectsByApplicantId(applicantId);
         } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());

@@ -5,8 +5,10 @@ import com.javacourse.exception.UnsuccessfulDAOException;
 import java.util.List;
 
 /**
+ * Interface for DAO to Database
  * @param <K> key of the database table
  * @param <E> entity of model
+ * @throws com.javacourse.exception.UnsupportedDaoOperationException
  */
 public interface AbstractDAO<K, E> {
 
