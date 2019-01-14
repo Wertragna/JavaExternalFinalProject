@@ -59,7 +59,7 @@ public class PeriodService extends AbstractServiceSql<Integer, Period> implement
         Period period = null;
         try (Connection connection = factoryDAO.createConnection()) {
             PeriodDAO periodDAO = factoryDAO.createPeriodDAO(connection);
-            StateDAO<Integer> stateDAO = factoryDAO.createStateDAO(connection);
+            StateDAO stateDAO = factoryDAO.createStateDAO(connection);
             period = periodDAO.getById(id);
             State state = stateDAO.getById(period.getState());
             period.setStateEntity(state);
@@ -73,7 +73,7 @@ public class PeriodService extends AbstractServiceSql<Integer, Period> implement
     public boolean setNextState(Period period) {
         try (Connection connection = factoryDAO.createConnection()) {
             PeriodDAO periodDAO = factoryDAO.createPeriodDAO(connection);
-            StateDAO<Integer> stateDAO = factoryDAO.createStateDAO(connection);
+            StateDAO stateDAO = factoryDAO.createStateDAO(connection);
             State currentState = stateDAO.getById(period.getState());
             StateName stateName= StateName.getByName(currentState.getName());
             stateName = stateName.getNext();
@@ -89,5 +89,18 @@ public class PeriodService extends AbstractServiceSql<Integer, Period> implement
             logger.error(e.getMessage());
         }
         return false;
+    }
+
+    public boolean createWithStateName(Period period, StateName name){
+        try (Connection connection = factoryDAO.createConnection()) {
+            PeriodDAO periodDAO = factoryDAO.createPeriodDAO(connection);
+            StateDAO stateDAO = factoryDAO.createStateDAO(connection);
+            period.setState(stateDAO.getByName(StateName.getNames().get(name).toLowerCase()).getId());
+            return periodDAO.create(period);
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e);
+        }
+        return false;
+
     }
 }

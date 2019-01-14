@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
             <div class="container">
-                <h3>Choose speciality</h3>
+                <h3><fmt:message key="msg.choose-speciality"/></h3>
                 <c:if test="${not access}">
                     <div class="alert alert-info" role="alert">
                         <fmt:message key="msg.speciality-alert"/>
@@ -41,7 +41,7 @@
                                         </select>
                                     </div>
                                     <div class="col-auto my-1">
-                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="submit" class="btn btn-primary"><fmt:message key="msg.save"/></button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -61,7 +61,7 @@
                                 </select>
                             </div>
                             <div class="col-auto my-1">
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn btn-primary"><fmt:message key="msg.save"/></button>
                             </div>
                             </c:otherwise>
                             </c:choose>

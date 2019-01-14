@@ -51,7 +51,7 @@ public class UserDAOSql implements UserDAO <Integer> {
             statement.setString(2, user.getSurname());
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getPassword());
-            statement.setInt(5, user.getRoleEntity().getId());
+            statement.setInt(5, user.getRole());
             changeNumber = statement.executeUpdate();
         } catch (SQLException e) {
             logger.error(e.getMessage());

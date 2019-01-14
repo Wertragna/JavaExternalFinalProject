@@ -5,7 +5,7 @@ import com.javacourse.shared.dao.AbstractDAO;
 /**
  * Basic interface used for implementing FactoryDAO for switching easily
  */
-public interface StateDAO<K> extends AbstractDAO<K,State> {
+public interface StateDAO extends AbstractDAO<Integer,State> {
     State getByName(String name) throws UnsuccessfulDAOException;
     State getByPeriodId(int id) throws UnsuccessfulDAOException;
 }

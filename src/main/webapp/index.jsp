@@ -13,7 +13,8 @@
     <jsp:body>
 
         <div class="jumbotron p-3 p-md-5   rounded bg-light border-info border">
-            <h1 class="text-center display-4">Welcome to the Application Platform!</h1>
+            <h1 class="text-center display-4 pb-5 font-weight-bold">Welcome to the Application Platform!</h1>
+            <hr class="mb-5"/>
             Below are the application and enrollment process steps:
             <ol>
                 <li> Students apply and choose subject</li>

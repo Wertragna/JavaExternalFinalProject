@@ -18,8 +18,7 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/"><fmt:message key="msg.home"/></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/admin/create-new-period">create new
-                            period</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/admin/create-new-period"><fmt:message key="msg.create-new-period"/></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/admin/periods"><fmt:message key="msg.periods"/></a>

@@ -6,5 +6,5 @@ import com.javacourse.shared.dao.AbstractDAO;
  * Basic interface used for implementing FactoryDAO for switching easily
  */
 public interface RoleDAO  extends AbstractDAO<Integer, Role> {
-     Role getByName(String name) throws UnsuccessfulDAOException;
+     int getByName(String name) throws UnsuccessfulDAOException;
 }

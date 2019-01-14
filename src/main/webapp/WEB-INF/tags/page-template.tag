@@ -13,7 +13,7 @@
       <jsp:include page="/WEB-INF/jsp/shared/header.jsp"/>
     </jsp:attribute>
     <jsp:attribute name="footer">
-       <footer>
+       <footer style="padding-left: 30px;">
            <p>&copy; Bohdana Sherstyniuk</p>
            <ul>
                <li><a href="?lang=ukr&${pageContext.request.queryString}" title="UA"> ua </a></li>

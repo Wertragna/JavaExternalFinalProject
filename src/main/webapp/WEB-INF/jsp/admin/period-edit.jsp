@@ -1,5 +1,6 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <fmt:setLocale value="${sessionScope.lang}"/>
 <tags:page-template>
     <fmt:bundle basename="messages">
@@ -21,14 +22,19 @@
                 <h3>
                     <fmt:message key="msg.edit"/>
                 </h3>
+                <c:if test="${not empty error}">
+                    <div class="alert alert-danger">
+                            ${error}
+                    </div>
+                </c:if>
                 <input type="hidden" name="type" value="update">
                 <input type="hidden" name="id" value="${period.id}">
                 <input type="hidden" name="state" value="${period.state}">
                 <div class="input-group">
-                    <div class="input-group-prepend"><span class="input-group-text">name</span></div>
+                    <div class="input-group-prepend"><span class="input-group-text"><fmt:message key="msg.name"/></span></div>
                     <input type="text" class="form-control" id="name" name="name" value="${period.name}">
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="save" id="button-addon2">submit</button>
+                        <button class="btn btn-primary" type="save" id="button-addon2"><fmt:message key="msg.save"/></button>
                     </div>
                 </div>
             </form>

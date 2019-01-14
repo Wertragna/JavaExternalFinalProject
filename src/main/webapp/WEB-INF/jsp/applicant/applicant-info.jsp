@@ -14,7 +14,7 @@
         </div>
         <div class="card-body">
             <div class="container">
-                <h3>Application</h3>
+                <h3><fmt:message key="msg.application"/></h3>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item row d-flex">
                         <div class="col-md-2">
@@ -48,8 +48,8 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item p-0">
                                             <div class="row">
-                                                <div class="col-9"><i>name</i></div>
-                                                <div class="col-3>"><i>mark</i></div>
+                                                <div class="col-9"><i><fmt:message key="msg.name"/></i></div>
+                                                <div class="col-3>"><i><fmt:message key="msg.mark"/></i></div>
                                             </div>
                                         </li>
                                         <c:forEach items="${subjects}" var="subject">
@@ -69,7 +69,7 @@
                                     </ul>
                                 </c:when>
                                 <c:otherwise>
-                                    You haven't chosen any subject yet.
+                                    -
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -82,7 +82,7 @@
                                     ${speciality.name}
                                 </c:when>
                                 <c:otherwise>
-                                    You haven't chosen speciality yet.
+                                    -
                                 </c:otherwise>
                             </c:choose>
                         </div>

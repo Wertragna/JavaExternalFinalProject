@@ -55,19 +55,19 @@ public class RoleDAOSql implements RoleDAO {
     }
 
     @Override
-    public Role getByName(String name) throws UnsuccessfulDAOException {
+    public int getByName(String name) throws UnsuccessfulDAOException {
         Role role = null;
         try (PreparedStatement statement = connection.prepareStatement("select * from role where name=?")) {
             statement.setString(1, name);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                role = createRole(rs);
+                return rs.getInt("id");
             }
         } catch (SQLException e) {
             logger.error(e.getMessage());
             throw new UnsuccessfulDAOException();
         }
-        return role;
+        return -1;
     }
 
     private Role createRole(ResultSet rs) throws SQLException {

@@ -12,7 +12,7 @@
         </style>
         <h3><fmt:message key="msg.mark"/></h3>
         <a class="btn-primary btn"
-           href="${pageContext.request.contextPath}/admin/period-mark?id-period=${param["id-period"]}">back</a>
+           href="${pageContext.request.contextPath}/admin/period-mark?id-period=${param["id-period"]}"><fmt:message key="msg.back"/></a>
         <div class="container pt-3">
             <c:choose>
                 <c:when test="${not empty applicants and access==true}">

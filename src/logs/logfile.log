@@ -2372,3 +2372,33 @@
 2019-01-13 23:48:02 ERROR UserService:28 - 
 2019-01-13 23:48:07 ERROR UserDAOSql:93 - Column 'msg.email' not found.
 2019-01-13 23:48:07 ERROR UserService:28 - 
+2019-01-14 17:08:23 ERROR PeriodDAOSql:78 - Data truncation: Data too long for column 'name' at row 1
+2019-01-14 17:08:23 ERROR AbstractServiceSql:76 - 
+2019-01-14 23:45:32 ERROR ApplicantDAOSql:89 - 
+2019-01-14 23:45:32 ERROR UserService:28 - 
+2019-01-14 23:51:33 ERROR ApplicantDAOSql:89 - 
+2019-01-14 23:51:33 ERROR UserService:28 - 
+2019-01-15 00:16:12 ERROR ApplicantDAOSql:89 - 
+2019-01-15 00:16:12 ERROR UserService:28 - 
+2019-01-15 00:23:01 ERROR ApplicantDAOSql:89 - 
+2019-01-15 00:23:01 ERROR UserService:28 - 
+2019-01-15 00:26:00 ERROR ApplicantDAOSql:89 - 
+2019-01-15 00:26:00 ERROR UserService:28 - 
+2019-01-15 00:33:59 ERROR ApplicantDAOSql:89 - 
+2019-01-15 00:33:59 ERROR UserService:28 - 
+2019-01-15 00:36:39 ERROR ApplicantDAOSql:89 - 
+2019-01-15 00:36:39 ERROR UserService:28 - 
+2019-01-15 01:34:04 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 01:34:04 ERROR AbstractServiceSql:76 - 
+2019-01-15 01:35:56 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 01:35:56 ERROR AbstractServiceSql:76 - 
+2019-01-15 01:37:05 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 01:37:05 ERROR AbstractServiceSql:76 - 
+2019-01-15 01:37:38 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 01:37:38 ERROR AbstractServiceSql:76 - 
+2019-01-15 01:37:50 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 01:37:50 ERROR AbstractServiceSql:76 - 
+2019-01-15 01:38:33 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 01:38:33 ERROR AbstractServiceSql:76 - 
+2019-01-15 01:39:05 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 01:39:05 ERROR AbstractServiceSql:76 - 

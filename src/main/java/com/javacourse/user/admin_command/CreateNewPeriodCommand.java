@@ -4,7 +4,9 @@ import com.javacourse.shared.command.ActionCommand;
 import com.javacourse.shared.web.Page;
 import com.javacourse.user.applicant.period.Period;
 import com.javacourse.user.applicant.period.PeriodService;
+import com.javacourse.user.applicant.period.state.StateName;
 import com.javacourse.utils.PathPageManager;
+import com.javacourse.utils.ValidationManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +20,15 @@ public class CreateNewPeriodCommand implements ActionCommand {
         Page page = null;
         String name = request.getParameter("name");
         Period period = new Period();
-        period.setState(1/* todo magic number */);
         period.setName(name);
         PeriodService periodService = new PeriodService();
-        periodService.create(period);
+
+        if (ValidationManager.isValidate(period)) {
+            periodService.createWithStateName(period, StateName.CHOICE_SUBJECTS);
+            request.setAttribute("msg.success", true);
+        } else request.setAttribute("error", ValidationManager.getFirsErrorMessage(period));
+
+
         page = new Page(PathPageManager.getProperty("page.create-period")).setDispatchType(Page.DispatchType.FORWARD);
         return page;
     }

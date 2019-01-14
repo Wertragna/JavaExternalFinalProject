@@ -32,7 +32,7 @@
             }
         </style>
         <a class="btn-primary btn"
-           href="${pageContext.request.contextPath}/admin/specialities?id-period=${param["id-period"]}">back</a>
+           href="${pageContext.request.contextPath}/admin/specialities?id-period=${param["id-period"]}"><fmt:message key="msg.back"/> </a>
         <div class="container pt-3" >
         <h3 style="background-color: #FEF9E7" class="mb-0">Statistics</h3>
         <hr class="style1 mt-0 mb-0" style= "background-color: #FEF9E7"/>

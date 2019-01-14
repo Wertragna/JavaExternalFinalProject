@@ -17,7 +17,7 @@
         </div>
         <div class="card-body">
             <div class="container">
-                <h3>Subjects</h3>
+                <h3><fmt:message key="msg.choose-subject"/></h3>
                 <c:if test="${not access}">
                     <div class="alert alert-info" role="alert">
                         <fmt:message key="msg.subject-alert"/>

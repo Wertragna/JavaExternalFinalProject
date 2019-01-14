@@ -23,13 +23,24 @@ public class StateServiceSql extends AbstractServiceSql<Integer, State> implemen
     public StateName getByPeriodId(int id) {
         StateName stateName = null;
         try (Connection connection = factoryDAO.createConnection()) {
-            StateDAO<Integer> stateDAO = factoryDAO.createStateDAO(connection);
+            StateDAO stateDAO = factoryDAO.createStateDAO(connection);
             State state = stateDAO.getByPeriodId(id);
             stateName= StateName.getByName(state.getName());
         } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
         return stateName;
+    }
+
+    public State getByName(StateName stateName) {
+        State state =null;
+        try (Connection connection = factoryDAO.createConnection()) {
+            StateDAO stateDAO = factoryDAO.createStateDAO(connection);
+            state = stateDAO.getByName(stateName.name().toLowerCase());
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
+        return state;
     }
 
 

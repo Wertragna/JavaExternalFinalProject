@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class StateDAOSql implements StateDAO<Integer> {
+public class StateDAOSql implements StateDAO {
     private static final Logger logger = Logger.getLogger(StateDAOSql.class);
     Connection connection;
 

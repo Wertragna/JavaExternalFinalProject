@@ -2,12 +2,16 @@ package com.javacourse.user.applicant.period;
 
 import com.javacourse.user.applicant.period.state.State;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 /**
  * A model class for period database table
  */
 public class Period {
     private int id;
+    @NotBlank(message = "{msg.period}")
+    @Size(min = 2, max = 45, message = "{msg.period}")
     private String name;
     private int state;
 
