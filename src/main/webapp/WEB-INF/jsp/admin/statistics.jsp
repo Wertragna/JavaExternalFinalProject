@@ -37,13 +37,12 @@
         <h3 style="background-color: #FEF9E7" class="mb-0">Statistics</h3>
         <hr class="style1 mt-0 mb-0" style= "background-color: #FEF9E7"/>
         <c:set var="accept" scope="request" value="accepted"/>
-        <c:set var="derived" scope="request" value="derived"/>
+        <c:set var="denied" scope="request" value="denied"/>
 
         <div class="table-responsive">
             <table class="table table-striped table-sm table-bordered">
                 <thead>
                 <tr>
-                    <th>#</th>
                     <th>id</th>
                     <th>first name</th>
                     <th>second name</th>
@@ -55,9 +54,8 @@
                 <tbody>
                 <c:forEach items="${applicants}" var="applicant" varStatus="loop">
                     <c:choose>
-                        <c:when test="${applicant.statusEntity.name eq accept}">
+                        <c:when test="${applicant.statusEntity.name == accept}">
                             <tr class="bg-green">
-                                <td>${loop.index}</td>
                                 <td>${applicant.id}</td>
                                 <td>${applicant.userEntity.firstname}</td>
                                 <td>${applicant.userEntity.surname}</td>
@@ -66,9 +64,8 @@
                                 <td>${applicant.statusEntity.name}</td>
                             </tr>
                         </c:when>
-                        <c:when test="${applicant.statusEntity.name eq derived}">
+                        <c:when test="${applicant.statusEntity.name eq denied}">
                             <tr class="bg-red">
-                                <td>${loop.index}</td>
                                 <td>${applicant.id}</td>
                                 <td>${applicant.userEntity.firstname}</td>
                                 <td>${applicant.userEntity.surname}</td>
@@ -79,7 +76,6 @@
                         </c:when>
                         <c:otherwise>
                             <tr>
-                                <td>${loop.index}</td>
                                 <td>${applicant.id}</td>
                                 <td>${applicant.userEntity.firstname}</td>
                                 <td>${applicant.userEntity.surname}</td>

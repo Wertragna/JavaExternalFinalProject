@@ -27,6 +27,7 @@ public class PeriodSubjectMarks implements ActionCommand {
         int subject = Integer.parseInt(request.getParameter("subject"));
         ApplicantService applicantService =  new ApplicantService();
         List<ApplicantSubject> applicantSubjectList = applicantService.getByPeriodAndSubject(id,subject);
+        System.out.println(applicantSubjectList);
         request.setAttribute("applicants",applicantSubjectList);
 
         return new Page(PathPageManager.getProperty("page.period-subject-marks")).setDispatchType(Page.DispatchType.FORWARD);

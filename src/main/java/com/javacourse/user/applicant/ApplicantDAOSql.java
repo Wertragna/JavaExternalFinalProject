@@ -32,9 +32,9 @@ public class ApplicantDAOSql implements ApplicantDAO {
                                      "where applicant.speciality =? and applicant.period=? " +
                                      "order by rating desc limit ?,?")) {
             statement.setInt(1, specialityID);
-            statement.setInt(2,periodId);
-            statement.setInt(3,limitStart);
-            statement.setInt(4,numberOrLine);
+            statement.setInt(2, periodId);
+            statement.setInt(3, limitStart);
+            statement.setInt(4, numberOrLine);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 applicantSubjects.add(createApplicantWithUserEntity(resultSet));
@@ -55,7 +55,7 @@ public class ApplicantDAOSql implements ApplicantDAO {
                                      "inner join status on applicant.status = status.id " +
                                      "where applicant.speciality =? and applicant.period=? order by rating desc ")) {
             statement.setInt(1, specialityID);
-            statement.setInt(2,periodId);
+            statement.setInt(2, periodId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 return resultSet.getInt(1);
@@ -74,9 +74,9 @@ public class ApplicantDAOSql implements ApplicantDAO {
         try (PreparedStatement preparedStatement =
                      connection.prepareStatement(
                              "update applicant set status=? where id =?")) {
-            for (Applicant a:applicants) {
+            for (Applicant a : applicants) {
                 preparedStatement.setInt(1, a.getStatus());
-                preparedStatement.setInt(2,a.getId());
+                preparedStatement.setInt(2, a.getId());
                 preparedStatement.addBatch();
             }
             preparedStatement.executeBatch();
@@ -93,7 +93,7 @@ public class ApplicantDAOSql implements ApplicantDAO {
         List<Applicant> applicantSubjects = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement("select * from applicant where applicant.speciality =? and applicant.period=? order by  rating desc ")) {
             statement.setInt(1, specialityID);
-            statement.setInt(2,periodId);
+            statement.setInt(2, periodId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 applicantSubjects.add(createApplicant(resultSet));
@@ -114,7 +114,7 @@ public class ApplicantDAOSql implements ApplicantDAO {
         applicant.setRating(resultSet.getInt("applicant.rating"));
         int speciality = resultSet.getInt("applicant.speciality");
         User user = new User();
-        user.setSurname( resultSet.getString("user.surname"));
+        user.setSurname(resultSet.getString("user.surname"));
         user.setRole(resultSet.getInt("user.role"));
         user.setFirstname(resultSet.getString("user.firstname"));
         user.setEmail(resultSet.getString("user.email"));
@@ -180,19 +180,19 @@ public class ApplicantDAOSql implements ApplicantDAO {
                      connection.prepareStatement(
                              "update applicant_subject set mark = ? where applicant = ? and subject=?")) {
 
-            for(ApplicantSubject applicantSubject:applicantSubjects){
-            preparedStatement.setObject(1, applicantSubject.getMark());
-            preparedStatement.setInt(2, applicantSubject.getApplicant());
-            preparedStatement.setInt(3, applicantSubject.getSubject());
-            preparedStatement.addBatch();
-            return true;
+            for (ApplicantSubject applicantSubject : applicantSubjects) {
+                preparedStatement.setObject(1, applicantSubject.getMark());
+                preparedStatement.setInt(2, applicantSubject.getApplicant());
+                preparedStatement.setInt(3, applicantSubject.getSubject());
+                preparedStatement.addBatch();
             }
             preparedStatement.executeBatch();
+            return true;
         } catch (SQLException e) {
             logger.error(e.getMessage());
             throw new UnsuccessfulDAOException(e.getMessage());
         }
-        return false;
+
     }
 
     @Override
@@ -228,8 +228,8 @@ public class ApplicantDAOSql implements ApplicantDAO {
             statement.setInt(1, applicant.getUser());
             statement.setInt(2, applicant.getPeriod());
             statement.setInt(3, applicant.getStatus());
-            statement.setObject(4,applicant.getRating());
-            statement.setObject(5,applicant.getSpeciality());
+            statement.setObject(4, applicant.getRating());
+            statement.setObject(5, applicant.getSpeciality());
             changeNumber = statement.executeUpdate();
         } catch (SQLException e) {
             logger.error(e.getMessage());

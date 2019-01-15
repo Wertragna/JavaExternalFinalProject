@@ -7,14 +7,12 @@ import java.util.EnumMap;
 public enum StatusName {
     UNDER_CONSIDERATION,
     ACCEPTED,
-    DERIVED,
-    INELIGIBLE;
+    DENIED;
     private final static  EnumMap<StatusName, String> names = new EnumMap<>(StatusName.class);
     static {
         names.put(UNDER_CONSIDERATION,"candidate under consideration");
-        names.put(ACCEPTED, "candidate under consideration");
-        names.put(DERIVED,"Derived");
-        names.put(INELIGIBLE,"Ineligible");
+        names.put(ACCEPTED, "accepted");
+        names.put(DENIED,"denied");
     }
 
     public static EnumMap<StatusName, String> getNames() {

@@ -6,6 +6,7 @@ import com.javacourse.shared.dao.FactoryDAOSql;
 import com.javacourse.shared.service.AbstractServiceSql;
 import com.javacourse.shared.service.Service;
 import com.javacourse.user.User;
+import com.javacourse.user.applicant.status.Status;
 import com.javacourse.user.applicant.status.StatusDAO;
 import com.javacourse.user.applicant.status.StatusName;
 import com.javacourse.user.speciality.Speciality;
@@ -121,11 +122,16 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
             connection.setAutoCommit(false);
             SpecialityDAO specialityDAO = factoryDAO.createSpecialityDAO(connection);
             ApplicantDAO applicantDAO = factoryDAO.createApplicantDAO(connection);
+            StatusDAO statusDAO =factoryDAO.createStatusDAO(connection);
+            Status accept= statusDAO.getByName(StatusName.getNames().get(StatusName.ACCEPTED));
+            Status denied= statusDAO.getByName(StatusName.getNames().get(StatusName.DENIED));
             try {
                 List<Speciality> specialities = specialityDAO.getAll();
                 for (Speciality speciality : specialities) {
                     List<Applicant> applicants = applicantDAO.getBySpecialityIdAndPeriodId(speciality.getId(), periodId);
-                    setStatusForApplicantsWithSpecialityLimit(applicants, speciality.getLimit(), 2, 3);
+
+
+                    setStatusForApplicantsWithSpecialityLimit(applicants, speciality.getLimit(), accept.getId(), denied.getId());
                     if (applicants.size() > 0)
                         applicantDAO.updateList(applicants);
                 }
@@ -134,7 +140,7 @@ public class ApplicantService extends AbstractServiceSql<Integer, Applicant> imp
                 connection.rollback();
                 logger.error(e.getMessage());
             }
-        } catch (SQLException e) {
+        } catch (SQLException | UnsuccessfulDAOException e) {
             logger.error(e.getMessage());
         }
         return false;

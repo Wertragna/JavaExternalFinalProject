@@ -18,7 +18,7 @@ public class PeriodSubjectMarksPOST implements ActionCommand {
         int subject = Integer.parseInt(request.getParameter("subject"));
         ApplicantService applicantService = new ApplicantService();
         List<ApplicantSubject> applicantSubjectList = applicantService.getByPeriodAndSubject(periodId, subject);
-        System.out.println(applicantSubjectList);
+
         String currentMark;
         for (int i = 0; i < applicantSubjectList.size(); i++) {
             currentMark = request.getParameter("mark" + applicantSubjectList.get(i).getApplicant());
@@ -27,11 +27,12 @@ public class PeriodSubjectMarksPOST implements ActionCommand {
             else
                 applicantSubjectList.get(i).setMark(Integer.parseInt(currentMark));
         }
+        System.out.println(applicantSubjectList);
         StateServiceSql stateService = new StateServiceSql();
         StateName stateName = stateService.getByPeriodId(periodId);
 
         applicantService.updateMarks(applicantSubjectList);
-        // request.setAttribute("applicants", applicantSubjectList);
+        //request.setAttribute("applicants", applicantSubjectList);
         return new Page("/admin/period-subject-marks"+'?'+request.getQueryString()).setDispatchType(Page.DispatchType.REDIRECT);
     }
 }

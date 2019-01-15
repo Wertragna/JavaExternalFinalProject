@@ -32,6 +32,17 @@ public class StatusService extends AbstractServiceSql<Integer, Status> implement
         }
         return status;
     }
+    public Status getByName(String name) {
+        Status status = null;
+        try (Connection connection = factoryDAO.createConnection()) {
+            StatusDAO statusDAO = factoryDAO.createStatusDAO(connection);
+            ApplicantDAO applicantDAO = factoryDAO.createApplicantDAO(connection);
+            status = statusDAO.getByName(name);
+        } catch (SQLException | UnsuccessfulDAOException e) {
+            logger.error(e.getMessage());
+        }
+        return status;
+    }
 
 
 }

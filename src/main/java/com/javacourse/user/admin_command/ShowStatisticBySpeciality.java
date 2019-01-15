@@ -15,7 +15,7 @@ public class ShowStatisticBySpeciality implements ActionCommand {
 
     @Override
     public Page execute(HttpServletRequest request, HttpServletResponse response) {
-        final int NUMBER_OF_APPLICANT_ON_PAGE = 3;
+        final int NUMBER_OF_APPLICANT_ON_PAGE = 6;
         ApplicantService serviceSql = new ApplicantService();
         int specialityId = Integer.parseInt(request.getParameter("speciality"));
         int page = Integer.parseInt(request.getParameter("page"));
