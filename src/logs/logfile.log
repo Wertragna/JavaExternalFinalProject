@@ -2402,3 +2402,7 @@
 2019-01-15 01:38:33 ERROR AbstractServiceSql:76 - 
 2019-01-15 01:39:05 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
 2019-01-15 01:39:05 ERROR AbstractServiceSql:76 - 
+2019-01-15 02:06:50 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 02:06:50 ERROR AbstractServiceSql:76 - 
+2019-01-15 02:06:55 ERROR UserDAOSql:57 - Duplicate entry 'ms.sherstynyuk@gmail.com' for key 'email_UNIQUE'
+2019-01-15 02:06:55 ERROR AbstractServiceSql:76 - 
