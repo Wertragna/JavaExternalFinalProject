@@ -19,14 +19,9 @@
             <ol>
                 <li> Students apply and choose subject</li>
                 <li> We notify each applicant of their marks of subject</li>
-                <li> Applicants may be asked at any time during the matching process to interview with host professors</li>
-                <li> Select applicants receive an internship offer by February 2019 and results are finalize</li>
+                <li> Applicants choose speciality</li>
+                <li> Applicants see their status </li>
             </ol>
-            We reserve the right to remove an intern from the ane Period at any time for any reason, including (but not limited to):
-            <ul>
-                <li>Any aspect of an intern’s application is fraudulent</li>
-                <li>An intern has uncompleted application</li>
-            </ul>
         </div>
 
 
